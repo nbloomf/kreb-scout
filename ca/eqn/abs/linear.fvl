@@ -1,0 +1,46 @@
+[define >doc @linear.abs.1 := Macro(doc; [#
+
+[define int @a := Rand({2;-2;3;-3;4;-4;5;-5})]#
+[define int @b := Rand((Range(-9;-1) ++ Range(1;9)) \\ {@a})]#
+[define int @c := Rand(Range(5;15))]#
+[define int @d := Rand(Build(@t; int @t <- Range(-30;30); GT(int; @t; @c); Divides(@a; @t - @c - @b)))]#
+
+[define str @p := Format(^int; latex; Poly(@a . x; @b . 1))]#
+
+$|@p| + @c = @d$#
+
+  ]
+)]#
+
+
+
+
+[define >doc @linear.abs.2 := Macro(doc; [#
+
+[define int @a := Rand(Range(2;7))]#
+[define int @b := Rand(Range(-11;-1) ++ Range(1;11))]#
+[define int @c := Rand(Range(1;15) \\ {0})]#
+
+[define str @p := Format(^int; latex; Poly(@a . x; @b . 1))]#
+
+$-@c - |@p| = |@p| - @c$#
+
+  ]
+)]#
+
+
+
+
+[define >doc @linear.abs.3 := Macro(doc; [#
+
+[define int @a := Rand({1;-1}) * Rand(Range(2;20))]#
+[define int @b := Rand({1;-1}) * Rand(Range(2;20))]#
+[define int @c := Rand(Range(4;20))]#
+[define int @d := Rand(Range(-4;@c))]#
+
+[define str @p := Format(^int; latex; Poly(@a . x; @b . 1))]#
+
+$|@p| + @c = @d$#
+
+  ]
+)]#

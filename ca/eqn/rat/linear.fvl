@@ -1,0 +1,12 @@
+[define >doc @linear.rat.1 := Macro(doc; [#
+
+[define int @a := Rand({1;-1}) * Rand(Range(1;4))]#
+[define int @b := Rand(Range(2;5))]#
+[define int @c := Rand(Range(1;10) \\ {@b * @a})]#
+
+[define str @p := Format(^int; latex; Poly(1.x; @a . 1))]#
+
+$\displaystyle\frac{x}{@p} + @b = \displaystyle\frac{@c}{@p}$#
+
+  ]
+)]#
