@@ -16,6 +16,8 @@ Problems which need solving
 * Discoverability: As the library grows, just knowing what exists is hard. Need a (preferably automated) way to organize/search. Tags?
 * Documentation: Feivel templates are naturally literate due to semantics of import. Make the library its own documentation. Key features: hyperlinking between sections, show all parameters with meaning, description of problem, examples. HTML with embedded latex seems a natural choice. (pandoc?)
 
+Idea: can both of these problems be solved by making kreb-scout a literate hakyll site?
+
 
 Theory of problem templates
 ---------------------------
