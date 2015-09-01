@@ -3,6 +3,8 @@
 [define int @r1 := Rand({1;-1}) * Rand(Range(1;5))]#
 [define int @r2 := Rand(Range(1;5) \\ {@r1;neg @r1})]#
 
+[define int @s := Rand(Range(1;5))]#
+
 [define ^int @p := FromRoots(x; {@r1;@r2})]#
 
 $[:str: Format(^int; latex; @p) :] = 0$

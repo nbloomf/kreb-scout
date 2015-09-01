@@ -1,0 +1,43 @@
+[define >doc @cubic.zero.root.1 := Macro(doc; [#
+
+[define int @r1 := Rand({1;-1}) * Rand(Range(6;9))]#
+[define int @r2 := Rand(Range(3;9) \\ {@r1;neg @r1})]#
+
+[define ^int @p := FromRoots(x; {@r1;@r2;0})]#
+
+$[:str: Format(^int; latex; @p) :] = 0$
+
+  ]
+)]#
+
+
+
+[define >doc @biquadratic.with.lc := Macro(doc; [#
+
+[define int @r1 := Rand(Build(@k; int @k <- Range(-7;7); NotEqual(int; @k; 0); NotEqual(int; @k mod @lc; 0) ))]#
+
+[define int @r2 := Rand(Range(1;5))]#
+
+[define ^int @p := Poly((@lc).x^4; neg (@r1 + @lc*@r2).x^2; (@r1 * @r2).1)]#
+
+$[:str: Format(^int; latex; @p) :] = 0$
+
+  ]; int @lc := 2
+)]#
+
+
+
+
+[define >doc @abs.monic.1 := Macro(doc; [#
+
+[define int @r1 := Rand({1;-1}) * Rand(Range(1;5))]#
+[define int @r2 := Rand(Range(1;5) \\ {@r1;neg @r1})]#
+
+[define int @s := Rand(Range(1;5))]#
+
+[define ^int @p := FromRoots(x; {@r1;@r2})]#
+
+$|[:str: Format(^int; latex; @p + Poly((@s).1)) :]| = @s$
+
+  ]
+)]#
