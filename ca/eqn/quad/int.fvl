@@ -1,0 +1,59 @@
+[define >doc @monic.int.roots.1 := Macro(doc; [#
+
+[define int @r1 := Rand({1;-1}) * Rand(Range(1;5))]#
+[define int @r2 := Rand(Range(1;5) \\ {@r1;neg @r1})]#
+
+[define ^int @p := FromRoots(x; {@r1;@r2})]#
+
+$[:str: Format(^int; latex; @p) :] = 0$
+
+  ]
+)]#
+
+
+
+
+[define >doc @monic.int.roots.2 := Macro(doc; [#
+
+[define int @r1 := Rand({1;-1}) * Rand(Range(6;9))]#
+[define int @r2 := Rand(Range(3;9) \\ {@r1;neg @r1})]#
+
+[define ^int @p := FromRoots(x; {@r1;@r2})]#
+
+$[:str: Format(^int; latex; @p) :] = 0$
+
+  ]
+)]#
+
+
+
+
+[define >doc @quad.with.lc := Macro(doc; [#
+
+[define int @r1 := Rand(Build(@k; int @k <- Range(-7;7); NotEqual(int; @k; 0); NotEqual(int; @k mod @lc; 0) ))]#
+
+[define int @r2 := Rand(Range(1;5))]#
+
+[define ^int @p := Poly((@lc).x^2; neg (@r1 + @lc*@r2).x; (@r1 * @r2).1)]#
+
+$[:str: Format(^int; latex; @p) :] = 0$
+
+  ]; int @lc := 2
+)]#
+
+
+
+
+[define >doc @quad.radical.roots.1 := Macro(doc; [#
+
+[define {int} @as := Rand(Build({@b;@c}; int @b <- Range(-10;10); int @c <- Range(-10;10); NotEqual(int; @b*@c; 0); Equal(int; 3; SquareFreePart(@b*@b - 4*@c))))]
+
+[define int @b := AtPos(@as; 1)]#
+[define int @c := AtPos(@as; 2)]#
+
+[define ^int @p := Poly(1.x^2; (@b).x; (@c).1)]#
+
+$[:str: Format(^int; latex; @p) :] = 0$
+
+  ]
+)]#
