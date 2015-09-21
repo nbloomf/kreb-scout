@@ -1,0 +1,13 @@
+[define >doc @find.distance.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(1;7))]#
+[define int @b := Rand(Range(-7;-1) ++ Range(1;7))]#
+[define int @h := Rand(Range(-7;-1))]#
+[define int @k := Rand(Range(-7;-1) ++ Range(1;7))]#
+
+Find the distance between the points $(@a, @b)$ and $(@h, @k)$.#
+
+  ]
+)]#
+
+

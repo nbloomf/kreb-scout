@@ -1,0 +1,44 @@
+[define >doc @linear.eqn.1 := Macro(doc; [#
+
+[define int @a := Rand({1;-1;2;-2})]#
+[define int @b := Rand({3;5})]#
+[define int @h := Rand((Range(-7;-1) ++ Range(1;7)))]#
+[define int @k := Rand((Range(-7;-1) ++ Range(1;7)))]#
+
+Find an equation for the line passing through the point $(@h, @k)$ and having slope [:rat: int(@a) / int(@b) :].#
+
+  ]
+)]#
+
+
+
+
+[define >doc @find.slope.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(1;7))]#
+[define int @b := Rand(Range(-7;-1) ++ Range(1;7))]#
+[define int @h := Rand(Range(-7;-1))]#
+[define int @k := Rand(Range(-7;-1) ++ Range(1;7))]#
+
+Find the slope between the points $(@a, @b)$ and $(@h, @k)$.#
+
+  ]
+)]#
+
+
+
+[define >doc @plot.line.1 := Macro(doc; [#
+
+[define int @b := Rand(Range(1;3))]#
+[define int @s := Rand({1;-1;3;-3;4;-4})]#
+[define int @t := Rand(Range(2;5))]#
+[define str @sgn := Rand({"+";"-"})]#
+
+Plot the graph of the linear equation $y = \frac{@s}{@t} x @sgn @b$ on the plane below.#
+
+\begin{center}
+\CartesianPlane#[h=7,w=7,axes=yes#]
+\end{center}
+
+  ]
+)]#
