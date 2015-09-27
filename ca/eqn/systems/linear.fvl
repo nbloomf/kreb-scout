@@ -1,0 +1,42 @@
+[define >doc @linear.2x2.1 := Macro(doc; [#
+
+[define int @a1 := Rand({1;-1}) * Rand(Range(1;4))]#
+[define int @b1 := Rand({1;-1}) * Rand(Range(2;6))]#
+[define int @c1 := Rand(Range(1;10))]#
+
+[define int @a2 := Rand({1;-1}) * Rand(Range(1;4))]#
+[define int @b2 := Rand({1;-1}) * Rand(Range(2;6))]#
+[define int @c2 := Rand(Range(1;10))]#
+
+[define str @p1 := Format(^int; latex; Poly((@a1).x; (@b1).y))]#
+[define str @p2 := Format(^int; latex; Poly((@a2).x; (@b2).y))]#
+
+Solve the following system of equations.
+
+\#[ \left\{ \begin{array}{rcl} @p1 & = & @c1 \\ @p2 & = & @c2 \end{array} \right. \#]#
+
+  ]
+)]#
+
+
+
+[define >doc @linear.2x2.2 := Macro(doc; [#
+
+[define rat @a1 := Rand({1/2;1/3;2/3;1/5;2/5;3/5;4/5})]#
+[define rat @b1 := Rand({1/2;1/3;2/3;1/5;2/5;3/5;4/5})]#
+[define int @c1 := Rand(Range(1;10))]#
+
+[define rat @a2 := Rand({1/2;1/3;2/3;1/5;2/5;3/5;4/5})]#
+[define rat @b2 := Rand({1/2;1/3;2/3;1/5;2/5;3/5;4/5})]#
+[define int @c2 := Rand(Range(1;10))]#
+
+[define str @p1 := Format(^rat; latex; Poly((@a1).x; (@b1).y))]#
+[define str @p2 := Format(^rat; latex; Poly((@a2).x; (@b2).y))]#
+
+Solve the following system of equations.
+
+\#[ \left\{ \begin{array}{rcl} @p1 & = & @c1 \\ & & \\ @p2 & = & @c2 \end{array} \right. \#]#
+
+  ]
+)]#
+

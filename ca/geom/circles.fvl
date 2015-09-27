@@ -11,3 +11,29 @@ Find the distance between the points $(@a, @b)$ and $(@h, @k)$.#
 )]#
 
 
+
+
+[define >doc @circle.eqn.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(1;7))]#
+[define int @b := Rand(Range(-7;-1) ++ Range(1;7))]#
+[define int @m := Rand(Range(1;8))]#
+
+Find an equation for the circle centered at $(@a, @b)$ and having radius $@m$.#
+
+  ]
+)]#
+
+
+
+[define >doc @circle.eqn.2 := Macro(doc; [#
+
+[define int @a := Rand(Range(1;7))]#
+[define int @b := Rand(Range(-7;-1) ++ Range(1;7))]#
+[define int @h := Rand(Range(-7;-1))]#
+[define int @k := Rand(Range(-7;-1) ++ Range(1;7))]#
+
+Find an equation for the circle centered at $(@a, @b)$ and passing through $(@h, @k)$.#
+
+  ]
+)]#
