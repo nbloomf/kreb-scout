@@ -1,0 +1,42 @@
+[define >doc @find.zeros.1 := Macro(doc; [#
+
+[define int @r1 := Rand({1;-1}) * Rand(Range(1;5))]#
+[define int @r2 := Rand(Range(1;5) \\ {@r1;neg @r1})]#
+
+[define int @s := Rand(Range(1;5))]#
+
+[define ^int @p := FromRoots(x; {@r1;@r2})]#
+
+Find the zeros of the following function: $f(x) = [:str: Format(^int; latex; @p) :]$#
+
+  ]
+)]#
+
+
+
+[define >doc @find.zeros.2 := Macro(doc; [#
+
+[define int @r1 := Rand(Build(@k; int @k <- Range(-7;7); NotEqual(int; @k; 0); NotEqual(int; @k mod @lc; 0) ))]#
+
+[define int @r2 := Rand(Range(1;5))]#
+
+[define ^int @p := Poly((@lc).x^2; neg (@r1 + @lc*@r2).x; (@r1 * @r2).1)]#
+
+Find the zeros of the following function: $f(x) = [:str: Format(^int; latex; @p) :]$
+
+  ]; int @lc := 2
+)]#
+
+
+
+[define >doc @average.rate.of.change.1 := Macro(doc; [#
+
+[define int @b := Rand({-2;-1;1;2;3})]#
+[define int @c := Rand(Range(1;5))]#
+
+[define ^int @p := Poly(1.x^3; (@b).x; (@c).1)]#
+
+Find the average rate of change of $f(x) = [:str: Format(^int; latex; @p) :]$ from $x_1 = [alt opt [-1] opt [0] opt [1]]$ to $x_2 = [alt opt [2] opt [3] opt [4]]$.#
+
+  ]
+)]#

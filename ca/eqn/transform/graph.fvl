@@ -107,7 +107,7 @@ Stretch [alt opt [vertically] opt [horizontally]] by a factor of @a#.
 
 [define >doc @graphically.detect.symmetry.1 := Macro(doc; [#
 
-[define {str} @graphs := Choose(3; {"vparabola";"circle";"cubic";"abs"})]#
+[define {str} @graphs := Choose(3; {"vparabola";"circle";"cubic";"abs";"folium";"hypocycloid";"circle2"})]#
 
 Determine whether or not the following graphs are symmetric across the $x$-axis, across the $y$-axis, or about the origin.
 
@@ -132,7 +132,7 @@ origin: yes/no & & origin: yes/no & & origin: yes/no \\
 
 [define {str} @eqns := Choose(3; {"$x^3 = y^2 + 1$";"$xy + y^2 = 2$";"$y^2 = x^3 - x$";"$x^4 + y^4 = 1$"})]#
 
-Determine whether or not the following equations are symmetric across the $x$-axis, across the $y$-axis, or about the origin.
+Determine whether or not the following equations are symmetric across the $x$-axis, across the $y$-axis, about the origin, or none of the three.
 
 \begin{enumerate}
 \item [:str: AtPos(@eqns; 1) :] \vspace{3cm}
