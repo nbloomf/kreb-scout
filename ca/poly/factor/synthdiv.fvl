@@ -1,0 +1,34 @@
+[define >doc @given.roots.1 := Macro(doc; [#
+
+[define {int} @cs := Choose(5; {1;2;3;4;-1;-2;-3})]#
+
+[define ^int @p := FromRoots(x; @cs)]#
+
+The polynomial \#[ p(x) = [:str: Format(^int; latex; @p) :] \#] has roots at $[:{int}: Choose(4; @cs) :]$. Completely factor $p(x)$ as a product of linear factors.#
+
+  ]
+)]#
+
+
+
+[define >doc @given.roots.2 := Macro(doc; [#
+
+[define {int} @cs := Choose(5; {1;1;1;1;2;2;2;2})]#
+
+[define ^int @p := FromRoots(x; @cs)]#
+
+The polynomial \#[ p(x) = [:str: Format(^int; latex; @p) :] \#] has roots at 1 and 2. Find the multiplicity of these roots.#
+
+  ]
+)]#
+
+
+[define >doc @construct.from.roots.1 := Macro(doc; [#
+
+[define {int} @cs := Choose(3; {1;-1;2;-2})]#
+
+Construct a polynomial of degree 3 which has roots at [:int: AtPos(@cs;1) :], [:int: AtPos(@cs; 2) :], and [:int: AtPos(@cs;3) :].#
+
+  ]
+)]#
+
