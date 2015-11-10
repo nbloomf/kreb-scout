@@ -1,0 +1,44 @@
+[define >doc @given.quadratic.root.1 := Macro(doc; [#
+
+[define int @k := Rand({2;3;5})]#
+
+[define {int} @cs := Choose(2; {1;2;-1;-2})]#
+
+[define ^int @p := Poly(1.x^2; (neg @k).1) * FromRoots(x; @cs) * Poly(2.x; (-1).1)]#
+
+The polynomial \#[ p(x) = [:str: Format(^int; latex; @p) :] \#] has a root at $\sqrt{@k}$. Completely factor $p(x)$ as a product of linear factors.#
+
+  ]
+)]#
+
+
+
+[define >doc @given.quadratic.root.2 := Macro(doc; [#
+
+[define {int} @ks := Choose(2; {2;3;5})]#
+[define int @a := AtPos(@ks; 1)]#
+[define int @b := AtPos(@ks; 2)]#
+
+[define int @c := Rand({2;3;5})]#
+
+[define ^int @p := Poly(1.x^2; (neg @a).1) * Poly(1.x^2; (neg @b).1) * Poly((@c).x; (-1).1)]#
+
+The polynomial \#[ p(x) = [:str: Format(^int; latex; @p) :] \#] has a root at $\sqrt{@a}$. Completely factor $p(x)$ as a product of linear factors.#
+
+  ]
+)]#
+
+
+
+[define >doc @given.complex.root.1 := Macro(doc; [#
+
+[define {int} @ks := Choose(2; {-1;2;-3;5})]#
+
+[define int @c := Rand({2;3;5})]#
+
+[define ^int @p := Poly(1.x^2; 4.1) * Poly((@c).x; (-1).1) * FromRoots(x; @ks)]#
+
+The polynomial \#[ p(x) = [:str: Format(^int; latex; @p) :] \#] has a root at $2i$. Completely factor $p(x)$ as a product of linear factors.#
+
+  ]
+)]#
