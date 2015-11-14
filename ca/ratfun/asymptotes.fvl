@@ -1,0 +1,60 @@
+[define >doc @long.term.asymptote.1 := Macro(doc; [#
+
+[define {int} @cs := Choose(3; {1;2;3;-1;-2;-3})]#
+[define {int} @ds := Choose(1; {4;5;6;-4;-5;-6})]#
+
+[define ^int @p := FromRoots(x; @cs)]#
+[define ^int @q := FromRoots(x; @ds)]#
+
+Find the long-term behavior asymptote of the rational function \#[ f(x) = \frac{[:str: Format(^int; latex; @p) :]}{[:str: Format(^int; latex; @q) :]}. \#]#
+
+  ]
+)]#
+
+
+
+[define >doc @find.domain.1 := Macro(doc; [#
+
+[define {int} @cs := Choose(2; {1;-1;2;-2})]#
+[define {int} @ds := Choose(3; {1;1;2;2;-1;-2})]#
+
+[define ^int @p := FromRoots(x; @cs)]#
+[define ^int @q := FromRoots(x; @ds)]#
+
+Find the domain of the following rational function. \#[ f(x) = \frac{[:str: Format(^int; latex; @p) :]}{[:str: Format(^int; latex; @q) :]} \#]#
+
+  ]
+)]#
+
+
+
+[define >doc @vertical.asymptotes.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(1;3))]#
+[define int @b := Rand(Range(4;7))]#
+[define int @c := Rand(Range(1;5))]#
+[define int @d := Rand(Range(4;7))]#
+[define int @e := Rand(Range(1;3))]#
+[define int @f := Rand(Range(1;5))]#
+
+Consider the following rational function. \#[ f(x) = \frac{(x-1)^{@a}(x-2)^{@b}(x-3)^{@c}}{(x-1)^{@d}(x-2)^{@e}(x-3)^{@f}} \#]
+
+For each point $c$ not in the domain of $f$, determine whether $f$ has a hole or a vertical asymptote at $c$.#
+
+  ]
+)]#
+
+
+
+[define >doc @find.asymptotes.1 := Macro(doc; [#
+
+[define {int} @cs := Choose(3; {1;2;3;-1;-2;1})]#
+[define {int} @ds := Choose(5; {1;4;-3;5;2;2;-2})]#
+
+[define ^int @p := FromRoots(x; @cs)]#
+[define ^int @q := FromRoots(x; @ds)]#
+
+Find the long-term behavior and vertical asymptotes of the rational function \#[ f(x) = \frac{[:str: Format(^int; latex; @q) :]}{[:str: Format(^int; latex; @p) :]}. \#]#
+
+  ]
+)]#
