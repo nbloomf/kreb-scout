@@ -1,0 +1,40 @@
+[define >doc @parabolic.eqn.1 := Macro(doc; [#
+
+[define int @p := Rand({1;-1;2;-2;3;-3})]#
+[define int @h := Rand((Range(-7;-1) ++ Range(1;7)))]#
+[define int @k := Rand((Range(-7;-1) ++ Range(1;7)))]#
+
+Find an equation for the parabola with horizontal directrix having vertex $(@h, @k)$ and focal length @p#.#
+
+  ]
+)]#
+
+
+
+[define >doc @plot.parabola.1 := Macro(doc; [#
+
+[define int @p := Rand({1;2;-1;-2})]#
+[define int @h := Rand({4;5;-4;-5})]#
+[define str @k := Rand({"+2";"+3";"-2";"-3"})]#
+
+Plot the following parabola in the space provided. \#[ y = \frac{1}{[:int: 4 * @p :]} \left([:str: Format(^int; latex; FromRoots(x; {@h})) :]\right)^2 @k \#]
+
+\begin{center}
+\CartesianPlane#[axes=yes,h=10,w=10#]
+\end{center}#
+
+  ]
+)]#
+
+
+
+
+[define >doc @std.form.parabola.1 := Macro(doc; [#
+
+[define int @h := Rand({4;5;-4;-5})]#
+[define int @k := Rand({2;3;-2;-3})]#
+
+Complete the square to find the standard form of the folloing parabola. \#[ y = [:str: Format(^int; latex; FromCoefs(x; {(@h*@h) + @k; (-2)*@h; 1})) :] \#]#
+
+  ]
+)]#

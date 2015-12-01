@@ -6,7 +6,7 @@
 [define ^int @p := FromRoots(x; @cs)]#
 [define ^int @q := FromRoots(x; @ds)]#
 
-Find the long-term behavior asymptote of the rational function \#[ f(x) = \frac{[:str: Format(^int; latex; @p) :]}{[:str: Format(^int; latex; @q) :]}. \#]#
+Find the long-term behavior asymptote of the following rational function. \#[ f(x) = \frac{[:str: Format(^int; latex; @p) :]}{[:str: Format(^int; latex; @q) :]} \#]#
 
   ]
 )]#

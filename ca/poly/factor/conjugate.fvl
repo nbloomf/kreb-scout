@@ -29,6 +29,20 @@ The polynomial \#[ p(x) = [:str: Format(^int; latex; @p) :] \#] has a root at $\
 )]#
 
 
+[define >doc @given.quadratic.root.3 := Macro(doc; [#
+
+[define int @k := Rand({2;3;5})]#
+
+[define {int} @cs := Choose(2; {1;2;-1;-2})]#
+
+[define ^int @p := Poly(1.x^2; (neg @k).1) * FromRoots(x; @cs)]#
+
+The polynomial \#[ p(x) = [:str: Format(^int; latex; @p) :] \#] has a root at $\sqrt{@k}$. Completely factor $p(x)$ as a product of linear factors.#
+
+  ]
+)]#
+
+
 
 [define >doc @given.complex.root.1 := Macro(doc; [#
 

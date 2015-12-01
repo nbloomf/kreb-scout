@@ -1,0 +1,17 @@
+[define >doc @plot.ellipse.1 := Macro(doc; [#
+
+[define int @a := Rand({4;5})]#
+[define int @b := Rand({2;3})]#
+[define int @h := Rand({4;5;-4;-5})]#
+[define int @k := Rand((Range(-7;-4) ++ Range(4;7)))]#
+
+Plot the following ellipse in the space provided. \#[ \left(\frac{[:str: Format(^int; latex; FromRoots(x; {@h})) :]}{@a}\right)^2 + \left(\frac{[:str: Format(^int; latex; FromRoots(y; {@k})) :]}{@b}\right)^2 = 1 \#]
+
+\begin{center}
+\CartesianPlane#[axes=yes,h=10,w=10#]
+\end{center}#
+
+  ]
+)]#
+
+
