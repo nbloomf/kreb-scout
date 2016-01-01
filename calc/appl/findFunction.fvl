@@ -1,0 +1,45 @@
+[define >doc @calc.appl.findFunction.quad := Macro(doc; [#
+
+[define int @u := Rand(Range(1;5))]#
+[define int @v := Rand(Range(-5;5))]#
+[define int @m := ((-1) ^ Rand({0;1})) * Rand(Range(1;5))]#
+[define int @l := Rand(Range(-8;8))]#
+[define int @h := @u + 1]#
+[define int @k := @m * @h + @l]#
+
+[define str @eq1 := Format(^int; latex; Poly((@u*@u).a; (@u).b; 1.c)) ++ " = " ++ int(@v)]#
+[define str @eq2 := Format(^int; latex; Poly((@h*@h).a; (@h).b; 1.c)) ++ " = " ++ int(@k)]#
+[define str @eq3 := Format(^int; latex; Poly((2*@h).a; 1.b)) ++ " = " ++ int(@m)]#
+
+[define rat @a := int((@h * @m) - @k - (@m * @u) + @v) / int((@h - @u)^2)]#
+[define rat @b := int((2 * @h * @k) + (@m * @u * @u) - (2 * @h * @v) - (@m * @h * @h)) / int((@h - @u)^2)]#
+[define rat @c := int((@h * @h * @m * @u)+(@h * @h * @v)+(@k * @u * @u)-(2 * @h * @k * @u)-(@h * @m * @u * @u)) / int((@h - @u)^2)]#
+
+[define str @ansa := Format(rat; latex; @a)]#
+[define str @ansb := Format(rat; latex; @b)]#
+[define str @ansc := Format(rat; latex; @c)]#
+
+The function $f(x) = ax^2 + bx + c$ passes through the point $(@u, @v)$ and is tangent to the line $y = [:str: Format(^int; latex; FromCoefs(x; {@l; @m})) :]$ at the point $(@h, @k)$. Find $a$, $b$, and $c$.
+
+[if (@show.solution) then [#
+\textbf{Solution:} We have three constraints on $f$, each of which we can use to find an equation that $a$, $b$, and $c$ must satisfy. Since $f$ passes through $(@u,@v)$, we have $f(@u) = @v$; that is, \#[ @eq1#. \#] Similarly, since $f$ passes through $(@h,@k)$ we have $f(@h) = @k$; that is, \#[ @eq2#. \#] Finally, if $f$ is tangent to the line $y = [:str: Format(^int; latex; FromCoefs(x; {@l; @m})) :]$ at $x = @h$ then the derivative of $f$ at $@h$ is the slope of that line, so we have $f^\prime(@h) = @m$; that is, \#[ @eq3#. \#]
+
+We now have a system of three equations in three unknowns whose solutions (if they exist) are values of $a$, $b$, and $c$ which satisfy these constraints. This system is represented by the following matrix.
+\#[\left#[\begin{array}{ccc|c}
+[:int: @u*@u :] & @u & 1 & @v \\
+[:int: @h*@h :] & @h & 1 & @k \\
+[:int: 2*@h  :] & 1  & 0 & @m \\
+\end{array}\right#]\#]
+We can solve this system in a few different ways, such as elimination by substitution or addition. Using Gauss-Jordan elimination, this matrix is row-equivalent to the matrix
+\#[\left#[\begin{array}{ccc|c}
+1 & 0 & 0 & @ansa \\
+0 & 1 & 0 & @ansb \\
+0 & 0 & 1 & @ansc \\
+\end{array}\right#]\#]
+\noindent from which we can read off the values of $a$, $b$, and $c$. Specifically, $a = @ansa$, $b = @ansb$, and $c = @ansc$.
+
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#

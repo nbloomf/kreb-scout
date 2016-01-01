@@ -1,0 +1,36 @@
+[define >doc @quot.rat.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(2;9))]#
+[define int @b := Rand(Range(2;5))]#
+[define int @c := Rand(Range(2;7))]#
+[define int @d := Rand(Range(2;9))]#
+
+Compute the derivative of the following function. \#[ f(x) = \frac{x^2 + @a x + @b}{@c x - @d} \#]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+[define >doc @quot.trig.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(2;5))]#
+[define int @b := Rand(Range(2;5))]#
+[define str @f := Rand({"sin(x)"; "cos(x)"})]#
+
+Compute the derivative of the following function. \#[ f(x) = \frac{\@f}{x^3 + @a x + @b} \#]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+[define >doc @quot.trig.2 := Macro(doc; [#
+
+[define int @a := Rand(Range(2;5))]#
+[define int @b := Rand(Range(2;5))]#
+[define int @e := Rand(Range(2;4))]#
+
+Compute the derivative of the following function. \#[ f(x) = \frac{(x^2 - @a x + @b)^{@e}}{\sin(x)\cos(x)} \#]
+
+  ]; bool @show.solution := #f
+)]#

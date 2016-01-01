@@ -1,0 +1,23 @@
+[define >doc @lim.poly.deg2 := Macro(doc; [#
+
+[define int @a := Rand(Range(2;5))]#
+[define int @b := Rand(Range(2;9))]#
+[define int @c := Rand(Range(2;9))]#
+[define int @e := Rand(Range(2;5))]#
+
+Compute the following limit. \#[ \lim_{x \rightarrow @e} \left( @a x^2 + @b x + @c \right) \#]
+
+[if (@show.solution) then [#
+\textbf{Solution:} Since this expression is a polynomial, we can find the limit as $x$ approaches @e by evaluating at @e#.
+
+\begin{eqnarray*}
+\lim_{x \rightarrow @e} \left( @a x^2 + @b x + @c \right)
+ & = & @a (@e)^2 + @b (@e) + @c \\
+ & = & [:int: @a * ((@e)^2) :] + [:int: @b * @e :] + @c \\
+ & = & [:int: (@a * (@e^2)) + (@b * @e) + @c :].
+\end{eqnarray*}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#

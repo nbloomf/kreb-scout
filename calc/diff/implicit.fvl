@@ -1,0 +1,29 @@
+[define >doc @implicit.cube.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(2;5))]#
+[define int @b := Rand(Range(2;5))]#
+[define int @c := Rand(Range(2;5))]#
+
+Compute $\frac{dy}{dx}$ by implicit differentiation. \#[ y^3 + @a xy - @b x^2 = @c \#]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+[define >doc @implicit.fraclinear.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(2;5))]#
+[define int @b := Rand(Range(2;5))]#
+[define int @c := Rand(Range(2;5))]#
+[define int @d := Rand(Range(2;5))]#
+
+[define int @x := Rand({1;2;3;4})]#
+[define rat @y := int(@d - (@b * @x)) / int(@c + (@a * @x))]#
+
+[define rat @m := int(neg ((@a * @d) + (@b * @c))) / int(((@a * @x) + @c)^2)]#
+
+Find equations for the tangent and normal lines to the curve \#[ @a xy + @b x + @c y = @d \#] at the point $(@x, @y)$.
+
+  ]; bool @show.solution := #f
+)]#

@@ -1,0 +1,15 @@
+[define >doc @poly.deg2.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(2;15))]#
+[define int @b := Rand(Range(2;15))]#
+[define int @c := Rand(Range(2;15))]#
+
+Compute the following derivative. \#[ \frac{d}{dx} \left( @a x^2 + @b x + @c \right) \#]
+
+[if (@show.solution) then [#
+\textbf{Solution:}
+Since this function is a polynomial, we can use the power rule on each term. The derivative is $[:int: 2 * @a :] x + @b$.] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#

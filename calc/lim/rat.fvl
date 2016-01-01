@@ -1,0 +1,234 @@
+[define >doc @lim.rat.diffcube := Macro(doc; [#
+
+[define int @a := Rand(Range(1;5))]#
+[define int @a2 := @a ^ 2]#
+[define int @a3 := @a ^ 3]#
+
+[define str @q := Format(^int; latex; FromCoefs(x; {@a2;@a;1}))]
+
+Compute the following limit. \#[ \lim_{x \rightarrow @a} \frac{x^3 - @a3}{x - @a} \#]
+
+[if (@show.solution) then [#
+\textbf{Solution:} Note that this expression is not defined if $x = @a$ because of the $x - @a$ in the denominator. However, we can factor the numerator as a difference of cubes and cancel.
+
+\#[ \lim_{x \rightarrow @a} \frac{x^3 - @a3}{x - @a} = \lim_{x \rightarrow @a} \frac{(x - @a)(@q)}{x - @a} = \lim_{x \rightarrow @a} (@q) = [:int: 3 * @a2 :] \#]
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+[define >doc @lim.rat.diffsq := Macro(doc; [#
+
+[define int @a := Rand(Range(1;9))]#
+[define int @a2 := @a ^ 2]#
+
+Compute the following limit. \#[ \lim_{x \rightarrow @a} \frac{x^2 - @a2}{x - @a} \#]
+
+[if (@show.solution) then [#
+\textbf{Solution:} Note that this expression is not defined if $x = @a$. However, we can factor the numerator as a difference of squares and cancel.
+
+\#[ \lim_{x \rightarrow @a} \frac{x^2 - @a2}{x - @a} = \lim_{x \rightarrow @a} \frac{(x - @a)(x + @a)}{x - @a} = \lim_{x \rightarrow @a} (x + @a) = [:int: 2 * @a :] \#]
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+[define >doc @lim.rat.sqrt.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(1;9))]#
+[define int @a2 := @a ^ 2]#
+
+Compute the following limit. \#[ \lim_{x \rightarrow @a2} \frac{x - @a2}{\sqrt{x} - @a} \#]
+
+[if (@show.solution) then [#
+\textbf{Solution:} Note that this expression is not defined if $x = @a2$. However, we can factor the numerator as a difference of squares.
+
+\#[ \lim_{x \rightarrow @a2} \frac{x - @a2}{\sqrt{x} - @a} = \lim_{x \rightarrow @a2} \frac{(\sqrt{x} - @a)(\sqrt{x} + @a)}{\sqrt{x} - @a} = \lim_{x \rightarrow @a2} (\sqrt{x} + @a) = [:int: 2 * @a :] \#]
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+[define >doc @lim.rat.sqrt.2 := Macro(doc; [#
+
+[define int @b := Rand(Range(1;9))]#
+[define int @c := Rand(Range(1;5))]#
+[define int @d := @b + (@c ^ 2)]#
+
+Compute the following limit. \#[ \lim_{x \rightarrow @d} \frac{\sqrt{x - @b} - @c}{x - @d} \#]
+
+[if (@show.solution) then [#
+\textbf{Solution:} Note that this expression is not defined if $x = @d$. But also note that if we multiply the numerator by its radical conjugate, something nice happens:
+\#[ \left(\sqrt{x - @b} - @c\right)\left(\sqrt{x - @b} + @c\right) = x - @b - [:int: @c ^ 2 :] = x - @d#. \#]
+Let's try multiplying by 1, but write 1 as $\sqrt{x - @b} + @c$ over itself.
+\begin{eqnarray*}
+\lim_{x \rightarrow @d} \frac{\sqrt{x - @b} - @c}{x - @d} & = & \lim_{x \rightarrow @d} \left( \frac{\sqrt{x - @b} - @c}{x - @d} \cdot \frac{\sqrt{x - @b} + @c}{\sqrt{x - @b} + @c} \right) \\
+ & = & \lim_{x \rightarrow @d} \frac{x - @d}{(x - @d)(\sqrt{x - @b} + @c)} \\
+ & = & \lim_{x \rightarrow @d} \frac{1}{\sqrt{x - @b} + @c} \\
+ & = & \frac{1}{[:int: 2 * @c :]}
+\end{eqnarray*}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+[define >doc @lim.rat.laurent.23 := Macro(doc; [#
+
+[define int @n := Rand({4;5;6;7})]#
+
+Compute the following limit. \#[ \lim_{x \rightarrow 1} \frac{x^{[:rat: int(2) / int(@n) :]} - 1}{x^{[:rat: int(3) / int(@n) :]} - 1} \#]
+
+[if (@show.solution) then [#
+\textbf{Solution:} Note that although this expression is continuous, it is not defined at $x = 1$. [if (NotEqual(int; 1; 2 gcd @n) || NotEqual(int; 1; 3 gcd @n)) then [Let's start by writing all exponents with a common denominator: \#[ \lim_{x \rightarrow 1} \frac{x^{2 / @n} - 1}{x^{3 / @n} - 1}. \#]] else [] endif] If we substitute $y = x^{1/@n}$, we have \#[ \frac{x^{2 / @n} - 1}{x^{3 / @n} - 1} = \frac{y^2 - 1}{y^3 - 1} = \frac{(y-1)(y+1)}{(y-1)(y^2 + y + 1)} = \frac{y+1}{y^2 + y + 1} = \frac{x^{1/@n} + 1}{x^{[:rat: int(2) / int(@n) :]} + x^{1/@n} + 1} \#] provided $y \neq 1$ (and hence $x \neq 1$). Note that we used the difference of squares and difference of cubes factoring formulas. Now we have
+
+\begin{eqnarray*}
+\lim_{x \rightarrow 1} \frac{x^{[:rat: int(2) / int(@n) :]} - 1}{x^{[:rat: int(3) / int(@n) :]} - 1}
+ & = & \lim_{x \rightarrow 1} \frac{x^{1/@n} + 1}{x^{[:rat: int(2) / int(@n) :]} + x^{1/@n} + 1} \\
+ & = & \frac{1^{1/@n} + 1}{1^{[:rat: int(2)/int(@n) :]} + 1^{1/@n} + 1} \\
+ & = & 2/3.
+\end{eqnarray*}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+[define >doc @lim.rat.monic2 := Macro(doc; [#
+
+[define int @r1 := Rand(Range(-9;-1) ++ Range(1;9))]#
+[define int @r2 := Rand(Range(-9;-1) ++ Range(1;9))]#
+[define str @q1 := Format(^int; latex; FromRoots(x; {@r1}))]#
+[define str @q2 := Format(^int; latex; FromRoots(x; {@r2}))]#
+[define str @p  := Format(^int; latex; FromRoots(x; {@r1; @r2}))]#
+
+Compute the following limit. \#[ \displaystyle\lim_{x \rightarrow @r1} \frac{@p}{@q1} \#]
+
+[if (@show.solution) then [#
+\textbf{Solution:} Note that this rational function is not defined at $x = @r1$. However, factoring the numerator we have 
+
+\begin{eqnarray*}
+\lim_{x \rightarrow @r1} \frac{@p}{@q1}
+ & = & \lim_{x \rightarrow @r1} \frac{(@q1)(@q2)}{@q1} \\
+ & = & \lim_{x \rightarrow @r1} \frac{\cancel{(@q1)}(@q2)}{\cancel{@q1}} \\
+ & = & \lim_{x \rightarrow @r1} (@q2) \\
+ & = & [:int: @r1 - @r2 :]. \\
+\end{eqnarray*}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+[define >doc @lim.rat.monic3a := Macro(doc; [#
+
+[define int @r1 := Rand(Range(-5;-1) ++ Range(1;5))]#
+[define int @r2 := Rand((Range(-3;-1) ++ Range(1;3)) \\ {@r1; neg @r1})]#
+[define int @r3 := neg @r2]#
+[define str @q1 := Format(^int; latex; FromRoots(x; {@r1}))]#
+[define str @q2 := Format(^int; latex; FromRoots(x; {@r2;@r3}))]#
+[define str @p  := Format(^int; latex; FromRoots(x; {@r1;@r2;@r3}))]#
+
+[define int @s := (@r1 - @r2) * (@r1 - @r3)]#
+[define int @t := abs (@r2 * @r3)]#
+
+Compute the following limit. \#[ \lim_{x \rightarrow @r1} \frac{@p}{@q1} \#]
+
+[if (@show.solution) then [#
+\textbf{Solution:} Note that this rational function is not defined if $x = @r1$. However, $@r1$ is a root of both the numerator and the denominator, so we can factor (either by grouping or using long or synthetic division) and cancel.
+\begin{eqnarray*}
+\lim_{x \rightarrow @r1} \frac{@p}{@q1} & = & \lim_{x \rightarrow @r1} \frac{x^2(@q1) - @t(@q1)}{@q1} \\
+ & = & \lim_{x \rightarrow @r1} \frac{(@q1)(@q2)}{@q1} \\
+ & = & \lim_{x \rightarrow @r1} (@q2) \\
+ & = & @s
+\end{eqnarray*}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+[define >doc @lim.rat.monic3b := Macro(doc; [#
+
+[define int @r1 := Rand(Range(-5;-1) ++ Range(1;5))]#
+[define int @r2 := Rand((Range(-3;-1) ++ Range(1;3)) \\ {@r1; neg @r1})]#
+[define int @r3 := Rand((Range(-3;-1) ++ Range(1;3)) \\ {@r1; neg @r1; @r2; neg @r2})]#
+[define str @q1 := Format(^int; latex; FromRoots(x; {@r1}))]#
+[define str @q2 := Format(^int; latex; FromRoots(x; {@r2;@r3}))]#
+[define str @p  := Format(^int; latex; FromRoots(x; {@r1;@r2;@r3}))]#
+
+[define int @s := (@r1 - @r2) * (@r1 - @r3)]#
+
+Compute the following limit. \#[ \lim_{x \rightarrow @r1} \frac{@p}{@q1} \#]
+
+[if (@show.solution) then [#
+\textbf{Solution:} Note that this rational function is not defined if $x = @r1$. However, $@r1$ is a root of both the numerator and the denominator, so we can factor (using either long or synthetic division) and cancel.
+\#[ \lim_{x \rightarrow @r1} \frac{@p}{@q1} = \lim_{x \rightarrow @r1} \frac{(@q1)(@q2)}{@q1} = \lim_{x \rightarrow @r1} (@q2) = @s \#]
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+
+[define >doc @lim.rat.fix.diffsq := Macro(doc; [#
+
+[alt opt [Compute the following limit. \#[ \lim_{x \rightarrow a} \frac{x^2 - a^2}{x^4 - a^4} \#]
+
+[if (@show.solution) then [#
+\textbf{Solution:} 
+This expression is not defined if $x = a$. However, the denominator factors as a difference of squares and cancel as follows:
+
+\begin{eqnarray*}
+\lim_{x \rightarrow a} \frac{x^2 - a^2}{x^4 - a^4}
+ & = & \lim_{x \rightarrow a} \frac{x^2 - a^2}{(x^2 - a^2)(x^2 + a^2)} \\
+ & = & \lim_{x \rightarrow a} \frac{1}{x^2 + a^2} \\
+ & = & \frac{1}{2a^2} \\
+\end{eqnarray*}
+] else []
+endif]
+
+] opt [Compute the following limit. \#[ \lim_{x \rightarrow a} \frac{x^4 - a^4}{x^2 - a^2} \#]
+
+[if (@show.solution) then [#
+\textbf{Solution:} 
+This expression is not defined if $x = a$. However, the numerator factors as a difference of squares and cancel as follows:
+
+\begin{eqnarray*}
+\lim_{x \rightarrow a} \frac{x^4 - a^4}{x^2 - a^2}
+ & = & \lim_{x \rightarrow a} \frac{(x^2 - a^2)(x^2 + a^2)}{x^2 - a^2} \\
+ & = & \lim_{x \rightarrow a} (x^2 + a^2) \\
+ & = & 2a^2 \\
+\end{eqnarray*}
+] else []
+endif]
+
+] endalt]
+
+  ]; bool @show.solution := #f
+)]#
+

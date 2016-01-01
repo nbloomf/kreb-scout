@@ -1,0 +1,99 @@
+[define >doc @stat.match.sampling := Macro(doc; [#
+
+[define {str} @a := {
+  "Random Sampling";
+  "Simple Random Sampling";
+  "Convenience Sampling";
+  "Stratified Sampling";
+  "Cluster Sampling";
+  "Self-Selected Sampling"
+}]#
+
+[define {str} @b := Shuffle({
+  "Each individual has an equal chance of being selected.";
+  "Each subset of a given size has an equal chance of being selected.";
+  "Select individuals which are easy to find.";
+  "Divide the population into subpopulations, then choose \\emph{some} individuals from \\emph{all} subpopulations.";
+  "Divide the population into subpopulations, then choose \\emph{all} individuals from \\emph{some} subpopulations.";
+  "Allow individuals to choose whether or not to be in the sample."
+})]#
+
+Match each sampling method to its description.
+
+\vspace{0.5cm}
+
+\begin{minipage}{0.3\textwidth}
+\begin{itemize}
+[for int @i in (Range(1;6)) say [
+\item#[\underline{\qquad}#] [:str: AtPos(@a; @i) :]
+] endfor]
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.6\textwidth}
+\begin{enumerate}#[A.#]
+[for int @i in (Range(1;6)) say [
+\item [:str: AtPos(@b;@i) :]
+] endfor]
+\end{enumerate}
+\end{minipage}
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+
+[define >doc @stat.match.vocab := Macro(doc; [#
+
+[define {str} @a := Shuffle({
+  "double-blind";
+  "placebo effect";
+  "longitudinal study";
+  "lurking variable";
+  "random sampling error";
+  "nonrandom sampling error";
+  "frequency table";
+  "histogram";
+  "scatterplot";
+  "time-series chart";
+  "measure of center";
+  "measure of dispersion"
+})]#
+
+[define {str} @b := Shuffle({
+  "A medical study in which neither the patients nor the doctors know whether or not the treatment being given contains an active ingredient.";
+  "The observation that merely receiving treatment -- even a sugar pill or saline injection -- can cause some patients to get better.";
+  "A method of collecting data from the same sample at regular intervals over a period of time.";
+  "A factor which we do not measure while collecting data, but which affects the factors we do measure.";
+  "When we choose a sample using a sound sampling method, but the resulting sample is very different from the given population due to chance.";
+  "When we choose a sample which is very different from a given population, due to the use of an unsound sampling method.";
+  "A way to summarize numerical data by counting the frequency of values in each of several intervals.";
+  "A type of bar chart, where each bar represents a range of values and the height of each bar represents the frequency of values in that range.";
+  "A way to visualize data by plotting it as points on an $xy$-plane.";
+  "A line graph whose $x$-axis represents a continuous variable, such as time.";
+  "A way to quantify the `middle' of a data set.";
+  "A way to quantify how `spread out' a data set is."
+})]#
+
+Match each word or phrase to its definition.
+
+\vspace{0.5cm}
+
+\begin{minipage}{0.3\textwidth}
+\begin{itemize}
+[for int @i in ((Range(1;12))) say [
+\item#[\underline{\qquad}#] [:str: AtPos(@a;@i) :]
+] endfor]
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.6\textwidth}
+\begin{enumerate}#[A.#]
+[for int @i in ((Range(1;12))) say [
+\item [:str: AtPos(@b;@i) :]
+] endfor]
+\end{enumerate}
+\end{minipage}
+
+  ]; bool @show.solution := #f
+)]#

@@ -1,0 +1,71 @@
+[define >doc @expected.value.card.1 := Macro(doc; [#
+
+[define int @p := Rand(Range(1;5))]#
+[define int @w := Rand(Range(3*@p ; 4*@p - 1))]#
+[define str @suit := Rand({"heart";"diamond";"spade";"club"})]#
+
+You have an opportunity to pay \$@p to draw a single card from a standard deck. If the card is a @suit you win \$@w, and otherwise you get nothing. What is the expected value of this game?
+
+[if (@show.solution) then [#
+\textbf{Solution:} [:str: Decimal( (int(@w) / 4) - int(@p); 2) :]
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+[define >doc @expected.value.card.2 := Macro(doc; [#
+
+[define str @rank := Rand({"an ace";"a king";"a queen";"a jack"})]#
+[define int @w := Rand({4;5;6;7;8})]#
+
+You have an opportunity to draw a single card from a standard deck. If you draw @rank, you win \$@w, and otherwise you get nothing. What is the largest amount of money you should be willing to pay to play this game?
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+
+[define >doc @expected.value.dice.1 := Macro(doc; [#
+
+[define int @t := Rand({1;2;3;4})]#
+[define int @b := Rand(Range(2*@t ; 4*@t))]#
+[define int @a := Rand(Range(3*@b ; 18*@t))]#
+
+You have an opportunity to pay \$@t to roll two 6-sided dice of different colors. If you roll doubles, you win \$@b; if you roll two numbers whose sum is 3, you win \$@a; otherwise you get nothing. What is the expected value of this game?
+
+[if (@show.solution) then [#
+\textbf{Solution:} [:str: Decimal((int(@a + 3*@b) / 18) - (int(@t) / 1) ; 2) :]
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+
+[define >doc @expected.value.lottery.1 := Macro(doc; [#
+
+[define int @k := Rand(Range(2;9))]#
+[define int @u := Rand({3;4;5})]#
+[define int @t := Rand(Range(1;5))]#
+
+[define int @w := Rand(Range(2; @k * @t))]#
+
+The probability of winning the South Central Lottery with a single ticket, costing \$@t, is [:rat: 1 / int(@k * 10 ^ @u) :]. Suppose the jackpot is \$[:int: @w * (10 ^ @u) :]. What is the expected value of a single lottery ticket?
+
+[if (@show.solution) then [#
+\textbf{Solution:} [:str: Decimal((int(@w) / int(@k)) - int(@t) ; 2) :]
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+

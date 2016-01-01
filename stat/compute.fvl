@@ -1,0 +1,288 @@
+[define >doc @mean.binomial.1 := Macro(doc; [#
+
+[define {int} @xs := Build(Binomial(5;1/2); int @i <- Range(1;8))]#
+
+Find the mean of the following list of numbers.
+
+\begin{center}
+[for int @x in @xs say [@x] sepby [, ]]
+\end{center}
+
+[if (@show.solution) then [#
+\textbf{Solution:} Remember that to find the mean of $n$ numbers $x_1$, $x_2$, $\ldots$, $x_n$, we add them up and divide by the number of numbers. In this case,
+
+\begin{eqnarray*}
+\frac{[for int @x in @xs say [@x] sepby [ + ]]}{8} & = & \frac{[:int: Sum(@xs) :]}{8} \\
+ & \approx & [:str: Decimal(Mean(int; @xs); 1) :].
+\end{eqnarray*}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+
+[define >doc @mean.uniform.1 := Macro(doc; [#
+
+[define {int} @xs := Build(Uniform(5;15); int @i <- Range(1;8))]#
+
+Find the mean of the following list of numbers.
+
+\begin{center}
+[for int @x in @xs say [@x] sepby [, ]]
+\end{center}
+
+[if (@show.solution) then [#
+\textbf{Solution:} Remember that to find the mean of $n$ numbers $x_1$, $x_2$, $\ldots$, $x_n$, we add them up and divide by the number of numbers. In this case,
+
+\begin{eqnarray*}
+\frac{[for int @x in @xs say [@x] sepby [ + ]]}{8} & = & \frac{[:int: Sum(@xs) :]}{8} \\
+ & \approx & [:str: Decimal(Mean(int; @xs); 1) :].
+\end{eqnarray*}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+
+[define >doc @mean.uniform.2 := Macro(doc; [#
+
+[define {int} @xs := Build(Uniform(50;100); int @i <- Range(1;10))]#
+
+Find the mean of the following list of numbers.
+
+\begin{center}
+[for int @x in @xs say [@x] sepby [, ]]
+\end{center}
+
+[if (@show.solution) then [#
+\textbf{Solution:} Remember that to find the mean of $n$ numbers $x_1$, $x_2$, $\ldots$, $x_n$, we add them up and divide by the number of numbers. In this case,
+
+\begin{eqnarray*}
+\frac{[for int @x in @xs say [@x] sepby [ + ]]}{10} & = & \frac{[:int: Sum(@xs) :]}{10} \\
+ & \approx & [:str: Decimal(Mean(int; @xs); 1) :].
+\end{eqnarray*}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+[define >doc @mean.deviation.binomial.1 := Macro(doc; [#
+
+[define {int} @xs := Build(Binomial(15;1/3); int @i <- Range(1;6))]#
+[define rat @m := Mean(int; @xs)]#
+
+Find the mean deviation of the following list of numbers.
+
+\begin{center}
+[for int @x in @xs say [@x] sepby [, ]]
+\end{center}
+
+[if (@show.solution) then [#
+\textbf{Solution:} Remember that the mean deviation of $x_1$, $x_2$, $\ldots$, $x_n$ is \#[ \frac{1}{n} \sum_{i=1}^n |x_i - \overline{x}|, \#] where $\overline{x}$ is the mean of the $x_i$. In this case the mean is $\overline{x} = [:str: Decimal(@m;2) :]$. Then the mean deviation is
+
+\begin{eqnarray*}
+ & & \frac{1}{6}\big( [for int @x in @xs say [|@x - [:str: Decimal(@m;2) :]|] sepby [ + ] endfor] \big) \\
+ & = & \frac{1}{6}\big( [for int @x in @xs say [[:str: Decimal(abs(int(@x) - @m);2) :]] sepby [ + ] endfor] \big) \\
+ & = & [:str: Decimal(MeanDev(int; @xs);2) :]
+\end{eqnarray*}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+[define >doc @mean.deviation.uniform.1 := Macro(doc; [#
+
+[define {int} @xs := Build(Uniform(5;15); int @i <- Range(1;5))]#
+[define rat @m := Mean(int; @xs)]#
+
+Find the mean deviation of the following list of numbers.
+
+\begin{center}
+[for int @x in @xs say [@x] sepby [, ]]
+\end{center}
+
+[if (@show.solution) then [#
+\textbf{Solution:} Remember that the mean deviation of $x_1$, $x_2$, $\ldots$, $x_n$ is \#[ \frac{1}{n} \sum_{i=1}^n |x_i - \overline{x}|, \#] where $\overline{x}$ is the mean of the $x_i$. In this case the mean is $\overline{x} = [:str: Decimal(@m;2) :]$. Then the mean deviation is
+
+\begin{eqnarray*}
+ & & \frac{1}{5} \big( [for int @x in @xs say [|@x - [:str: Decimal(@m;2) :]|] sepby [ + ] endfor] \big) \\
+ & = & \frac{1}{5} \big( [for int @x in @xs say [[:str: Decimal(abs(int(@x) - @m);2) :]] sepby [ + ] endfor] \big) \\
+ & = & [:str: Decimal(MeanDev(int; @xs);2) :]
+\end{eqnarray*}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+[define >doc @standard.deviation.uniform.1 := Macro(doc; [#
+
+[define {int} @xs := Build(Uniform(5;15); int @i <- Range(1;5))]#
+[define rat @m := Mean(int; @xs)]#
+
+Find the standard deviation of the following list of numbers.
+
+\begin{center}
+[for int @x in @xs say [@x] sepby [, ]]
+\end{center}
+
+[if (@show.solution) then [#
+\textbf{Solution:} Remember that the standard deviation of $x_1$, $x_2$, $\ldots$, $x_n$ is \#[ \sqrt{\frac{\sum_{i=1}^n (x_i - \overline{x})^2}{n-1}}, \#] where $\overline{x}$ is the mean of the $x_i$. In this case the mean is $\overline{x} = [:str: Decimal(@m;2) :]$. Then the standard deviation is
+
+\begin{eqnarray*}
+ & & \sqrt{\frac{1}{4}\big( [for int @x in (@xs) say [(@x - [:str: Decimal(@m;2) :])^2] sepby [ + ] endfor] \big)} \\
+ & = & \sqrt{\frac{1}{4}\big( [for int @x in (@xs) say [[:str: Decimal(  Pow(int(@x) - @m;2)  ;2) :]] sepby [ + ] endfor] \big)} \\
+ & = & [:str: Decimal(StdDev(int; @xs; 2);2) :]
+\end{eqnarray*}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+
+
+[define >doc @zscore.binomial.1 := Macro(doc; [#
+
+[define {int} @xs := Build(Binomial(14;1/2); int @i <- Range(1;10))]#
+[define int @a := Rand(Range(1;4))]#
+[define int @b := Rand(Range(12;14))]#
+[define rat @m := Mean(int; @xs)]#
+[define rat @s := StdDev(int; @xs;3)]#
+
+Suppose we have collected the following list of numbers.
+
+\begin{center}
+[for int @x in @xs say [@x] sepby [, ]]
+\end{center}
+
+Compute the z-scores of @a and @b with respect to this list.
+
+[if (@show.solution) then [#
+\textbf{Solution:} Remember that the z-score of a particular number $x$ with respect to a list of numbers is \#[ z = \frac{x - \overline{x}}{s}, \#] where $\overline{x}$ is the mean and $s$ the standard deviation.
+In this case we can see that $\overline{x} = [:str: Decimal(@m;1) :]$ and $s = [:str: Decimal(@s;3) :]$, so that the z-score of @a is
+ \#[ \frac{@a - [:str: Decimal(@m;1) :]}{[:str: Decimal(@s;3) :]} = [:str: Decimal(ZScore(int;int(@a);@xs;3);3) :] \#]
+ and of @b is  \#[ \frac{@b - [:str: Decimal(@m;1) :]}{[:str: Decimal(@s;3) :]} = [:str: Decimal(ZScore(int;int(@b);@xs;3);3) :]. \#]
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+
+[define >doc @zscore.uniform.1 := Macro(doc; [#
+
+[define {int} @xs := Build(Uniform(1;25); int @i <- Range(1;10))]#
+[define int @a := Rand(Range(1;5))]#
+[define int @b := Rand(Range(23;27))]#
+[define rat @m := Mean(int; @xs)]#
+[define rat @s := StdDev(int; @xs;3)]#
+
+Suppose we have collected the following list of numbers.
+
+\begin{center}
+[for int @x in @xs say [@x] sepby [, ]]
+\end{center}
+
+Compute the z-scores of @a and @b with respect to this list.
+
+[if (@show.solution) then [#
+\textbf{Solution:} Remember that the z-score of a particular number $x$ with respect to a list of numbers is \#[ z = \frac{x - \overline{x}}{s}, \#] where $\overline{x}$ is the mean and $s$ the standard deviation. In this case we can see that $\overline{x} = [:str: Decimal(@m;1) :]$ and $s = [:str: Decimal(@s;3) :]$, so that the z-score of @a is \#[ \frac{@a - [:str: Decimal(@m;1) :]}{[:str: Decimal(@s;3) :]} = [:str: Decimal(ZScore(int;int(@a);@xs;3);3) :] \#] and of @b is  \#[ \frac{@b - [:str: Decimal(@m;1) :]}{[:str: Decimal(@s;3) :]} = [:str: Decimal(ZScore(int;int(@b);@xs;3);3) :]. \#]
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+
+
+
+[define >doc @coef.var.binomial.1 := Macro(doc; [#
+
+[define {int} @xs := Build(Binomial(20;1/3); int @i <- Range(1;7))]#
+
+Find the coefficient of variation of the following list of numbers.
+
+\begin{center}
+[for int @x in @xs say [@x] sepby [, ]]
+\end{center}
+
+[if (@show.solution) then [#
+\textbf{Solution:} Remember that the coefficient of variation of a list of numbers is $100\% \cdot s/\overline{x}$, where $s$ is the standard deviation and $\overline{x}$ the mean, expressed as a percentage. In this case the mean is $\overline{x} = [:str: Decimal(Mean(int;@xs);1) :]$ and the standard deviation is $s = [:str: Decimal(StdDev(int;@xs;2);2) :]$, so the coefficient of variation is $100\% \cdot s/\overline{x} = [:str: Decimal(StdDev(int;@xs;3) * 100 / Mean(int;@xs);0) :]\%$.
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+
+[define >doc @coef.var.uniform.1 := Macro(doc; [#
+
+[define {int} @xs := Build(Uniform(10;20); int @i <- Range(1;6))]#
+
+Find the coefficient of variation of the following list of numbers.
+
+\begin{center}
+[for int @x in @xs say [@x] sepby [, ]]
+\end{center}
+
+[if (@show.solution) then [#
+\textbf{Solution:} Remember that the coefficient of variation of a list of numbers is $100\% \cdot s/\overline{x}$, where $s$ is the standard deviation and $\overline{x}$ the mean, expressed as a percentage. In this case the mean is $\overline{x} = [:str: Decimal(Mean(int;@xs);1) :]$ and the standard deviation is $s = [:str: Decimal(StdDev(int;@xs;2);2) :]$, so the coefficient of variation is $100\% \cdot s/\overline{x} = [:str: Decimal(StdDev(int;@xs;3) * 100 / Mean(int;@xs);0) :]\%$.
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+[define >doc @mean.std.dev.discrete.rv.1 := Macro(doc; [#
+
+[define int @a := Rand({1;2;3})]#
+[define int @b := Rand({4;5;6})]#
+[define int @c := Rand({7;8})]#
+[define int @d := Rand({1;2})]#
+[define int @s := @a + @b + @c + @d]#
+
+Compute the mean and standard deviation of the following discrete random variable.
+
+\begin{center}
+\begin{tabular}{c|ccccc}
+$x$    & 0    & 1    & 2   & 3   \\ \hline
+$P(x)$ & [:rat: int(@a)/int(@s) :] & [:rat: int(@b)/int(@s) :] & [:rat: int(@c)/int(@s) :] & [:rat: int(@d)/int(@s) :] \\
+\end{tabular}
+\end{center}
+
+  ]; bool @show.solution := #f
+)]#

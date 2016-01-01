@@ -1,0 +1,84 @@
+[define >doc @lim.diffquot.linear.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(2;12))]#
+[define int @b := Rand(Range(1;12))]#
+[define int @t := Rand(Range(1;10))]#
+
+Compute the limit of the difference quotient \#[ \lim_{x \rightarrow t} \frac{f(x) - f(t)}{x - t} \#] when $f(x) = @a x + @b$ and $t = @t$.
+
+[if (@show.solution) then [#
+\textbf{Solution:} We have
+\begin{eqnarray*}
+\lim_{x \rightarrow @t} \frac{f(x) - f(@t)}{x - @t} & = & \lim_{x \rightarrow @t} \frac{(@a x + @b) - (@a \cdot @t + @b)}{x - @t} \\
+ & = & \lim_{x \rightarrow @t} \frac{@a x - @a \cdot @t}{x - @t} \\
+ & = & \lim_{x \rightarrow @t} \frac{@a(x - @t)}{x - @t} \\
+ & = & \lim_{x \rightarrow @t} @a \\
+ & = & @a \\
+\end{eqnarray*}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+[define >doc @lim.diffquot.quad.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(2;12))]#
+[define int @b := Rand(Range(2;12))]#
+[define int @c := Rand(Range(1;12))]#
+[define int @t := Rand(Range(1;10))]#
+
+Compute the limit of the difference quotient \#[ \lim_{x \rightarrow t} \frac{f(x) - f(t)}{x - t} \#] when $f(x) = @a x^2 + @b x + @c$ and $t = @t$.
+
+[if (@show.solution) then [#
+\textbf{Solution:} We have
+\begin{eqnarray*}
+\lim_{x \rightarrow @t} \frac{f(x) - f(@t)}{x - @t} & = & \lim_{x \rightarrow @t} \frac{(@a x^2 + @b x + @c) - (@a (@t)^2 + @b(@t) + @c)}{x - @t} \\
+ & = & \lim_{x \rightarrow @t} \frac{@a x^2 - @a(@t)^2 + @b x - @b(@t) + @c - @c}{x - @t} \\
+ & = & \lim_{x \rightarrow @t} \frac{@a(x^2 - @t^2) + @b(x - @t)}{x - @t} \\
+ & = & \lim_{x \rightarrow @t} \frac{@a(x - @t)(x + @t) + @b(x - @t)}{x - @t} \\
+ & = & \lim_{x \rightarrow @t} \frac{(x - @t)(@a(x + @t) + @b)}{x - @t} \\
+ & = & \lim_{x \rightarrow @t} \left( @a(x + @t) + @b \right) \\
+ & = & @a(@t + @t) + @b\\
+ & = & [:int: 2 * @a * @t + @b :]
+\end{eqnarray*}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+[define >doc @lim.diffquot.sqrt.1 := Macro(doc; [#
+
+[define {int} @xs := Rand({{1;1;2;2};{1;2;2;3};{1;3;4;1};{1;4;2;5};{1;5;2;6};{2;1;2;3};{2;2;4;1};{2;3;2;5};{2;4;2;6};{2;5;2;7};{3;1;4;1};{3;2;2;5};{3;3;2;6};{3;4;2;7};{3;5;4;2};{4;1;2;5};{4;2;2;6};{4;3;2;7};{4;4;4;2};{4;5;6;1};{5;1;2;6};{5;2;2;7};{5;3;4;2};{5;4;6;1};{5;5;2;10};{6;1;2;7};{6;2;4;2};{6;3;6;1};{6;4;2;10};{6;5;2;11};{7;1;4;2};{7;2;6;1};{7;3;2;10};{7;4;2;11};{7;5;4;3};{8;1;6;1};{8;2;2;10};{8;3;2;11};{8;4;4;3};{8;5;2;13};{9;1;2;10};{9;2;2;11};{9;3;4;3};{9;4;2;13};{9;5;2;14};{10;1;2;11};{10;2;4;3};{10;3;2;13};{10;4;2;14};{10;5;2;15}})]#
+
+[define int @a := AtPos(@xs; 1)]#
+[define int @t := AtPos(@xs; 2)]#
+[define int @p := AtPos(@xs; 3)]#
+[define int @q := AtPos(@xs; 4)]#
+
+Compute the limit of the difference quotient \#[ \lim_{x \rightarrow t} \frac{f(x) - f(t)}{x - t} \#] when $f(x) = \sqrt{x + @a}$ and $t = @t$.
+
+[if (@show.solution) then [#
+\textbf{Solution:} We have
+\begin{eqnarray*}
+\lim_{x \rightarrow @t} \frac{f(x) - f(@t)}{x - @t} & = & \lim_{x \rightarrow @t} \frac{\sqrt{x + @a} - \sqrt{[:int: @t + @a :]}}{x - @t} \\
+ & = & \lim_{x \rightarrow @t} \left( \frac{\sqrt{x + @a} - \sqrt{[:int: @t + @a :]}}{x - @t} \cdot \frac{\sqrt{x + @a} + \sqrt{[:int: @t + @a :]}}{\sqrt{x + @a} + \sqrt{[:int: @t + @a :]}} \right) \\
+ & = & \lim_{x \rightarrow @t} \frac{(x + @a) - ([:int: @t + @a :])}{(x - @t)\left( \sqrt{x + @a} + \sqrt{[:int: @t + @a :]} \right)} \\
+ & = & \lim_{x \rightarrow @t} \frac{x - @t}{(x - @t)\left( \sqrt{x + @a} + \sqrt{[:int: @t + @a :]} \right)} \\
+ & = & \lim_{x \rightarrow @t} \frac{1}{\sqrt{x + @a} + \sqrt{[:int: @t + @a :]}} \\
+ & = & \frac{1}{2\sqrt{[:int: @t + @a :]}} \\[cond 
+  case (Equal(int;2;@p)) []
+  case (Equal(int;1;@q)) [& = & \frac{1}{@p} \\]
+  default                [& = & \frac{1}{@p \sqrt{@q}} \\]
+endcond]
+\end{eqnarray*}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#

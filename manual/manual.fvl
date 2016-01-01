@@ -1,0 +1,375 @@
+\documentclass{article}
+\usepackage{neb-titles}
+\usepackage{neb-macros}
+\usepackage{flexfig}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\tableofcontents
+
+
+
+%-----------------%
+%                 %
+% :CollegeAlgebra %
+%                 %
+%-----------------%
+
+\section{College Algebra}
+
+\subsection{\texttt{ca/eqn/abs/linear.fvl}}
+[import (kreb-scout/ca/eqn/abs/linear.fvl)]#
+\begin{enumerate}
+\item [eval @linear.abs.1]
+\item [eval @linear.abs.2]
+\item [eval @linear.abs.3]
+\end{enumerate}
+
+
+\subsection{\texttt{ca/eqn/quad/int.fvl}}
+[import (kreb-scout/ca/eqn/quad/int.fvl)]#
+\begin{enumerate}
+\item [eval @monic.int.roots.1]
+\item [eval @monic.int.roots.2]
+\item [eval @quad.with.lc]
+\item [eval @quad.radical.roots.1]
+\end{enumerate}
+
+
+\subsection{\texttt{ca/eqn/quad/quad-type.fvl}}
+[import (kreb-scout/ca/eqn/quad/quad-type.fvl)]#
+\begin{enumerate}
+\item [eval @cubic.zero.root.1]
+\item [eval @biquadratic.with.lc]
+\item [eval @abs.monic.1]
+\end{enumerate}
+
+
+\subsection{\texttt{ca/eqn/rat/linear.fvl}}
+[import (kreb-scout/ca/eqn/rat/linear.fvl)]#
+\begin{enumerate}
+\item [eval @linear.rat.1]
+\end{enumerate}
+
+
+\subsection{\texttt{ca/eqn/systems/linear.fvl}}
+[import (kreb-scout/ca/eqn/systems/linear.fvl)]#
+\begin{enumerate}
+\item [eval @linear.2x2.1]
+\item [eval @linear.2x2.2]
+\end{enumerate}
+
+
+\subsection{\texttt{ca/eqn/transform/graph.fvl}}
+[import (kreb-scout/ca/eqn/transform/graph.fvl)]#
+\begin{enumerate}
+\item [eval @interpret.transformed.eqn.1]
+\item [eval @interpret.transformed.eqn.2]
+\item [eval @interpret.transformation.1]
+\item [eval @graphically.transform.1]
+\item [eval @graphically.transform.2]
+\item [eval @graphically.detect.symmetry.1]
+\item [eval @algebraically.detect.symmetry.1]
+\end{enumerate}
+
+
+\subsection{\texttt{ca/func/zeros.fvl}}
+[import (kreb-scout/ca/func/zeros.fvl)]#
+\begin{enumerate}
+\item [eval @find.zeros.1]
+\item [eval @find.zeros.2]
+\item [eval @average.rate.of.change.1]
+\end{enumerate}
+
+
+\subsection{\texttt{ca/geom/lines.fvl}}
+[import (kreb-scout/ca/geom/lines.fvl)]#
+\begin{enumerate}
+\item [eval @linear.eqn.1]
+\item [eval @find.slope.1]
+\item [eval @plot.line.1]
+\end{enumerate}
+
+
+\subsection{\texttt{ca/geom/circles.fvl}}
+[import (kreb-scout/ca/geom/circles.fvl)]#
+\begin{enumerate}
+\item [eval @find.distance.1]
+\item [eval @circle.eqn.1]
+\item [eval @circle.eqn.2]
+\end{enumerate}
+
+
+\subsection{\texttt{ca/geom/ellipses.fvl}}
+[import (kreb-scout/ca/geom/ellipses.fvl)]#
+\begin{enumerate}
+\item [eval @plot.ellipse.1]
+\end{enumerate}
+
+
+\subsection{\texttt{ca/geom/parabolas.fvl}}
+[import (kreb-scout/ca/geom/parabolas.fvl)]#
+\begin{enumerate}
+\item [eval @parabolic.eqn.1]
+\item [eval @plot.parabola.1]
+\item [eval @std.form.parabola.1]
+\end{enumerate}
+
+
+\subsection{\texttt{ca/ineq/abs.fvl}}
+[import (kreb-scout/ca/ineq/abs.fvl)]#
+\begin{enumerate}
+\item [eval @in.linear.abs.1]
+\item [eval @in.linear.abs.2]
+\item [eval @in.linear.abs.3]
+\item [eval @in.linear.abs.4]
+\end{enumerate}
+
+
+\subsection{\texttt{ca/poly/factor/conjugate.fvl}}
+[import (kreb-scout/ca/poly/factor/conjugate.fvl)]#
+\begin{enumerate}
+\item [eval @given.quadratic.root.1]
+\item [eval @given.quadratic.root.2]
+\item [eval @given.quadratic.root.3]
+\item [eval @given.complex.root.1]
+\end{enumerate}
+
+
+\subsection{\texttt{ca/poly/factor/synthdiv.fvl}}
+[import (kreb-scout/ca/poly/factor/synthdiv.fvl)]#
+\begin{enumerate}
+\item [eval @given.roots.1]
+\item [eval @given.roots.2]
+\item [eval @construct.from.roots.1]
+\item [eval @rational.root.test.candidates.1]
+\item [eval @rational.root.test.factor.1]
+\item [eval @rational.root.test.factor.2]
+\item [eval @rational.root.test.factor.3]
+\end{enumerate}
+
+
+\subsection{\texttt{ca/poly/division.fvl}}
+[import (kreb-scout/ca/poly/division.fvl)]#
+\begin{enumerate}
+\item [eval @poly.long.division.1]
+\item [eval @poly.synth.division.1]
+\end{enumerate}
+
+
+\subsection{\texttt{ca/poly/endbehavior.fvl}}
+[import (kreb-scout/ca/poly/endbehavior.fvl)]#
+\begin{enumerate}
+\item [eval @algebraic.end.behavior.1]
+\end{enumerate}
+
+
+\subsection{\texttt{ca/ratfun/asymptotes.fvl}}
+[import (kreb-scout/ca/ratfun/asymptotes.fvl)]#
+\begin{enumerate}
+\item [eval @long.term.asymptote.1]
+\item [eval @find.domain.1]
+\item [eval @vertical.asymptotes.1]
+\item [eval @find.asymptotes.1]
+\end{enumerate}
+
+
+
+%-----------%
+%           %
+% :Calculus %
+%           %
+%-----------%
+
+\section{Calculus}
+
+\subsection{\texttt{calc/diff/2nd.fvl}}
+[import (kreb-scout/calc/diff/2nd.fvl)]#
+\begin{enumerate}
+\item [eval @chain1]
+\end{enumerate}
+
+
+\subsection{\texttt{calc/diff/chain.fvl}}
+[import (kreb-scout/calc/diff/chain.fvl)]#
+\begin{enumerate}
+\item [eval @chain.poly.1]
+\item [eval @chain.root.1]
+\item [eval @chain.sin.1]
+\end{enumerate}
+
+
+\subsection{\texttt{calc/diff/implicit.fvl}}
+[import (kreb-scout/calc/diff/implicit.fvl)]#
+\begin{enumerate}
+\item [eval @implicit.cube.1]
+\item [eval @implicit.fraclinear.1]
+\end{enumerate}
+
+
+\subsection{\texttt{calc/diff/laurent.fvl}}
+[import (kreb-scout/calc/diff/laurent.fvl)]#
+\begin{enumerate}
+\item [eval @laurent.3term.1]
+\end{enumerate}
+
+
+\subsection{\texttt{calc/diff/poly.fvl}}
+[import (kreb-scout/calc/diff/poly.fvl)]#
+\begin{enumerate}
+\item [eval @poly.deg2.1 (bool @show.solution := #t)]
+\end{enumerate}
+
+
+\subsection{\texttt{calc/diff/quot.fvl}}
+[import (kreb-scout/calc/diff/quot.fvl)]#
+\begin{enumerate}
+\item [eval @quot.rat.1]
+\item [eval @quot.trig.1]
+\item [eval @quot.trig.2]
+\end{enumerate}
+
+
+\subsection{\texttt{calc/diff/tangent.fvl}}
+[import (kreb-scout/calc/diff/tangent.fvl)]#
+\begin{enumerate}
+\item [eval @tangent.horizontal.1]
+\item [eval @tangent.laurent.1]
+\item [eval @tangent.root.1]
+\end{enumerate}
+
+
+\subsection{\texttt{calc/lim/cts.fvl}}
+[import (kreb-scout/calc/lim/cts.fvl)]#
+\begin{enumerate}
+\item [eval @lim.find.const.lin.quad (bool @show.solution := #t)]
+\end{enumerate}
+
+
+\subsection{\texttt{calc/lim/diffquot.fvl}}
+[import (kreb-scout/calc/lim/diffquot.fvl)]#
+\begin{enumerate}
+\item [eval @lim.diffquot.linear.1 (bool @show.solution := #t)]
+\item [eval @lim.diffquot.quad.1 (bool @show.solution := #t)]
+\item [eval @lim.diffquot.sqrt.1 (bool @show.solution := #t)]
+\end{enumerate}
+
+
+\subsection{\texttt{calc/lim/infinity.fvl}}
+[import (kreb-scout/calc/lim/infinity.fvl)]#
+\begin{enumerate}
+\item [eval @lim.infinity.rat.1 (bool @show.solution := #t)]
+\item [eval @lim.infinity.rat.2 (bool @show.solution := #t)]
+\end{enumerate}
+
+
+\subsection{\texttt{calc/lim/poly.fvl}}
+[import (kreb-scout/calc/lim/poly.fvl)]#
+\begin{enumerate}
+\item [eval @lim.poly.deg2 (bool @show.solution := #t)]
+\end{enumerate}
+
+
+\subsection{\texttt{calc/lim/rat.fvl}}
+[import (kreb-scout/calc/lim/rat.fvl)]#
+\begin{enumerate}
+\item [eval @lim.rat.diffcube (bool @show.solution := #t)]
+\item [eval @lim.rat.diffsq (bool @show.solution := #t)]
+\item [eval @lim.rat.sqrt.1 (bool @show.solution := #t)]
+\item [eval @lim.rat.sqrt.2 (bool @show.solution := #t)]
+\item [eval @lim.rat.laurent.23 (bool @show.solution := #t)]
+\item [eval @lim.rat.monic2 (bool @show.solution := #t)]
+\item [eval @lim.rat.monic3a (bool @show.solution := #t)]
+\item [eval @lim.rat.monic3b (bool @show.solution := #t)]
+\item [eval @lim.rat.fix.diffsq (bool @show.solution := #t)]
+\end{enumerate}
+
+
+\subsection{\texttt{calc/lim/trig.fvl}}
+[import (kreb-scout/calc/lim/trig.fvl)]#
+\begin{enumerate}
+\item [eval @lim.trig.sinx.over.x.kx (bool @show.solution := #t)]
+\item [eval @lim.trig.sinx.over.x.quad (bool @show.solution := #t)]
+\end{enumerate}
+
+
+\subsection{\texttt{calc/appl/findFunction.fvl}}
+[import (kreb-scout/calc/appl/findFunction.fvl)]#
+\begin{enumerate}
+\item [eval @calc.appl.findFunction.quad (bool @show.solution := #t)]
+\end{enumerate}
+
+
+
+%-------------%
+%             %
+% :Statistics %
+%             %
+%-------------%
+
+\section{Statistics}
+
+\subsection{\texttt{stat/expectVal.fvl}}
+[import (kreb-scout/stat/expectVal.fvl)]#
+\begin{enumerate}
+\item [eval @expected.value.card.1 (bool @show.solution := #t)]
+\item [eval @expected.value.card.2]
+\item [eval @expected.value.dice.1 (bool @show.solution := #t)]
+\item [eval @expected.value.lottery.1 (bool @show.solution := #t)]
+\end{enumerate}
+
+
+\subsection{\texttt{stat/compute.fvl}}
+[import (kreb-scout/stat/compute.fvl)]#
+\begin{enumerate}
+\item [eval @mean.binomial.1 (bool @show.solution := #t)]
+\item [eval @mean.uniform.1 (bool @show.solution := #t)]
+\item [eval @mean.uniform.2 (bool @show.solution := #t)]
+\item [eval @mean.deviation.binomial.1 (bool @show.solution := #t)]
+\item [eval @mean.deviation.uniform.1 (bool @show.solution := #t)]
+\item [eval @standard.deviation.uniform.1 (bool @show.solution := #t)]
+\item [eval @zscore.binomial.1 (bool @show.solution := #t)]
+\item [eval @zscore.uniform.1 (bool @show.solution := #t)]
+\item [eval @coef.var.binomial.1 (bool @show.solution := #t)]
+\item [eval @coef.var.uniform.1 (bool @show.solution := #t)]
+\item [eval @mean.std.dev.discrete.rv.1 (bool @show.solution := #t)]
+\end{enumerate}
+
+
+\subsection{\texttt{stat/probability.fvl}}
+[import (kreb-scout/stat/probability.fvl)]#
+\begin{enumerate}
+\item [eval @prob.dice.d6.1 (bool @show.solution := #t)]
+\item [eval @prob.dice.2d6.1 (bool @show.solution := #t)]
+\item [eval @prob.dice.d12.1 (bool @show.solution := #t)]
+\item [eval @prob.dice.d20.1 (bool @show.solution := #t)]
+\item [eval @prob.cards.hand.1 (bool @show.solution := #t)]
+\item [eval @prob.cards.hand.2 (bool @show.solution := #t)]
+\item [eval @prob.cards.single.1 (bool @show.solution := #t)]
+\item [eval @prob.cards.sum.1 (bool @show.solution := #t)]
+\item [eval @prob.cards.sum.2 (bool @show.solution := #t)]
+\item [eval @prob.coins.4flips (bool @show.solution := #t)]
+\item [eval @prob.sum.formula.1 (bool @show.solution := #t)]
+\end{enumerate}
+
+
+\subsection{\texttt{stat/word.fvl}}
+[import (kreb-scout/stat/word.fvl)]#
+\begin{enumerate}
+\item [eval @prob.word.study.group (bool @show.solution := #t)]
+\item [eval @prob.word.act (bool @show.solution := #t)]
+\item [eval @prob.word.mm.candies (bool @show.solution := #t)]
+\item [eval @prob.word.ied (bool @show.solution := #t)]
+\end{enumerate}
+
+
+\subsection{\texttt{stat/match.fvl}}
+[import (kreb-scout/stat/match.fvl)]#
+\begin{enumerate}
+\item [eval @stat.match.sampling (bool @show.solution := #t)]
+\item [eval @stat.match.vocab (bool @show.solution := #t)]
+\end{enumerate}
+
+\end{document}

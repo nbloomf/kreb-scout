@@ -1,0 +1,62 @@
+[define >doc @lim.infinity.rat.1 := Macro(doc; [#
+
+[define int @a := Rand({2;3;5;6;7;10;11;13})]#
+[define int @b := Rand(Range(2;12))]#
+[define int @c := Rand(Range(2;12))]#
+[define int @d := Rand(Range(2;12))]#
+[define int @e := Rand(Range(2;12))]#
+
+Compute the following limit. \#[ \lim_{x \rightarrow \infty} \frac{\sqrt{@a x^2 + @b x + @c}}{@d x + @e} \#]
+
+[if (@show.solution) then [#
+\textbf{Solution:} We cannot use the limit laws here because the limits of the numerator and denominator do not exist. However, note that for $x \neq 0$ we have $1 = (1/|x|)/(1/|x|)$.
+
+\begin{align*}
+\lim_{x \rightarrow \infty} \frac{\sqrt{@a x^2 + @b x + @c}}{@d x + @e}
+ & = \lim_{x \rightarrow \infty} \left( \frac{\sqrt{@a x^2 + @b x + @c}}{@d x + @e} \cdot \frac{\frac{1}{|x|}}{\frac{1}{|x|}} \right) \\
+ & = \lim_{x \rightarrow \infty} \left( \frac{\sqrt{@a x^2 + @b x + @c}}{@d x + @e} \cdot \frac{\frac{1}{\sqrt{x^2}}}{\frac{1}{x}} \right) \\
+ & = \lim_{x \rightarrow \infty} \frac{\frac{\sqrt{@a x^2 + @b x + @c}}{\sqrt{x^2}}}{\frac{@d x + @e}{x}} \\
+ & = \lim_{x \rightarrow \infty} \frac{\sqrt{\frac{@a x^2 + @b x + @c}{x^2}}}{\frac{@d x + @e}{x}} \\
+ & = \lim_{x \rightarrow \infty} \frac{\sqrt{@a + \frac{@b}{x} + \frac{@c}{x^2}}}{@d + \frac{@e}{x}} \\
+ & = \frac{\dlim_{x \rightarrow \infty} \sqrt{@a + \frac{@b}{x} + \frac{@c}{x^2}}}{\dlim_{x \rightarrow \infty} \left( @d + \frac{@e}{x} \right)} \\
+ & = \frac{\sqrt{@a}}{@d}
+\end{align*}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+[define >doc @lim.infinity.rat.2 := Macro(doc; [#
+
+[define int @a := Rand(Range(2;12))]#
+[define int @b := Rand(Range(2;12))]#
+[define int @c := Rand(Range(2;12))]#
+[define int @d := Rand(Range(2;12))]#
+
+Compute the following limit. \#[ \lim_{x \rightarrow \infty} \frac{@a x + @b}{@c x + @d} \#]
+
+[if (@show.solution) then [#
+\textbf{Solution:} We cannot use the limit laws to break up this quotient because the limits of the numerator and denominator do not exist as $x \rightarrow \infty$. However, note that for $x \neq 0$, we have $1 = (1/x)/(1/x)$. Multiplying by $1$ in this form, we have
+
+\begin{eqnarray*}
+\lim_{x \rightarrow \infty} \frac{@a x + @b}{@c x + @d}
+ & = & \lim_{x \rightarrow \infty} \frac{@a x + @b}{@c x + @d} \cdot \frac{\frac{1}{x}}{\frac{1}{x}} \\
+ & = & \lim_{x \rightarrow \infty} \frac{\frac{@a x + @b}{x}}{\frac{@c x + @d}{x}} \\
+ & = & \lim_{x \rightarrow \infty} \frac{@a + \frac{@b}{x}}{@c + \frac{@d}{x}}. \\
+\end{eqnarray*}
+
+Now the limits of the numerator and denominator do exist as $x \rightarrow \infty$, and we have
+
+\begin{eqnarray*}
+\lim_{x \rightarrow \infty} \frac{@a x + @b}{@c x + @d}
+ & = & \frac{\lim_{x \rightarrow \infty} \left( @a + \frac{@b}{x} \right)}{\lim_{x \rightarrow \infty} \left( @c + \frac{@d}{x} \right)} \\
+ & = & \frac{@a}{@c} \\ [if (NotEqual(int; 1; @a gcd @c)) then [ & = & [:rat: int(@a) / int(@c) :] \\] else [] endif]
+\end{eqnarray*}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#

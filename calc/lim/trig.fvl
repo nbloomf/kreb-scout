@@ -1,0 +1,56 @@
+[define >doc @lim.trig.sinx.over.x.kx := Macro(doc; [#
+
+[define int @k := Rand(Range(2;12))]#
+
+Compute the following limit. \#[ \lim_{x \rightarrow 0} \frac{\sin(@k x)}{x} \#]
+
+[if (@show.solution) then [#
+\textbf{Solution:} Note that
+\begin{eqnarray*}
+\lim_{x \rightarrow 0} \frac{\sin(@k x)}{x}
+ & = & \lim_{x \rightarrow 0} \frac{k\sin(@k x)}{@k x} \\
+ & = & @k \lim_{x \rightarrow 0} \frac{\sin(@k x)}{@k x} \\
+ & = & @k \lim_{x \rightarrow 0} \sinc(@k x) \\
+ & = & @k \sinc\left( \lim_{x \rightarrow 0} @k x \right) \quad \mathrm{(since}\ \sinc\ \mathrm{is\ continuous)} \\
+ & = & @k \sinc(0) \\
+ & = & @k#.
+\end{eqnarray*}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+[define >doc @lim.trig.sinx.over.x.quad := Macro(doc; [#
+
+[define int @a := Rand(Range(2;12))]#
+[define int @b := Rand(Range(2;12))]#
+
+Compute the following limit. \#[ \lim_{x \rightarrow 0} \frac{@a x^2 + @b x + \sin x}{x} \#]
+
+[if (@show.solution) then [#
+\textbf{Solution:} This expression is not defined if $x = 0$. However, we can split this fraction like so:
+
+\begin{eqnarray*}
+\lim_{x \rightarrow 0} \frac{@a x^2 + @b x + \sin(x)}{x}
+ & = & \lim_{x \rightarrow 0} \left( \frac{@a x^2 + @b x}{x} + \frac{\sin x}{x} \right) \\
+ & = & \lim_{x \rightarrow 0} \left( @a x + @b + \frac{\sin x}{x} \right). \\
+\end{eqnarray*}
+
+Recall that the limit of a sum is the sum of limits, \emph{provided} the limit of each summand exists. In this case they do, and we have
+
+\begin{eqnarray*}
+ & = & \lim_{x \rightarrow 0} \left( @a x + @b \right) + \lim_{x \rightarrow 0} \frac{\sin x}{x} \\
+ & = & @b + 1 \\
+ & = & [:int: @b + 1 :]. \\
+\end{eqnarray*}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+

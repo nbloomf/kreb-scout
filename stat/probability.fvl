@@ -1,0 +1,178 @@
+[define >doc @prob.dice.d6.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(9;11))]#
+[define str @x := Rand({"red";"orange";"pink"})]#
+[define str @y := Rand({"blue";"green";"purple"})]#
+
+Suppose we roll two 6-sided dice, one @x and one @y, whose faces are numbered from 1 to 6. What is the probability that we roll two numbers whose sum is exactly @a?
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+
+[define >doc @prob.dice.2d6.1 := Macro(doc; [#
+
+[define int @a := Rand({3;4;5})]#
+[define str @x := Rand({"red";"orange";"pink"})]#
+[define str @y := Rand({"blue";"green";"purple"})]#
+
+Suppose we roll two 6-sided dice, one @x and one @y, with faces labeled 1 through 6. Compute the probability of the following events.
+
+\begin{enumerate*}
+\item The dice show the same number.
+\item The sum of the numbers on the dice is exactly @a#.
+\end{enumerate*}
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+
+[define >doc @prob.dice.d12.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(1;12))]#
+[define int @b := Rand(Range(2;6))]#
+[define int @c := Rand(Range(6;12))]#
+
+Suppose we roll a single 12-sided die with faces labeled 1 through 12.
+
+\begin{enumerate*}
+\item What is the sample space of this experiment?
+\item Find the probabilities of the following events.
+\begin{enumerate*}
+\item Roll a @a
+\item Roll a number divisible by @b
+\item Roll a number greater than @c
+\end{enumerate*}
+\end{enumerate*}
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+
+[define >doc @prob.dice.d20.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(3;17))]#
+
+Suppose we roll a single 20-sided die, whose faces are numbered from 1 to 20. What is the probability that we roll a number strictly less than @a?
+
+[if (@show.solution) then [#
+\textbf{Solution:} [:rat: int(@a - 1) / 20 :]
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+[define >doc @prob.cards.hand.1 := Macro(doc; [#
+
+Three cards are drawn from a standard deck without replacement. What is the probability that all three have the same face value? (E.g. all three are aces.)
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+[define >doc @prob.cards.hand.2 := Macro(doc; [#
+
+Two cards are drawn from a standard deck without replacement. What is the probability that both have the same face value? (E.g. both are aces.)
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+[define >doc @prob.cards.single.1 := Macro(doc; [#
+
+[define int @k := Rand(Range(2;10))]#
+[define str @color := Rand({"red"; "black"})]#
+[define str @suit := Rand({"club"; "diamond"; "spade"; "heart"})]#
+
+Suppose we select a single card from a standard deck. Compute the probability of the following events.
+\begin{enumerate*}
+\item The card is a @k#.
+\item The card is @color#.
+\item The card is a @suit#.
+\item The card is a face card (Jack, Queen, or King).
+\end{enumerate*}
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+[define >doc @prob.cards.sum.1 := Macro(doc; [#
+
+[define str @suit := Rand({"club"; "spade"; "diamond"; "heart"})]#
+
+Suppose we draw a single card from a standard 52-card deck. What is the probability that we draw either a @suit or a face card?
+
+[if (@show.solution) then [#
+\textbf{Solution:} This is an event of the form $E \ \mathrm{or}\ F$, where $E$ is the event ``draw a @suit'' and $F$ the event ``draw a face card''. There are 13 @suit# s, 12 face cards, and 3 @suit# s which are also face cards. Using the sum rule, we can say
+
+\begin{eqnarray*}
+P(E \ \mathrm{or}\ F) & = & P(E) + P(F) - P(E \ \mathrm{and}\ F) \\
+ & = & \frac{13}{52} + \frac{12}{52} - \frac{3}{52} \\
+ & = & \frac{11}{26}
+\end{eqnarray*}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+
+[define >doc @prob.coins.4flips := Macro(doc; [#
+
+Suppose we flip a coin four times in a row, to get a sequence of coin flips. For example, if we flip heads, then tails, then heads, then heads, the result is $(H,T,H,H)$. Write down the sample space for this experiment. Then compute the probability of the following events.
+\begin{enumerate*}
+\item We flip tails four times.
+\item We flip exactly two heads.
+\item We flip at least three tails.
+\item The first two flips are tails.
+\end{enumerate*}
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+
+
+[define >doc @prob.cards.sum.2 := Macro(doc; [#
+
+Suppose we draw a single card from a standard deck. What is the probability that the card is either a [alt opt [diamond] opt [heart] opt [club] opt [spade] endalt] or a face card?
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+[define >doc @prob.sum.formula.1 := Macro(doc; [#
+
+[define str @e := Rand({"0.3"; "0.4"})]#
+[define str @f := Rand({"0.2"; "0.3"})]#
+[define str @g := Rand({"0.5"; "0.4"})]#
+
+Suppose $E$ and $F$ are events of some experiment such that $P(E) = @e$, $P(F) = @f$, and $P(E \scOR F) = @g$. What is $P(E \scAND F)$?
+
+  ]; bool @show.solution := #f
+)]#

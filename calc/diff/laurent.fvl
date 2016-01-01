@@ -1,0 +1,12 @@
+[define >doc @laurent.3term.1 := Macro(doc; [#
+
+[define int @a := Rand({2;3})]#
+[define int @b := Rand({3;4;5})]#
+[define int @g := Rand(Range(2;9))]#
+[define int @h := Rand(Range(2;9))]#
+[define int @k := Rand(Range(2;9))]#
+
+Compute the derivative of the following function of $t$. \#[ f(t) = \frac{@g}{t^{@a}} + \frac{@h}{t} + @k t^{@b}. \#]
+
+  ]; bool @show.solution := #f
+)]#

@@ -1,0 +1,9 @@
+[define >doc @chain1 := Macro(doc; [#
+
+[define int @a := Rand(Range(1;9))]#
+[define int @e := Rand(Range(3;5))]#
+
+Compute the second derivative of the following function. \#[ y(x) = \left( 1 + \frac{@a}{x} \right)^{@e} \#]
+
+  ]; bool @show.solution := #f
+)]#

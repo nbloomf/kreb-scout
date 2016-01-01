@@ -1,0 +1,37 @@
+[define >doc @chain.poly.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(2;7))]#
+[define int @b := Rand(Range(2;7))]#
+[define int @c := Rand(Range(2;7))]#
+[define int @e := Rand(Range(4;7))]#
+
+Compute the derivative of the following function. \#[ f(x) = (@a x^2 + @b x + @c)^{@e} \#]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+[define >doc @chain.root.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(2;7))]#
+[define int @b := Rand(Range(2;7))]#
+[define int @r := Rand({2;3;4})]#
+
+Compute the derivative of the following function. \#[ f(x) = \sqrt#[@r#]{x^3 + @a x - @b} \#]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+[define >doc @chain.sin.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(2;5))]#
+[define int @b := Rand(Range(2;5))]#
+[define int @c := Rand(Range(2;5))]#
+
+Compute the derivative of the following function. \#[ f(x) = \sin(@a x^2 + @b x + @c) \#]
+
+  ]; bool @show.solution := #f
+)]#

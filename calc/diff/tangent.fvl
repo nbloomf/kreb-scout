@@ -1,0 +1,40 @@
+[define >doc @tangent.horizontal.1 := Macro(doc; [#
+
+[define int @p := Rand({1;3;5;7;9;11})]#
+[define int @q := Rand({3;5;7;9;11})]#
+[define int @m := Rand(Range(50;100))]#
+
+Find the values of $x$ at which the line tangent to \#[ f(x) = x^3 + [:int: ((3 * @q) + @p) div 2 :] x^2 + [:int: @p * @q :] x + @m \#] is horizontal.
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+[define >doc @tangent.laurent.1 := Macro(doc; [#
+
+[define int @c := Rand(Range(1;5))]#
+
+Let $f(x) = x + \frac{[:int: 2 * @c :]}{x}$.
+\begin{enumerate*}
+\item Compute the derivative of $f$.
+\item Find an equation for the line tangent to $f$ at the point $(@c, [:int: 2 + @c :])$.
+\end{enumerate*}
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+[define >doc @tangent.root.1 := Macro(doc; [#
+
+[define int @b := Rand({2;3;4})]#
+[define int @c := Rand(Range(5;10))]#
+[define str @s := Rand({"+";"-"})]#
+[define int @r := Rand(Range(-3;3))]#
+
+Find an equation for the line tangent to \#[ f(x) = \sqrt{x^2 @s @b x + @c} \#] at $x = @r$.
+
+  ]; bool @show.solution := #f
+)]#
+

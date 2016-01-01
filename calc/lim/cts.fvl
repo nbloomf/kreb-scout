@@ -1,0 +1,16 @@
+[define >doc @lim.find.const.lin.quad := Macro(doc; [#
+
+[define int @a := Rand(Range(2;9))]#
+
+Let $f(x)$ be the function \#[ f(x) = \left\{ \begin{array}{ll} \frac{x-b}{b + @a} & \mathrm{if}\ x < 0 \\ & \\ x^2 + b & \mathrm{if}\ x \geq 0. \end{array}\right. \#] Find the value(s) of the constant $b$ such that $f(x)$ is continuous everywhere.
+
+[if (@show.solution) then [#
+\textbf{Solution:} Remember that $\dlim_{x \rightarrow 0} f(x)$ exists precisely when the one-sided limits $\dlim_{x \rightarrow 0^+} f(x)$ and $\dlim_{x \rightarrow 0^-} f(x)$ exist and are equal to one another. In this case, we have \#[ \lim_{x \rightarrow 0^+} f(x) = \lim_{x \rightarrow 0^+} (x^2 + b) = b \#] and \#[ \lim_{x \rightarrow 0^-} f(x) = \lim_{x \rightarrow 0^+} \frac{x-b}{b + @a} = \frac{-b}{b + @a}. \#]
+Setting these equal, we have \#[ b = \frac{-b}{b + @a}. \#]
+The values for $b$ we want are precisely the solutions of this equation.
+Clearing denominators, we have \#[ b^2 + @a b = -b, \#] and solving for zero we have \#[ b^2 + [:int: @a + 1 :]b = 0 \quad\quad \mathrm{which\ factors\ as}\ \quad\quad b (b + [:int: @a + 1 :]) = 0. \#]
+So $b = 0$ or $b = [:int: (neg @a) - 1 :]$.] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#

@@ -1,0 +1,97 @@
+[define >doc @prob.word.study.group := Macro(doc; [#
+
+[define int @a := Rand(Range(50;100))]#
+[define int @b := Rand(Range(20;60))]#
+[define int @c := Rand(Range(70;140))]#
+[define int @d := Rand(Range(10;30))]#
+
+A survey was conducted to determine the study habits and final grades of statistics students. [:int: @a + @b + @c + @d :] stats students were asked whether or not they passed their stats class and whether they studied alone or with others. The results of the survey are collected in the following table.
+
+\begin{center}
+\begin{tabular}{c|c|c}
+                  & Pass & Fail \\ \hline
+Study Alone       & @a  & @b  \\ \hline
+Study with Others & @c  & @d  \\
+\end{tabular}
+\end{center}
+
+Use this data to answer the following.
+
+\begin{enumerate}
+\item What is the probability that a given student passed statistics, given that they studied alone?
+
+\item What is the probability that a given student studied alone, given that they passed statistics?
+\end{enumerate}
+
+[if (@show.solution) then [#
+\textbf{Solution:}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+
+[define >doc @prob.word.act := Macro(doc; [#
+
+[define int @k := Rand(Range(6;22))]#
+
+The Mathematics section of the ACT consists of 60 multiple choice questions, each with 5 possible answers. If a student decides to answer all of the questions randomly, we can model the number of correct answers as a binomial random variable.
+
+\begin{enumerate}
+\item What are the median and standard deviation of the resulting distribution?
+
+\item Our friend claims to have guessed randomly at all 60 math questions on the ACT, and ends up with a score of @k correct answers. Is this an unusual outcome? Why?
+\end{enumerate}
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+
+[define >doc @prob.word.mm.candies := Macro(doc; [#
+
+[define str @color := Rand({"yellow";"orange";"red"})]#
+[define int @p := Rand(Range(15;23))]#
+[define int @s := Rand({50;100;200})]#
+[define int @k := Rand(Range(5;45))]#
+
+Mars Inc., the manufacturer of M\&M candy, claims that @p\% of plain M\&Ms are @color#. To test this claim, we will collect a sample of @s M\&Ms and count the number of @color ones.
+
+\begin{enumerate}
+\item If we model the number of @color M\&Ms in our sample using a binomial random variable, what are the mean and standard deviation of the resulting distribution?
+
+\item Suppose we find that our sample has @k @color M\&Ms. Is this an unusually large or small number? Why?
+\end{enumerate}
+
+[if (@show.solution) then [#
+\textbf{Solution:}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+
+[define >doc @prob.word.ied := Macro(doc; [#
+
+[define int @k := Rand(Range(520;580) ++ Range(640;690))]#
+
+According to data from the U.S. Defense Department, in the first nine months of 2011 there were an average of 608 IED attacks per month worldwide. Using this information we can model the number of IED attacks in a given month using a Poisson random variable.
+
+\begin{enumerate}
+\item Find the standard deviation of the resulting distribution.
+
+\item Suppose that in a given month there are @k IED attacks worldwide. Is this an unusually large or small number? Why?
+\end{enumerate}
+
+  ]; bool @show.solution := #f
+)]#
