@@ -8,7 +8,7 @@ Compute the following limit. \#[ \lim_{x \rightarrow 0} \frac{\sin(@k x)}{x} \#]
 \textbf{Solution:} Note that
 \begin{eqnarray*}
 \lim_{x \rightarrow 0} \frac{\sin(@k x)}{x}
- & = & \lim_{x \rightarrow 0} \frac{k\sin(@k x)}{@k x} \\
+ & = & \lim_{x \rightarrow 0} \frac{@k\sin(@k x)}{@k x} \\
  & = & @k \lim_{x \rightarrow 0} \frac{\sin(@k x)}{@k x} \\
  & = & @k \lim_{x \rightarrow 0} \sinc(@k x) \\
  & = & @k \sinc\left( \lim_{x \rightarrow 0} @k x \right) \quad \mathrm{(since}\ \sinc\ \mathrm{is\ continuous)} \\
