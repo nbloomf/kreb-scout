@@ -1,0 +1,11 @@
+[define >doc @foo := Macro(doc; [#
+
+
+
+[if (@show.solution) then [#
+\textbf{Solution:}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
