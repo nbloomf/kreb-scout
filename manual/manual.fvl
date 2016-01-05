@@ -238,6 +238,7 @@
 \item [eval @tangent.horizontal.1]
 \item [eval @tangent.laurent.1]
 \item [eval @tangent.root.1]
+\item [eval @tangent.to.rat.fun.1 (bool @show.solution := #t)]
 \end{enumerate}
 
 

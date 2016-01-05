@@ -1,5 +1,7 @@
-manual.pdf: manual.fvl
+manual.pdf: FORCE
 	feivel -t manual.fvl | tee error > manual.tex
 	pdflatex -interaction=batchmode manual.tex
 	pdflatex -interaction=batchmode manual.tex
 	rm manual.aux manual.log manual.tex manual.toc error
+
+FORCE:

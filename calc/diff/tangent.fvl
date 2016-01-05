@@ -38,3 +38,34 @@ Find an equation for the line tangent to \#[ f(x) = \sqrt{x^2 @s @b x + @c} \#] 
   ]; bool @show.solution := #f
 )]#
 
+
+
+
+[define >doc @tangent.to.rat.fun.1 := Macro(doc; [#
+
+[define {int} @bt := Rand({{2;2};{4;1}})]#
+[define int @b := AtPos(@bt; 1)]#
+[define int @t := AtPos(@bt; 1)]#
+
+[define int @s := Rand({2;3;4})]#
+[define int @u := Rand(Range(1; @t*@s - 1) \\ {@s; 2*@s})]#
+[define int @v := @u - @t*@s]#
+
+[define rat @a := int(@u) / int(@s)]#
+[define rat @d := int(@v) / int(@s)]#
+
+[define int @c := Rand({4;3;2;1;-1;-2;-3;-4} \\ {@b})]#
+
+[define str @p := Format(^rat; latex; Poly((@a).x))]#
+[define str @q := Format(^int; latex; Poly((@b).x; (@c).1))]#
+
+Are there any points on the curve \#[ y = @p + \frac{1}{@q} \#] where the tangent line has slope @d? If so, find them.
+
+[if (@show.solution) then [#
+\textbf{Solution:} Computing the derivative of $y(x)$ with respect to $x$, (using either the quotient rule or the power rule) we have \#[ y^\prime(x) = @a - \frac{@b}{(@q)^2}. \#] The constraint $y^\prime(x) = @d$ then yields the equation \#[ @d = @a - \frac{@b}{(@q)^2} \#] which can be rearranged as \#[ (@q)^2 = [:rat: int(@b)/int(@t) :]. \#] This equation is quadratic, and its two real solutions are precisely the values of $x$ such that the tangent line to $y(x)$ has slope @d#.
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
