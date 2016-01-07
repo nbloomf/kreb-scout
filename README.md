@@ -4,9 +4,9 @@ kreb-scout
 kreb-scout is a library of math problems which are written as feivel templates and intended for use in latex documents to be processed with ximera.
 
 Here's the idea:
-1) ximera takes a latex file and presents it interactively on the web.
-2) feivel takes a template and turns it into a latex file.
-3) kreb-scout is a library of pre-written templates.
+* ximera takes a latex file and presents it interactively on the web.
+* feivel takes a template and turns it into a latex file.
+* kreb-scout is a library of pre-written templates.
 
 Writing a problem template for kreb-scout can be a little complicated. But eventually with a large and easy-to-use library we can simply import even complicated problems.
 
