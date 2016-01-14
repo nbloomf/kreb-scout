@@ -7,9 +7,16 @@
 
 [define str @p := Format(^int; latex; Poly(@a . x; @b . 1))]#
 
-$|@p| + @c = @d$#
+Find all solutions of the following equation.
 
-  ]
+\#[ |@p| + @c = @d \#]#
+
+[if (@show.solution) then [#
+\textbf{Solution:} First we get the absolute value by itself on one side of the equation. \#[ |@p| = [:int: @d - @c :] \#] Now we can split this equation into two: we have \#[ @p = [:int: @d - @c :] \quad \mathrm{or} \quad @p = [:int: @c - @d :]. \#] Solving these equations separately gives two solutions: \framebox{$x = [:rat: int(@d - @c - @b) / int(@a) :]$ or $[:rat: int(@c - @d - @b) / int(@a) :]$}.
+] else []
+endif]#
+
+  ]; bool @show.solution := #f
 )]#
 
 
@@ -23,9 +30,16 @@ $|@p| + @c = @d$#
 
 [define str @p := Format(^int; latex; Poly(@a . x; @b . 1))]#
 
-$-@c - |@p| = |@p| - @c$#
+Find all solutions of the following equation.
 
-  ]
+\#[ -@c - |@p| = |@p| - @c \#]#
+
+[if (@show.solution) then [#
+\textbf{Solution:} First we can add @c to both sides: \#[ -|@p| = |@p| \#] From here we \emph{could} split the equation in two, as we usually do with absolute value equations. That would give us two simpler equations, but each would still have an absolute value in it. Let's do something different: notice that the ``stuff'' in the absolute value signs is the same on both sides of this equation, so by adding $|@p|$ to both sides, we can ``combine like terms'' like so: \#[ 2|@p| = 0. \#] Dividing by 2 then gives us \#[ |@p| = 0, \#] which we can now split up as \#[ @p = 0 \quad \mathrm{or} \quad @p = 0. \#] These equations are the same, so we really only need to solve one of them to get \framebox{$x = [:rat: neg int(@b)/int(@a) :]$}.
+] else []
+endif]#
+
+  ]; bool @show.solution := #f
 )]#
 
 
@@ -40,7 +54,14 @@ $-@c - |@p| = |@p| - @c$#
 
 [define str @p := Format(^int; latex; Poly(@a . x; @b . 1))]#
 
-$|@p| + @c = @d$#
+Find all solutions of the following equation.
 
-  ]
+\#[ |@p| + @c = @d \#]#
+
+[if (@show.solution) then [#
+\textbf{Solution:} First, we subtract @c from both sides, which gives us \#[ |@p| = [:int: @d - @c :]. \#] But remember that the absolute value always gives a positive number or zero; any solution of this equation would give us a number whose absolute value is negative. So this equation has \framebox{no solution}.
+] else []
+endif]#
+
+  ]; bool @show.solution := #f
 )]#

@@ -6,7 +6,57 @@
 
 [define str @p := Format(^int; latex; Poly(1.x; @a . 1))]#
 
-$\displaystyle\frac{x}{@p} + @b = \displaystyle\frac{@c}{@p}$#
+Find all solutions of the following equation.
 
-  ]
+\#[ \frac{x}{@p} + @b = \frac{@c}{@p} \#]#
+
+[if (@show.solution) then [#
+\textbf{Solution:} First, we can clear the denominators of this equation by multiplying both sides by a common denominator; in this case, multiplying by $@p$ will work. That gives the equation \#[ x + @b(@p) = @c#. \#] (Remember! Multiplying by a variable may introduce extraneous solutions, so we will have to check our answers at the end.) Expanding this out and combining like terms gives $x = [:rat: int(@c - @a*@b) / int(1 + @b) :]$. Since plugging this value in for $x$ in the original equation does not make any denominators equal to zero, it is a solution. So \framebox{$x = [:rat: int(@c - @a*@b) / int(1 + @b) :]$}.
+] else []
+endif]#
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+[define >doc @linear.rat.2 := Macro(doc; [#
+
+[define int @a := Rand(Range(1;7))]#
+
+[define str @p := Format(^int; latex; Poly(1.x; (neg @a).1))]#
+
+Find all solutions of the following equation.
+
+\#[ \frac{x}{@p} + @a = \frac{@a}{@p} \#]#
+
+[if (@show.solution) then [#
+\textbf{Solution:} First, we can clear the denominators of this equation by multiplying both sides by a common denominator; in this case, multiplying by $@p$ will work. That gives the equation \#[ x + @a(@p) = @a#. \#] (Remember! Multiplying by a variable may introduce extraneous solutions, so we will have to check our answers at the end.) Expanding this out and combining like terms gives $x = @a$. But plugging this value in for $x$ in the original equation gives a zero in the denominator of a fraction. This is bad! So in fact this equation has \framebox{no solution}.
+] else []
+endif]#
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+[define >doc @linear.rat.3 := Macro(doc; [#
+
+[define int @b := Rand({2;3;5;7})]#
+[define int @a := Rand(Range(1;@b - 1))]#
+[define int @c := Rand(Range(2;5))]#
+
+[define str @p := Format(^int; latex; Poly(1.x; (neg @c).1))]#
+
+Find all solutions of the following equation.
+
+\#[ \frac{@a}{@b} + \frac{1}{@p} = 1 \#]#
+
+[if (@show.solution) then [#
+\textbf{Solution:} Usually, the first thing we do to an equation with fractions is clear the denominator. That would work here. But instead, let's subtract $@a/@b$ from both sides first: \#[ \frac{1}{@p} = \frac{[:int: @b - @a :]}{@b}. \#] When we have two fractions equal to each other, we can flip them both over, like so: \#[ \frac{@p}{1} = \frac{@b}{[:int: @b - @a :]}. \#] From here we can add @c and simplify, to get $x = [:rat: int(@c) + (int(@b) / int(@b - @a)) :]$. Now while solving this equation, we implicitly multiplied both sides by a variable (when we flipped the fractions over). So we need to make sure that this $x$ is not an extraneous solution. It isn't, so we have the solution \framebox{$x = [:rat: int(@c) + (int(@b) / int(@b - @a)) :]$}.
+] else []
+endif]#
+
+  ]; bool @show.solution := #f
 )]#

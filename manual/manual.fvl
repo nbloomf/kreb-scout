@@ -22,9 +22,9 @@
 \subsection{\texttt{ca/eqn/abs/linear.fvl}}
 [import (kreb-scout/ca/eqn/abs/linear.fvl)]#
 \begin{enumerate}
-\item [eval @linear.abs.1]
-\item [eval @linear.abs.2]
-\item [eval @linear.abs.3]
+\item [eval @linear.abs.1 (bool @show.solution := #t)]
+\item [eval @linear.abs.2 (bool @show.solution := #t)]
+\item [eval @linear.abs.3 (bool @show.solution := #t)]
 \end{enumerate}
 
 
@@ -50,7 +50,9 @@
 \subsection{\texttt{ca/eqn/rat/linear.fvl}}
 [import (kreb-scout/ca/eqn/rat/linear.fvl)]#
 \begin{enumerate}
-\item [eval @linear.rat.1]
+\item [eval @linear.rat.1 (bool @show.solution := #t)]
+\item [eval @linear.rat.2 (bool @show.solution := #t)]
+\item [eval @linear.rat.3 (bool @show.solution := #t)]
 \end{enumerate}
 
 
