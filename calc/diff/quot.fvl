@@ -7,6 +7,18 @@
 
 Compute the derivative of the following function. \#[ f(x) = \frac{x^2 + @a x + @b}{@c x - @d} \#]
 
+
+[if (@show.solution) then [#
+\textbf{Solution:} We can use the quotient rule on this function as follows.
+\begin{eqnarray*}
+\frac{d}{dx} f(x) & = & \frac{d}{dx} \frac{x^2 + @a x + @b}{@c x - @d} \\
+ & = & \frac{(@c x - @d) \cdot \frac{d}{dx}(x^2 + @a x + @b) - (x^2 + @a x + @b) \cdot \frac{d}{dx}(@c x - @d)}{(@c x - @d)^2} \\
+ & = & \frac{(@c x - @d)(2x + @a) - (x^2 + @a x + @b)(@c)}{(@c x - @d)^2} \\
+ & = & \boxed{\frac{[:str: Format(^int; latex; Poly((@c).x^2; (-2 * @d).x; (neg (@a*@d + @b*@c)).1)) :]}{(@c x - @d)^2}}
+\end{eqnarray*}
+] else []
+endif]
+
   ]; bool @show.solution := #f
 )]#
 

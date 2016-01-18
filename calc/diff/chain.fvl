@@ -33,5 +33,16 @@ Compute the derivative of the following function. \#[ f(x) = \sqrt#[@r#]{x^3 + @
 
 Compute the derivative of the following function. \#[ f(x) = \sin(@a x^2 + @b x + @c) \#]
 
+
+[if (@show.solution) then [#
+\textbf{Solution:} We can think of $f$ as the composite of two simpler functions. In particular, $f = g \circ h$ where $g(x) = \sin(x)$ and $h(x) = @a x^2 + @b x + @c$. So we can use the chain rule as follows.
+\begin{eqnarray*}
+\frac{d}{dx}f(x) & = & \frac{d}{dx} \sin(@a x^2 + @b x + @c) \\
+ & = & \cos(@a x^2 + @b x + @c) \cdot \frac{d}{dx}(@a x^2 + @b x + @c) \\
+ & = & \boxed{\cos(@a x^2 + @b x + @c)([:int: 2*@a :]x + @b).}
+\end{eqnarray*}
+] else []
+endif]
+
   ]; bool @show.solution := #f
 )]#

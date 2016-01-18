@@ -1,10 +1,15 @@
 [define >doc @tangent.horizontal.1 := Macro(doc; [#
 
-[define int @p := Rand({1;3;5;7;9;11})]#
-[define int @q := Rand({3;5;7;9;11})]#
+[define int @p := Rand({1;5;7;11})]#
+[define int @q := Rand({2;3;4;5;7;9})]#
 [define int @m := Rand(Range(50;100))]#
 
 Find the values of $x$ at which the line tangent to \#[ f(x) = x^3 + [:int: ((3 * @q) + @p) div 2 :] x^2 + [:int: @p * @q :] x + @m \#] is horizontal.
+
+[if (@show.solution) then [#
+\vspace{0.5cm} \textbf{Solution:} Recall that a line is horizontal precisely when its slope is zero, and that the slope of the line tangent to $f$ at $c$ is given by $f^\prime(c)$. So it suffices to find the solutions $x$ of the equation $f^\prime(x) = 0$. To this end, note that \#[ f^\prime(x) = 3x^2 + [:int: (3 * @q) + @p :] x^2 + [:int: @p * @q :]. \#] This is a quadratic, which we can solve using our favorite method to find that $f$ has a horizontal tangent line precisely when $x$ is \fbox{[:int: neg @q :] or [:rat: int(neg @p) / int(3) :].}
+] else []
+endif]
 
   ]; bool @show.solution := #f
 )]#
@@ -20,6 +25,12 @@ Let $f(x) = x + \frac{[:int: 2 * @c :]}{x}$.
 \item Compute the derivative of $f$.
 \item Find an equation for the line tangent to $f$ at the point $(@c, [:int: 2 + @c :])$.
 \end{enumerate*}
+
+
+[if (@show.solution) then [#
+\textbf{Solution:} Note that \#[ f(x) = x + [:int: 2 * @c :] x, \#] which we can differentiate term-by-term using the power rule to get \#[ \boxed{f^\prime(x) = -[:int: 2 * @c :] x^{-2}.} \#] Recall that the line tangent to the graph of $f$ at a point $(u,v)$ has slope $f^\prime(u)$ and passes through $(u,v)$. Thus the slope of the tangent line to $f$ at $x = @c$ is $f^\prime(@c) = [:rat: int(-2) / int(@c) :]$, and the line with this slope and passing through $(@c, [:int: 2 + @c :])$ is given by the equation \#[ [:rat: int(-2) / int(@c) :] = \frac{y - [:int: 2 + @c :]}{x - @c} \#] or, in slope-intercept form, \#[ \boxed{y = [:str: Format(^rat; latex; Poly((int(-2) / int(@c)).x; (int(4) + int(@c)).1)) :].} \#]
+] else []
+endif]
 
   ]; bool @show.solution := #f
 )]#

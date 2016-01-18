@@ -8,5 +8,12 @@
 
 Compute the derivative of the following function of $t$. \#[ f(t) = \frac{@g}{t^{@a}} + \frac{@h}{t} + @k t^{@b}. \#]
 
+[if (@show.solution) then [#
+\textbf{Solution:} We start by moving all the variables to the numerators of fractions like so.
+
+\#[ f(t) = @g t^{-@a} + @h t^{-1} + @k t^{@b}. \#] Now we can use the power rule on each term. In particular, we have \#[ \boxed{f^\prime(t) = [:int: neg @a * @g :] t^{[:int: -1 - @a :]} - @h t^{-2} + [:int: @k * @b :] t^{[:int: @b - 1 :]}.} \#]
+] else []
+endif]
+
   ]; bool @show.solution := #f
 )]#

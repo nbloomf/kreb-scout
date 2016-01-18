@@ -8,7 +8,7 @@ Compute the following derivative. \#[ \frac{d}{dx} \left( @a x^2 + @b x + @c \ri
 
 [if (@show.solution) then [#
 \textbf{Solution:}
-Since this function is a polynomial, we can use the power rule on each term. The derivative is $[:int: 2 * @a :] x + @b$.] else []
+Since this function is a polynomial, we can use the power rule on each term. The derivative is \#[ \boxed{f^\prime(x) = [:int: 2 * @a :] x + @b#.} \#]] else []
 endif]
 
   ]; bool @show.solution := #f
