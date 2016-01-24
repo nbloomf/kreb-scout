@@ -90,9 +90,9 @@
 \subsection{\texttt{ca/geom/lines.fvl}}
 [import (kreb-scout/ca/geom/lines.fvl)]#
 \begin{enumerate}
-\item [eval @linear.eqn.1]
-\item [eval @find.slope.1]
-\item [eval @plot.line.1]
+\item [eval @linear.eqn.1 (bool @show.solution := #t)]
+\item [eval @find.slope.1 (bool @show.solution := #t)]
+\item [eval @plot.line.1 (bool @show.solution := #t)]
 \end{enumerate}
 
 
