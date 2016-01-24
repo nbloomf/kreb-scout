@@ -92,6 +92,7 @@
 \begin{enumerate}
 \item [eval @linear.eqn.1 (bool @show.solution := #t)]
 \item [eval @find.slope.1 (bool @show.solution := #t)]
+\item [eval @find.slope.2 (bool @show.solution := #t)]
 \item [eval @plot.line.1 (bool @show.solution := #t)]
 \end{enumerate}
 

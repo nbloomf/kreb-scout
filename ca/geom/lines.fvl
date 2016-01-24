@@ -39,6 +39,24 @@ endif]
 
 
 
+[define >doc @find.slope.2 := Macro(doc; [#
+
+[define int @a := Rand(Range(1;7))]#
+[define int @b := Rand(Range(-7;-1) ++ Range(1;7))]#
+[define int @h := Rand(Range(-7;-1))]#
+
+Find the slope between the points $(@a, @b)$ and $(@a, @h)$.
+
+[if (@show.solution) then [#
+\textbf{Solution:} Remember that the slope between the points $(x_1, y_1)$ and $(x_2, y_2)$ is \#[ \frac{y_2 - y_1}{x_2 - x_1}. \#] Here, we have $(x_1,y_1) = (@a,@b)$ and $(x_2,y_2) = (@a, @h)$, so that the slope between them is \#[ \frac{y_2 - y_1}{x_2 - x_1} = \frac{(@h) - (@b)}{(@a) - (@a)} = \frac{[:int: @h - @b :]}{[:int: @a - @a :]}. \#] We have a problem: the denominator of this fraction is zero. So the slope between these points is \fbox{undefined}.
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
 [define >doc @plot.line.1 := Macro(doc; [#
 
 [define int @b := Rand({1;2;3;-1;-2;-3})]#
