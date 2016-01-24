@@ -5,9 +5,14 @@
 [define int @h := Rand((Range(-7;-1) ++ Range(1;7)))]#
 [define int @k := Rand((Range(-7;-1) ++ Range(1;7)))]#
 
-Find an equation for the line passing through the point $(@h, @k)$ and having slope [:rat: int(@a) / int(@b) :].#
+Find an equation for the line passing through the point $(@h, @k)$ and having slope [:rat: int(@a) / int(@b) :].
 
-  ]
+[if (@show.solution) then [#
+\textbf{Solution:} Remember that to uniquely identify a line in the plane, we need two pieces of information. In this case we know two things about this line: its slope, and a point on the line. The simplest linear equation form to use here is the point-slope form: the line with slope $m$ and passing through the point $(h,k)$ is given by the equation \#[ \frac{y - k}{x - h} = m. \#] Here we have $m = [:rat: int(@a) / int(@b) :]$ and $(h,k) = (@h,@k)$. So this line is given by the equation \#[ \frac{[:str: Format(^int; latex; Poly(1.y; (neg @k).1)) :]}{Format(^int; latex; Poly(1.x; (neg @h).1)) :]} = [:rat: int(@a) / int(@b) :]. \#] In slope-intercept form, this line is \#[ \boxed{y = [:str: Format(^rat; latex; Poly((int(@a) / int(@b)).x; (int(@k*@b - @a*@h) / int(@b)).1)) :]} \#].
+] else []
+endif]
+
+  ]; bool @show.solution := #f
 )]#
 
 
