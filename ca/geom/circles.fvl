@@ -1,13 +1,26 @@
 [define >doc @find.distance.1 := Macro(doc; [#
 
-[define int @a := Rand(Range(1;7))]#
-[define int @b := Rand(Range(-7;-1) ++ Range(1;7))]#
-[define int @h := Rand(Range(-7;-1))]#
-[define int @k := Rand(Range(-7;-1) ++ Range(1;7))]#
+[define (int,int,int,int) @coords := Rand(Build((@a,@b,@h,@k);
+  int @a <- Range(-5;5) \\ {0};
+  int @b <- Range(-5;5) \\ {0};
+  int @h <- Range(-5;5) \\ {0};
+  int @k <- Range(-5;5) \\ {0};
+  LT(int; (@h - @a)^2 + (@k - @b)^2; 30);
+  IsSquareFree((@h - @a)^2 + (@k - @b)^2)))]#
 
-Find the distance between the points $(@a, @b)$ and $(@h, @k)$.#
+[define int @a := AtSlot((int,int,int,int); @coords; 1)]#
+[define int @b := AtSlot((int,int,int,int); @coords; 2)]#
+[define int @h := AtSlot((int,int,int,int); @coords; 3)]#
+[define int @k := AtSlot((int,int,int,int); @coords; 4)]#
 
-  ]
+Find the distance between the points $(@a, @b)$ and $(@h, @k)$.
+
+[if (@show.solution) then [#
+\textbf{Solution:} Remember that the formula for the distance between $(x_1,y_1)$ and $(x_2,y_2)$ is \#[ \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}. \#] Here we have $(x_1,y_1) = (@a,@b)$ and $(x_2,y_2) = (@h,@k)$, so that the formula gives \#[ \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} = \sqrt{((@h) - (@a))^2 + ((@k) - (@b))^2} = \sqrt{([:int: @h - @a :])^2 + ([:int: @k - @b :])^2} = \sqrt{[:int: (@h - @a)^2 + (@k - @b)^2 :]}. \#] So the distance between these points is \fbox{$\sqrt{[:int: (@h - @a)^2 + (@k - @b)^2 :]}$}.
+] else []
+endif]
+
+  ]; bool @show.solution := #f
 )]#
 
 
@@ -19,21 +32,31 @@ Find the distance between the points $(@a, @b)$ and $(@h, @k)$.#
 [define int @b := Rand(Range(-7;-1) ++ Range(1;7))]#
 [define int @m := Rand(Range(1;8))]#
 
-Find an equation for the circle centered at $(@a, @b)$ and having radius $@m$.#
+Find an equation for the circle centered at $(@a, @b)$ and having radius $@m$.
 
-  ]
+[if (@show.solution) then [#
+\textbf{Solution:} Remember that the standard form equation of a circle centered at the point $(h,k)$ and with radius $r$ is \#[ (x-h)^2 + (y-k)^2 = r^2. \#] Here we have $(h,k) = (@a,@b)$ and $r = @m$; so this circle is given by the equation \#[ \boxed{([:str: Format(^int; latex; Poly(1.x; (neg @a).1)) :])^2 + ([:str: Format(^int; latex; Poly(1.y; (neg @b).1)) :])^2 = [:int: @m ^ 2 :]}. \#]
+] else []
+endif]
+
+  ]; bool @show.solution := #f
 )]#
 
 
 
 [define >doc @circle.eqn.2 := Macro(doc; [#
 
-[define int @a := Rand(Range(1;7))]#
-[define int @b := Rand(Range(-7;-1) ++ Range(1;7))]#
-[define int @h := Rand(Range(-7;-1))]#
-[define int @k := Rand(Range(-7;-1) ++ Range(1;7))]#
+[define int @a := Rand(Range(1;5))]#
+[define int @b := Rand(Range(-5;-1) ++ Range(1;5))]#
+[define int @h := Rand(Range(-5;-1))]#
+[define int @k := Rand(Range(-5;-1) ++ Range(1;5))]#
 
-Find an equation for the circle centered at $(@a, @b)$ and passing through $(@h, @k)$.#
+Find an equation for the circle centered at $(@a, @b)$ and passing through $(@h, @k)$.
 
-  ]
+[if (@show.solution) then [#
+\textbf{Solution:} The radius of this circle is the distance from the center, $(@a,@b)$, to the point $(@h,@k)$. That distance is \#[ \sqrt{[:int: (@h - @a)^2 + (@k - @b)^2 :]}. \#] Now the circle with center at $(h,k)$ and radius $r$ is given by the equation \#[ (x-h)^2 + (y-k)^2 = r^2. \#] Thus this circle is given by the equation \#[ \boxed{([:str: Format(^int; latex; Poly(1.x; (neg @a).1)) :])^2 + ([:str: Format(^int; latex; Poly(1.y; (neg @b).1)) :])^2 = [:int: (@h - @a)^2 + (@k - @b)^2 :]}. \#]
+] else []
+endif]
+
+  ]; bool @show.solution := #f
 )]#

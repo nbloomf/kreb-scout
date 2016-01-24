@@ -20,9 +20,14 @@ Find an equation for the line passing through the point $(@h, @k)$ and having sl
 [define int @h := Rand(Range(-7;-1))]#
 [define int @k := Rand(Range(-7;-1) ++ Range(1;7))]#
 
-Find the slope between the points $(@a, @b)$ and $(@h, @k)$.#
+Find the slope between the points $(@a, @b)$ and $(@h, @k)$.
 
-  ]
+[if (@show.solution) then [#
+\textbf{Solution:} Remember that the slope between the points $(x_1, y_1)$ and $(x_2, y_2)$ is \#[ \frac{y_2 - y_1}{x_2 - x_1}. \#] Here, we have $(x_1,y_1) = (@a,@b)$ and $(x_2,y_2) = (@h, @k)$, so that the slope between them is \#[ \frac{y_2 - y_1}{x_2 - x_1} = \frac{(@k) - (@b)}{(@h) - (@a)} = \frac{[:int: @k - @b :]}{[:int: @h - @a :]}. \#] So the slope between these points is \fbox{[:rat: int(@k - @b) / int(@h - @a) :]}.
+] else []
+endif]
+
+  ]; bool @show.solution := #f
 )]#
 
 

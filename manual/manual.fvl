@@ -99,9 +99,9 @@
 \subsection{\texttt{ca/geom/circles.fvl}}
 [import (kreb-scout/ca/geom/circles.fvl)]#
 \begin{enumerate}
-\item [eval @find.distance.1]
-\item [eval @circle.eqn.1]
-\item [eval @circle.eqn.2]
+\item [eval @find.distance.1 (bool @show.solution := #t)]
+\item [eval @circle.eqn.1 (bool @show.solution := #t)]
+\item [eval @circle.eqn.2 (bool @show.solution := #t)]
 \end{enumerate}
 
 
