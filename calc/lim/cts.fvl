@@ -14,3 +14,50 @@ endif]
 
   ]; bool @show.solution := #f
 )]#
+
+
+
+[define >doc @lim.abs.poly.1 := Macro(doc; [#
+
+[define int @a := Rand({1;2})]#
+[define int @b := Rand({1;2;3;-1;-2;-3})]#
+[define int @c := Rand({3;4;5;-3;-4;-5})]#
+
+[define str @p := Format(^int; latex; Poly((@a).x^2; (@b).x; (@c).1))]#
+
+Compute the following limit. \#[ \lim_{x \rightarrow 0} \left| @p \right| \#]
+
+[if (@show.solution) then [#
+\textbf{Solution:} The function which we are computing the limit of here is continuous everywhere; so to find the limit, we can simply evaluate this function at $x = 0$. Thus \#[ \lim_{x \rightarrow 0} \left| @p \right| = |@c| = [:int: abs @c :] \#] So the limit is \fbox{[:int: abs @c :]}.
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+[define >doc @lim.abs.rat.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(1;5))]#
+[define int @a2 := @a ^ 2]#
+[define int @a3 := @a ^ 3]#
+
+[define str @q := Format(^int; latex; FromCoefs(x; {@a2;@a;1}))]
+
+Compute the following limit. \#[ \lim_{x \rightarrow @a} \left| \frac{x^3 - @a3}{x - @a} \right| \#]
+
+[if (@show.solution) then [#
+\textbf{Solution:} Note that this expression is not defined if $x = @a$ because of the $x - @a$ in the denominator. However, we can factor the numerator as a difference of cubes and cancel.
+
+\#[ \lim_{x \rightarrow @a} \left| \frac{x^3 - @a3}{x - @a} \right| = \lim_{x \rightarrow @a} \left| \frac{(x - @a)(@q)}{x - @a} \right| = \lim_{x \rightarrow @a} \left| @q \right| = |[:int: 3 * @a2 :]| = [:int: abs (3 * @a2) :] \#]
+
+Now this function is continuous everywhere, so we can compute the limit by evaluating at $x = @a$; this yields a limit of \fbox{[:int: abs (3 * @a2) :]}.
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+

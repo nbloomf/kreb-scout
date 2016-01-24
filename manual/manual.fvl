@@ -2,6 +2,7 @@
 \usepackage{neb-titles}
 \usepackage{neb-macros}
 \usepackage{flexfig}
+\usepackage{hyperref}
 
 \pagestyle{empty}
 
@@ -248,6 +249,8 @@
 [import (kreb-scout/calc/lim/cts.fvl)]#
 \begin{enumerate}
 \item [eval @lim.find.const.lin.quad (bool @show.solution := #t)]
+\item [eval @lim.abs.poly.1 (bool @show.solution := #t)]
+\item [eval @lim.abs.rat.1 (bool @show.solution := #t)]
 \end{enumerate}
 
 
