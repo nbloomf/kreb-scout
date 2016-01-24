@@ -57,6 +57,27 @@ endif]
 
 
 
+
+[define >doc @find.midpoint.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(1;7))]#
+[define int @b := Rand(Range(-7;-1) ++ Range(1;7))]#
+[define int @h := Rand(Range(-7;-1))]#
+[define int @k := Rand(Range(-7;-1) ++ Range(1;7))]#
+
+Find the midpoint of the points $(@a, @b)$ and $(@h, @k)$.
+
+[if (@show.solution) then [#
+\textbf{Solution:} Remember that the midpoint of the points $(x_1, y_1)$ and $(x_2, y_2)$ is \#[ \left( \frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2} \right). \#] Here, we have $(x_1,y_1) = (@a,@b)$ and $(x_2,y_2) = (@h, @k)$, so that the midpoint is \#[ \left( \frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2} \right) = \left( \frac{(@a) + (@h)}{2}, \frac{(@b) + (@k)}{2} \right) = \left( \frac{[:int: @a + @h :]}{2}, \frac{[:int: @b + @k :]}{2} \right). \#] So the midpoint is \fbox{$([:rat: int(@a+@h) / int(2) :],[:rat: int(@b+@k)/int(2) :])$}.
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
 [define >doc @plot.line.1 := Macro(doc; [#
 
 [define int @b := Rand({1;2;3;-1;-2;-3})]#
@@ -81,3 +102,45 @@ endif]
 
   ]; bool @show.solution := #f
 )]#
+
+
+
+
+[define >doc @line.through.points.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(1;7))]#
+[define int @b := Rand(Range(-7;-1) ++ Range(1;7))]#
+[define int @h := Rand(Range(-7;-1))]#
+[define int @k := Rand(Range(-7;-1) ++ Range(1;7))]#
+
+[define rat @m := int(@k - @b) / int(@h - @a)]#
+
+Find an equation for the line passing through the points $(@a,@b)$ and $(@h,@k)$.
+
+[if (@show.solution) then [#
+\textbf{Solution:} We will find the point-slope form of this line. First, using the slope formula, we find that the slope of this line is \#[ m = \frac{(@k) - (@b)}{(@h) - (@a)} = @m#. \#] Since we know this line passes through (for instance) $(@a,@b)$, using the point-slope formula, an equation for this line is \#[ \frac{[:str: Format(^int; latex; Poly(1.y; (neg @b).1)) :]}{[:str: Format(^int; latex; Poly(1.x; (neg @a).1)) :]} = @m#. \#] We can solve for $y$ to get this equation in slope-intercept form as follows: \#[ \boxed{y = [:str: Format(^rat; latex; Poly((@m).x; (int(@b) - @m*int(@a)).1)) :]} \#]
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+[define >doc @line.convert.std.to.slopeint.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(1;7))]#
+[define int @b := Rand(Range(-7;-1) ++ Range(1;7))]#
+[define int @c := Rand(Range(-7;-1))]#
+
+Convert the standard form linear equation \#[ [:str: Format(^int; latex; Poly((@a).x; (@b).y)) :] = @c \#] to slope-intercept form.
+
+[if (@show.solution) then [#
+\textbf{Solution:} To convert to slope-intercept form, we simply solve this equation for $y$ to get \#[ \boxed{y = [:str: Format(^rat; latex; Poly((int(neg @a)/int(@b)).x; (int(@c)/int(@b)).1)) :]} \#]
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
