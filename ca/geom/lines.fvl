@@ -132,7 +132,7 @@ endif]
 
 [define int @a := Rand(Range(1;7))]#
 [define int @b := Rand(Range(-7;-1) ++ Range(1;7))]#
-[define int @c := Rand(Range(-7;-1))]#
+[define int @c := Rand(Range(-7;-1) \\ {@b; neg @b})]#
 
 Convert the standard form linear equation \#[ [:str: Format(^int; latex; Poly((@a).x; (@b).y)) :] = @c \#] to slope-intercept form.
 
@@ -143,4 +143,30 @@ endif]
 
   ]; bool @show.solution := #f
 )]#
+
+
+
+
+
+
+[define >doc @find.eqn.parallel.line.1 := Macro(doc; [#
+
+[define int @h := Rand({1;2;3;4})]#
+[define int @k := Rand({1;2;3;4})]#
+[define rat @m := 1/2]#
+[define int @b := Rand({-1;-2;-3;-4;1;2;3;4})]#
+
+[define str @ell2 := Format(^rat; latex; Poly((@m).x; (int(@b)).1))]#
+
+Find an equation in slope-intercept form for the line passing through the point $(@h,@k)$ and parallel to $y = @ell2$.
+
+[if (@show.solution) then [#
+\textbf{Solution:} Let $\ell$ be the unknown line. Since $\ell$ is known to be parallel to $y = @ell2$, the slope of $\ell$ is $m = @m$. We also know that $\ell$ passes through the point $(@h,@k)$. So $\ell$ is given by the point-slope form equation \#[ \frac{y - @k}{x - @h} = @m#. \#] Solving for $y$ yields the slope-intercept equation \#[ \boxed{y = [:str: Format(^rat; latex; Poly((@m).x; (int(@k) - @m*int(@h)).1)) :]} \#]
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
 

@@ -7,9 +7,14 @@
 
 [define ^int @p := FromRoots(x; {@r1;@r2})]#
 
-$[:str: Format(^int; latex; @p) :] = 0$
+Find all solutions of the following equation. \#[ [:str: Format(^int; latex; @p) :] = 0 \#]
 
-  ]
+[if (@show.solution) then [#
+\textbf{Solution:} We can solve this equation by factoring. We have \#[ [:str: Format(^int; latex; @p) :] = ([:str: Format(^int; latex; FromRoots(x; {@r1})) :])([:str: Format(^int; latex; FromRoots(x; {@r2})) :]) = 0, \#] which is true if \fbox{$x = @r1$ or $x = @r2$}.
+] else []
+endif]
+
+  ]; bool @show.solution := #f
 )]#
 
 
@@ -22,9 +27,14 @@ $[:str: Format(^int; latex; @p) :] = 0$
 
 [define ^int @p := FromRoots(x; {@r1;@r2})]#
 
-$[:str: Format(^int; latex; @p) :] = 0$
+Find all solutions of the following equation. \#[ [:str: Format(^int; latex; @p) :] = 0 \#]
 
-  ]
+[if (@show.solution) then [#
+\textbf{Solution:} We can solve this equation by factoring. We have \#[ [:str: Format(^int; latex; @p) :] = ([:str: Format(^int; latex; FromRoots(x; {@r1})) :])([:str: Format(^int; latex; FromRoots(x; {@r2})) :]) = 0, \#] which is true if \fbox{$x = @r1$ or $x = @r2$}.
+] else []
+endif]
+
+  ]; bool @show.solution := #f
 )]#
 
 
@@ -40,7 +50,12 @@ $[:str: Format(^int; latex; @p) :] = 0$
 
 $[:str: Format(^int; latex; @p) :] = 0$
 
-  ]; int @lc := 2
+[if (@show.solution) then [#
+\textbf{Solution:} We can solve this equation by factoring. We have \#[ [:str: Format(^int; latex; @p) :] = ([:str: Format(^int; latex; Poly((@lc).x; (neg @r1).1)) :])([:str: Format(^int; latex; FromRoots(x; {@r2})) :]) = 0, \#] which is true if \fbox{$x = [:rat: int(@r1) / int(@lc) :]$ or $x = @r2$}. (We can also use the quadratic formula.)
+] else []
+endif]
+
+  ]; int @lc := 2; bool @show.solution := #f
 )]#
 
 
@@ -57,5 +72,18 @@ $[:str: Format(^int; latex; @p) :] = 0$
 
 $[:str: Format(^int; latex; @p) :] = 0$
 
-  ]
+[if (@show.solution) then [#
+\textbf{Solution:} We can try factoring this equation, but there are no two integers whose sum is $@b$ and whose product is $@c$. Instead we will use the quadratic formula as follows.
+\begin{eqnarray*}
+x & = & \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \\
+ & = & \frac{[:int: neg @b:] \pm \sqrt{(@b)^2 - 4(1)(@c)}}{2} \\
+ & = & \frac{[:int: neg @b:] \pm \sqrt{[:int: @b*@b - 4*@c :]}}{2} \\
+ & = & \frac{[:int: neg @b :] \pm [:int: SquarePart(@b*@b - 4*@c) :]\sqrt{3}}{2} \\
+ & = & [:int: (neg @b) div 2 :] \pm [:int: SquarePart(@b*@b - 4*@c) div 2 :]\sqrt{3}
+\end{eqnarray*}
+Thus \fbox{$x = [:int: (neg @b) div 2 :] \pm [:int: SquarePart(@b*@b - 4*@c) div 2 :]\sqrt{3}$}.
+] else []
+endif]
+
+  ]; bool @show.solution := #f
 )]#

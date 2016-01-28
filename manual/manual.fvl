@@ -32,10 +32,10 @@
 \subsection{\texttt{ca/eqn/quad/int.fvl}}
 [import (kreb-scout/ca/eqn/quad/int.fvl)]#
 \begin{enumerate}
-\item [eval @monic.int.roots.1]
-\item [eval @monic.int.roots.2]
-\item [eval @quad.with.lc]
-\item [eval @quad.radical.roots.1]
+\item [eval @monic.int.roots.1 (bool @show.solution := #t)]
+\item [eval @monic.int.roots.2 (bool @show.solution := #t)]
+\item [eval @quad.with.lc (bool @show.solution := #t)]
+\item [eval @quad.radical.roots.1 (bool @show.solution := #t)]
 \end{enumerate}
 
 
@@ -97,6 +97,7 @@
 \item [eval @plot.line.1 (bool @show.solution := #t)]
 \item [eval @line.through.points.1 (bool @show.solution := #t)]
 \item [eval @line.convert.std.to.slopeint.1 (bool @show.solution := #t)]
+\item [eval @find.eqn.parallel.line.1 (bool @show.solution := #t)]
 \end{enumerate}
 
 
