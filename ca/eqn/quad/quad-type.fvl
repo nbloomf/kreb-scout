@@ -4,25 +4,37 @@
 [define int @r2 := Rand(Range(3;9) \\ {@r1;neg @r1})]#
 
 [define ^int @p := FromRoots(x; {@r1;@r2;0})]#
+[define ^int @q := FromRoots(x; {@r1;@r2})]#
 
-$[:str: Format(^int; latex; @p) :] = 0$
+Find all solutions of the following equation. \#[ [:str: Format(^int; latex; @p) :] = 0 \#]
 
-  ]
+[if (@show.solution) then [#
+\textbf{Solution:} Note that the terms of this polynomial have a common factor, namely $x$. Un-distributing this common factor gives the equation \#[ x ([:str: Format(^int; latex; @q) :]) = 0, \#] which factors further as \#[ x ([:str: Format(^int; latex; FromRoots(x; {@r1})) :]) ([:str: Format(^int; latex; FromRoots(x; {@r2})) :]) = 0. \#] By the Zero Product Property, the solutions of this equation are \fbox{$x = @r1$, $x = @r2$, and $x = 0$}.
+] else []
+endif]
+
+  ]; bool @show.solution := #f
 )]#
 
 
 
 [define >doc @biquadratic.with.lc := Macro(doc; [#
 
-[define int @r1 := Rand(Build(@k; int @k <- Range(-7;7); NotEqual(int; @k; 0); NotEqual(int; @k mod @lc; 0) ))]#
+[define int @r1 := Rand(Build(@k; int @k <- {1;2;3;5}; NotEqual(int; @k; @lc) ))]#
 
-[define int @r2 := Rand(Range(1;5))]#
+[define int @r2 := Rand({2;3;5;6})]#
 
 [define ^int @p := Poly((@lc).x^4; neg (@r1 + @lc*@r2).x^2; (@r1 * @r2).1)]#
+[define ^int @q := Poly((@lc).y^2; neg (@r1 + @lc*@r2).y; (@r1 * @r2).1)]#
 
-$[:str: Format(^int; latex; @p) :] = 0$
+Find all solutions of the following equation. \#[ [:str: Format(^int; latex; @p) :] = 0 \#]
 
-  ]; int @lc := 2
+[if (@show.solution) then [#
+\textbf{Solution:} This is a degree 4 polynomial. But note that if we make the substitution $y = x^2$, we can rewrite our equation as \#[ [:str: Format(^int; latex; @q) :] = 0, \#] which is quadratic. Now this equation factors as \#[ ([:str: Format(^int; latex; Poly((@lc).y; (neg @r1).1)) :])([:str: Format(^int; latex; Poly(1.y; (neg @r2).1)) :]) = 0, \#] and thus has two solutions: $y = [:rat: int(@r1) / int(@lc) :]$ or $y = @r2$. Then $x^2 = [:rat: int(@r1) / int(@lc) :]$ or $x^2 = @r2$, so that \fbox{$x = \pm \sqrt{[:rat: int(@r1) / int(@lc) :]}$ or $x = \pm \sqrt{@r2}$}.
+] else []
+endif]
+
+  ]; int @lc := 2; bool @show.solution := #f
 )]#
 
 
@@ -30,14 +42,19 @@ $[:str: Format(^int; latex; @p) :] = 0$
 
 [define >doc @abs.monic.1 := Macro(doc; [#
 
-[define int @r1 := Rand({1;-1}) * Rand(Range(1;5))]#
-[define int @r2 := Rand(Range(1;5) \\ {@r1;neg @r1})]#
+[define int @r1 := Rand({1;-1}) * Rand({1;3;5})]#
+[define int @r2 := Rand({2;4;6})]#
 
 [define int @s := Rand(Range(1;5))]#
 
 [define ^int @p := FromRoots(x; {@r1;@r2})]#
 
-$|[:str: Format(^int; latex; @p + Poly((@s).1)) :]| = @s$
+Find all solutions of the following equation. \#[ |[:str: Format(^int; latex; @p + Poly((@s).1)) :]| = @s \#]
 
-  ]
+[if (@show.solution) then [#
+\textbf{Solution:} This absolue value equation is in the form $|A| = B$, so we can split it into two. In this case, we have the two equations \#[ [:str: Format(^int; latex; @p + Poly((@s).1)) :] = @s \quad\quad \mathrm{or} \quad\quad [:str: Format(^int; latex; @p + Poly((@s).1)) :] = [:int: neg @s :]. \#] These simplify as \#[ [:str: Format(^int; latex; @p) :] = 0 \quad\quad \mathrm{or} \quad\quad [:str: Format(^int; latex; @p + Poly((2*@s).1)) :] = 0. \#] The first equation factors as \#[ ([:str: Format(^int; latex; FromRoots(x; {@r1})) :])([:str: Format(^int; latex; FromRoots(x; {@r2})) :]) = 0, \#] giving two solutions, $x = @r1$ and $x = @r2$. The second quadratic can be solved using the quadratic formula, giving two more solutions: $x = ([:int: @r1 + @r2 :] \pm \sqrt{[:int: (@r1 - @r2)^2 - 8*@s :]})/2$. Thus we have four solutions altogether: \#[ \boxed{x = @r1\ \mathrm{or}\ x = @r2\ \mathrm{or}\ x = \frac{[:int: @r1 + @r2 :] \pm \sqrt{[:int: (@r1 - @r2)^2 - 8*@s :]}}{2}}. \#]
+] else []
+endif]
+
+  ]; bool @show.solution := #f
 )]#

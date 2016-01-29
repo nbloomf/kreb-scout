@@ -42,9 +42,9 @@
 \subsection{\texttt{ca/eqn/quad/quad-type.fvl}}
 [import (kreb-scout/ca/eqn/quad/quad-type.fvl)]#
 \begin{enumerate}
-\item [eval @cubic.zero.root.1]
-\item [eval @biquadratic.with.lc]
-\item [eval @abs.monic.1]
+\item [eval @cubic.zero.root.1 (bool @show.solution := #t)]
+\item [eval @biquadratic.with.lc (bool @show.solution := #t)]
+\item [eval @abs.monic.1 (bool @show.solution := #t)]
 \end{enumerate}
 
 
