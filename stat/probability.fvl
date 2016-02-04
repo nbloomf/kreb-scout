@@ -1,10 +1,31 @@
 [define >doc @prob.dice.d6.1 := Macro(doc; [#
 
-[define int @a := Rand(Range(9;11))]#
+[define (int,int) @ps := Rand({(8,5);(9,4);(10,3);(11,2)})]#
+
+[define int @a := AtSlot((int,int); @ps; 1)]#
+[define int @b := AtSlot((int,int); @ps; 2)]#
 [define str @x := Rand({"red";"orange";"pink"})]#
 [define str @y := Rand({"blue";"green";"purple"})]#
 
 Suppose we roll two 6-sided dice, one @x and one @y, whose faces are numbered from 1 to 6. What is the probability that we roll two numbers whose sum is exactly @a?
+
+[if (@show.solution) then [#
+\textbf{Solution:} One outcome of this experiment is an ordered pair of numbers, $(a,b)$, where $a$ is the number on the @x die and $b$ the number on the @y die. Each die will come up a number between 1 and 6 (inclusive). We can visualize all possible outcomes as an array with one row for each outcome of the @x die and one column for each outcome of the @y die as follows.
+\begin{center}
+\begin{tabular}{cc|cccccc}
+   &   & \multicolumn{6}{l}{@y} \\
+   &   & 1     & 2     & 3     & 4     & 5     & 6     \\ \hline
+@x & 1 & (1,1) & (1,2) & (1,3) & (1,4) & (1,5) & (1,6) \\
+   & 2 & (2,1) & (2,2) & (2,3) & (2,4) & (2,5) & (2,6) \\
+   & 3 & (3,1) & (3,2) & (3,3) & (3,4) & (3,5) & (3,6) \\
+   & 4 & (4,1) & (4,2) & (4,3) & (4,4) & (4,5) & (4,6) \\
+   & 5 & (5,1) & (5,2) & (5,3) & (5,4) & (5,5) & (5,6) \\
+   & 6 & (6,1) & (6,2) & (6,3) & (6,4) & (6,5) & (6,6) \\
+\end{tabular}
+\end{center}
+Now the probability of rolling two numbers whose sum is exactly @a is \#[ P(E) = \frac{\mathrm{\##\ of\ ways\ to\ roll\ two\ numbers\ whose\ sum\ is\ @a}}{\mathrm{\##\ of\ possible\ outcomes}}. \#] The total number of outcomes is the number of cells in the body of the table above: $6 \times 6 = 36$. The number of outcomes which add to @a is @b#. So the probability is $\fbox{[:rat: int(@b) / int(36) :]}$.
+] else []
+endif]
 
   ]; bool @show.solution := #f
 )]#
@@ -26,6 +47,11 @@ Suppose we roll two 6-sided dice, one @x and one @y, with faces labeled 1 throug
 \item The sum of the numbers on the dice is exactly @a#.
 \end{enumerate*}
 
+[if (@show.solution) then [#
+\textbf{Solution:} Each outcome of this experiment can be represented by an ordered pair of numbers $(a,b)$, where $a$ is the number on the @x die and $b$ the number on the @y die. There are 36 possible outcomes. There are exactly 6 outcomes where these numbers are equal; namely, $(1,1)$, $(2,2)$, $(3,3)$, $(4,4)$, $(5,5)$, and $(6,6)$. So the probability of the dice showing the same face is $6/36 = \fbox{1/6}$. There are [:int: @a - 1 :] ways to roll two numbers which add to @a, so the probability of rolling two numbers which add to @a is \fbox{[:rat: int(@a - 1) / int(36) :]}.
+] else []
+endif]
+
   ]; bool @show.solution := #f
 )]#
 
@@ -46,10 +72,14 @@ Suppose we roll a single 12-sided die with faces labeled 1 through 12.
 \item Find the probabilities of the following events.
 \begin{enumerate*}
 \item Roll a @a
-\item Roll a number divisible by @b
 \item Roll a number greater than @c
 \end{enumerate*}
 \end{enumerate*}
+
+[if (@show.solution) then [#
+\textbf{Solution:} The sample space of this experiment is the set of whole numbers from 1 to 12. That is, \#[ \{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 \}. \#] The probability of rolling exactly @a is \fbox{1/12}. There are [:int: 12 - @c :] faces labeled with numbers greater than @c, so the probability of rolling a number greater than @c is \fbox{[:rat: int(12 - @c) / int(12) :]}.
+] else []
+endif]
 
   ]; bool @show.solution := #f
 )]#
@@ -65,7 +95,7 @@ Suppose we roll a single 12-sided die with faces labeled 1 through 12.
 Suppose we roll a single 20-sided die, whose faces are numbered from 1 to 20. What is the probability that we roll a number strictly less than @a?
 
 [if (@show.solution) then [#
-\textbf{Solution:} [:rat: int(@a - 1) / 20 :]
+\textbf{Solution:} The die has [:int: @a - 1 :] faces with numbers strictly less than @a#. The probability of rolling one of these numbers is \#[ P(E) = \frac{\mathrm{\##\ of\ ways\ to\ roll\ a\ number\ between\ 1\ and\ [:int: @a - 1 :]}}{\mathrm{\##\ of\ possible\ outcomes}} = \frac{[:int: @a - 1 :]}{20}. \#] So the probability is \fbox{[:rat: int(@a - 1) / 20 :]}.
 ] else []
 endif]
 
@@ -108,6 +138,11 @@ Suppose we select a single card from a standard deck. Compute the probability of
 \item The card is a face card (Jack, Queen, or King).
 \end{enumerate*}
 
+[if (@show.solution) then [#
+\textbf{Solution:} There are 52 cards in a standard deck. Four of these have rank @k, so the probability of drawing one is $4/52 = \fbox{1/13}$. There are 26 @color cards, and the probability of drawing one of these is $26/52 = \fbox{1/2}$. Thirteen of the cards are [:str: @suit ++ "s" :], so the probability of drawing one is $13/52 = \fbox{1/4}$. There are 12 face cards, so the probability of drawing one is $12/52 = \fbox{3/13}$.
+] else []
+endif]
+
   ]; bool @show.solution := #f
 )]#
 
@@ -121,13 +156,13 @@ Suppose we select a single card from a standard deck. Compute the probability of
 Suppose we draw a single card from a standard 52-card deck. What is the probability that we draw either a @suit or a face card?
 
 [if (@show.solution) then [#
-\textbf{Solution:} This is an event of the form $E \ \mathrm{or}\ F$, where $E$ is the event ``draw a @suit'' and $F$ the event ``draw a face card''. There are 13 @suit# s, 12 face cards, and 3 @suit# s which are also face cards. Using the sum rule, we can say
-
+\textbf{Solution:} This is an event of the form ``$E \ \mathrm{or}\ F$'', where $E$ is the event ``draw a @suit'' and $F$ the event ``draw a face card''. There are 13 @suit# s, 12 face cards, and 3 @suit# s which are also face cards. Using the sum rule, we can say
 \begin{eqnarray*}
 P(E \ \mathrm{or}\ F) & = & P(E) + P(F) - P(E \ \mathrm{and}\ F) \\
  & = & \frac{13}{52} + \frac{12}{52} - \frac{3}{52} \\
- & = & \frac{11}{26}
+ & = & \frac{11}{26}.
 \end{eqnarray*}
+So the probability is \fbox{11/26}.
 ] else []
 endif]
 
@@ -148,31 +183,39 @@ Suppose we flip a coin four times in a row, to get a sequence of coin flips. For
 \item The first two flips are tails.
 \end{enumerate*}
 
+[if (@show.solution) then [#
+\textbf{Solution:} This experiment has 16 total outcomes:
+\begin{center}
+\begin{tabular}{cccc}
+(H,H,H,H) & (H,H,H,T) & (H,H,T,H) & (H,H,T,T) \\
+(H,T,H,H) & (H,T,H,T) & (H,T,T,H) & (H,T,T,T) \\
+(T,H,H,H) & (T,H,H,T) & (T,H,T,H) & (T,H,T,T) \\
+(T,T,H,H) & (T,T,H,T) & (T,T,T,H) & (T,T,T,T) \\
+\end{tabular}
+\end{center}
+Exactly one outcome consists of four Ts, so the probability of this event is \fbox{1/16}. Six outcomes consist of exactly two heads: \#[ (H,H,T,T), (H,T,H,T), (H,T,T,H), (T,H,H,T), (T,H,T,H), (T,T,H,H). \#] So the probability of flipping exactly two heads is $6/16 = \fbox{3/8}$. There are five ways to flip at least three tails: four ways to flip exactly three tails, \#[ (T,T,T,H), (T,T,H,T), (T,H,T,T), (H,T,T,T) \#] and one way to flip four tails, $(T,T,T,T)$. So the probability of flipping at least three tails is \fbox{5/16}. There are four possible outcomes where the first two flips are both tails: \#[ (T,T,T,T), (T,T,T,H), (T,T,H,T), (T,T,H,H). \#] So the probability of flipping tails on both of the first two flips is $4/16 = \fbox{1/4}$.
+] else []
+endif]
+
   ]; bool @show.solution := #f
 )]#
 
-
-
-
-
-
-[define >doc @prob.cards.sum.2 := Macro(doc; [#
-
-Suppose we draw a single card from a standard deck. What is the probability that the card is either a [alt opt [diamond] opt [heart] opt [club] opt [spade] endalt] or a face card?
-
-  ]; bool @show.solution := #f
-)]#
 
 
 
 
 [define >doc @prob.sum.formula.1 := Macro(doc; [#
 
-[define str @e := Rand({"0.3"; "0.4"})]#
-[define str @f := Rand({"0.2"; "0.3"})]#
-[define str @g := Rand({"0.5"; "0.4"})]#
+[define int @e := Rand({3;4})]#
+[define int @f := Rand({2;3})]#
+[define int @g := Rand({5;4})]#
 
-Suppose $E$ and $F$ are events of some experiment such that $P(E) = @e$, $P(F) = @f$, and $P(E \scOR F) = @g$. What is $P(E \scAND F)$?
+Suppose $E$ and $F$ are events of some experiment such that $P(E) = 0.@e$, $P(F) = 0.@f$, and $P(E\ \textsc{or}\ F) = 0.@g$. What is $P(E\ \textsc{and}\ F)$?
+
+[if (@show.solution) then [#
+\textbf{Solution:} Remember that the Sum Formula for probabilities states that for any two events $E$ and $F$, we have \#[ P(E\ \textsc{or}\ F) = P(E) + P(F) - P(E\ \textsc{and}\ F). \#] Here, we know three of the terms in this equation, and thus can solve for the fourth. \#[ 0.@g = 0.@e + 0.@f - P(E\ \textsc{and}\ F) \#] so that \fbox{$P(E\ \textsc{and}\ F) = 0.[:int: @e + @f - @g :]$}.
+] else []
+endif]
 
   ]; bool @show.solution := #f
 )]#
