@@ -7,7 +7,7 @@
 Find the values of $x$ at which the line tangent to \#[ f(x) = x^3 + [:int: ((3 * @q) + @p) div 2 :] x^2 + [:int: @p * @q :] x + @m \#] is horizontal.
 
 [if (@show.solution) then [#
-\vspace{0.5cm} \textbf{Solution:} Recall that a line is horizontal precisely when its slope is zero, and that the slope of the line tangent to $f$ at $c$ is given by $f^\prime(c)$. So it suffices to find the solutions $x$ of the equation $f^\prime(x) = 0$. To this end, note that \#[ f^\prime(x) = 3x^2 + [:int: (3 * @q) + @p :] x^2 + [:int: @p * @q :]. \#] This is a quadratic, which we can solve using our favorite method to find that $f$ has a horizontal tangent line precisely when $x$ is \fbox{[:int: neg @q :] or [:rat: int(neg @p) / int(3) :].}
+\vspace{0.5cm} \textbf{Solution:} Recall that a line is horizontal precisely when its slope is zero, and that the slope of the line tangent to $f$ at $c$ is given by $f^\prime(c)$. So it suffices to find the solutions $x$ of the equation $f^\prime(x) = 0$. To this end, note that \#[ f^\prime(x) = 3x^2 + [:int: (3 * @q) + @p :] x + [:int: @p * @q :]. \#] This is a quadratic, which we can solve using our favorite method to find that $f$ has a horizontal tangent line precisely when $x$ is \fbox{[:int: neg @q :] or [:rat: int(neg @p) / int(3) :].}
 ] else []
 endif]
 
