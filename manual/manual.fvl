@@ -129,10 +129,12 @@
 \subsection{\texttt{ca/ineq/abs.fvl}}
 [import (kreb-scout/ca/ineq/abs.fvl)]#
 \begin{enumerate}
-\item [eval @in.linear.abs.1]
-\item [eval @in.linear.abs.2]
-\item [eval @in.linear.abs.3]
-\item [eval @in.linear.abs.4]
+\item [eval @in.linear.abs.1 (bool @show.solution := #t)]
+\item [eval @in.linear.abs.2 (bool @show.solution := #t)]
+\item [eval @in.linear.abs.3 (bool @show.solution := #t)]
+\item [eval @in.linear.abs.4 (bool @show.solution := #t)]
+\item [eval @in.linear.abs.5 (bool @show.solution := #t)]
+\item [eval @in.linear.abs.6 (bool @show.solution := #t)]
 \end{enumerate}
 
 

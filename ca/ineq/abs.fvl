@@ -1,53 +1,62 @@
 [define >doc @in.linear.abs.1 := Macro(doc; [#
 
-[define int @a := Rand({2;-2;3;-3;4;-4;5;-5})]#
+[define int @a := Rand({2;3;4;5})]#
 [define int @b := Rand((Range(-9;-1) ++ Range(1;9)) \\ {@a})]#
 [define int @c := Rand(Range(5;15))]#
 [define int @d := Rand(Build(@t; int @t <- Range(-30;30); GT(int; @t; @c); Divides(@a; @t - @c - @b)))]#
 
-[define str @rel := Rand({"\leq";"<"})]#
-
 [define str @p := Format(^int; latex; Poly(@a . x; @b . 1))]#
 
-$|@p| + @c @rel @d$#
+Find all solutions of the following inequality. \#[ |@p| + @c \leq @d \#]
 
-  ]
+[if (@show.solution) then [#
+\textbf{Solution:} First, solve for the absolute value expression by subtracting @c from both sides. \#[ |@p| \leq [:int: @d - @c :]. \#] This is an absolute value inequality of the form "absolute value less than", so we can now rewrite as a compound inequality as follows. \#[ @p \leq [:int: @d - @c :] \quad \textsc{and} \quad @p \geq [:int: @c - @d :]. \#] Solving each of these for $x$, we have \#[ [:rat: int(@c - @d - @b) / int(@a) :] \leq x \quad \textsc{and} \quad x \leq [:rat: int(@d - @c - @b) / int(@a) :]. \#] In interval notation, the solution is \fbox{$#[[:rat: int(@c - @d - @b) / int(@a) :], [:rat: int(@d - @c - @b) / int(@a) :]#]$}.
+] else []
+endif]
+
+  ]; bool @show.solution := #f
 )]#
 
 
 
 [define >doc @in.linear.abs.2 := Macro(doc; [#
 
-[define int @a := Rand({2;-2;3;-3;4;-4;5;-5})]#
+[define int @a := Rand({2;3;4;5})]#
 [define int @b := Rand((Range(-9;-1) ++ Range(1;9)) \\ {@a})]#
 [define int @c := Rand(Range(5;15))]#
 [define int @d := Rand(Build(@t; int @t <- Range(-30;30); GT(int; @t; @c); Divides(@a; @t - @c - @b)))]#
 
-[define str @rel := Rand({"\geq";">"})]#
-
 [define str @p := Format(^int; latex; Poly(@a . x; @b . 1))]#
 
-$|@p| + @c @rel @d$#
+Find all solutions of the following inequality. \#[ |@p| + @c \geq @d \#]
 
-  ]
+[if (@show.solution) then [#
+\textbf{Solution:} First, solve for the absolute value expression by subtracting @c from both sides. \#[ |@p| \geq [:int: @d - @c :]. \#] This is an absolute value inequality of the form "absolute value greater than", so we can now rewrite as a compound inequality as follows. \#[ @p \geq [:int: @d - @c :] \quad \textsc{or} \quad @p \leq [:int: @c - @d :]. \#] Solving each of these for $x$, we have \#[ x \leq [:rat: int(@c - @d - @b) / int(@a) :] \quad \textsc{or} \quad [:rat: int(@d - @c - @b) / int(@a) :] \leq x. \#] In interval notation, the solution is \fbox{$(-\infty,[:rat: int(@c - @d - @b) / int(@a) :]#] \cup #[[:rat: int(@d - @c - @b) / int(@a) :],\infty)$}.
+] else []
+endif]
+
+  ]; bool @show.solution := #f
 )]#
 
 
 
 [define >doc @in.linear.abs.3 := Macro(doc; [#
 
-[define int @a := Rand({2;-2;3;-3;4;-4;5;-5})]#
+[define int @a := Rand({2;3;4;5})]#
 [define int @b := Rand((Range(-9;-1) ++ Range(1;9)) \\ {@a})]#
 [define int @c := Rand(Range(5;15))]#
 [define int @d := Rand(Build(@t; int @t <- Range(-30;30); GT(int; @t; @c); Divides(@a; @t - @c - @b)))]#
 
-[define str @rel := Rand({"\leq";"<"})]#
-
 [define str @p := Format(^int; latex; Poly(@a . x; @b . 1))]#
 
-$2|@p| + @c @rel @d$#
+Find all solutions of the following inequality. \#[ 2|@p| + @c < @d \#]
 
-  ]
+[if (@show.solution) then [#
+\textbf{Solution:} First, solve for the absolute value expression by subtracting @c from both sides and then dividing by 2. \#[ |@p| < [:rat: int(@d - @c) / int(2) :]. \#] This is an absolute value inequality of the form "absolute value less than", so we can now rewrite as a compound inequality as follows. \#[ @p < [:rat: int(@d - @c) / int(2) :] \quad \textsc{and} \quad @p > [:rat: int(@c - @d) / int(2) :]. \#] Solving each of these for $x$, we have \#[ [:rat: int(@c - @d - 2*@b) / int(2*@a) :] \leq x \quad \textsc{and} \quad x \leq [:rat: int(@d - @c - 2*@b) / int(2*@a) :]. \#] In interval notation, the solution is \fbox{$([:rat: int(@c - @d - 2*@b) / int(2*@a) :], [:rat: int(@d - @c - 2*@b) / int(2*@a) :])$}.
+] else []
+endif]
+
+  ]; bool @show.solution := #f
 )]#
 
 
@@ -55,17 +64,63 @@ $2|@p| + @c @rel @d$#
 
 [define >doc @in.linear.abs.4 := Macro(doc; [#
 
-[define int @a := Rand({2;-2;3;-3;4;-4;5;-5})]#
+[define int @a := Rand({2;3;4;5})]#
 [define int @b := Rand((Range(-9;-1) ++ Range(1;9)) \\ {@a})]#
 [define int @c := Rand(Range(5;15))]#
 [define int @d := Rand(Build(@t; int @t <- Range(-30;30); GT(int; @t; @c); Divides(@a; @t - @c - @b)))]#
 
-[define str @rel := Rand({"\geq";">"})]#
+[define str @p := Format(^int; latex; Poly(@a . x; @b . 1))]#
+
+Find all solutions of the following inequality. \#[ 2|@p| + @c > @d \#]
+
+[if (@show.solution) then [#
+\textbf{Solution:} First, solve for the absolute value expression by subtracting @c from both sides and then dividing by 2. \#[ |@p| > [:rat: int(@d - @c) / int(2) :]. \#] This is an absolute value inequality of the form "absolute value greater than", so we can now rewrite as a compound inequality as follows. \#[ @p > [:rat: int(@d - @c) / int(2) :] \quad \textsc{or} \quad @p < [:rat: int(@c - @d) / int(2) :]. \#] Solving each of these for $x$, we have \#[ x < [:rat: int(@c - @d - 2*@b) / int(2*@a) :] \quad \textsc{or} \quad [:rat: int(@d - @c - 2*@b) / int(2*@a) :] < x. \#] In interval notation, the solution is \fbox{$(-\infty, [:rat: int(@c - @d - 2*@b) / int(2*@a) :]) \cup ([:rat: int(@d - @c - 2*@b) / int(2*@a) :], \infty)$}.
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+[define >doc @in.linear.abs.5 := Macro(doc; [#
+
+[define int @a := Rand({-2;-3;-4;-5})]#
+[define int @b := Rand((Range(-9;-1) ++ Range(1;9)) \\ {@a})]#
+[define int @c := Rand(Range(5;15))]#
+[define int @d := Rand(Build(@t; int @t <- Range(-30;30); GT(int; @t; @c); Divides(@a; @t - @c - @b)))]#
 
 [define str @p := Format(^int; latex; Poly(@a . x; @b . 1))]#
 
-$2|@p| + @c @rel @d$#
+Find all solutions of the following inequality. \#[ |@p| + @c \leq @d \#]
 
-  ]
+[if (@show.solution) then [#
+\textbf{Solution:} First, solve for the absolute value expression by subtracting @c from both sides. \#[ |@p| \leq [:int: @d - @c :]. \#] This is an absolute value inequality of the form "absolute value less than", so we can now rewrite as a compound inequality as follows. \#[ @p \leq [:int: @d - @c :] \quad \textsc{and} \quad @p \geq [:int: @c - @d :]. \#] Solving each of these for $x$, we have \#[ [:rat: int(@c - @d - @b) / int(@a) :] \geq x \quad \textsc{and} \quad x \geq [:rat: int(@d - @c - @b) / int(@a) :]. \#] (Remember to change the direction of the inequality when dividing by @a!) In interval notation, the solution is \fbox{$#[[:rat: int(@d - @c - @b) / int(@a) :], [:rat: int(@c - @d - @b) / int(@a) :]#]$}.
+] else []
+endif]
+
+  ]; bool @show.solution := #f
 )]#
 
+
+
+
+[define >doc @in.linear.abs.6 := Macro(doc; [#
+
+[define int @a := Rand({-2;-3;-4;-5})]#
+[define int @b := Rand((Range(-9;-1) ++ Range(1;9)) \\ {@a})]#
+[define int @c := Rand(Range(5;15))]#
+[define int @d := Rand(Build(@t; int @t <- Range(-30;30); GT(int; @t; @c); Divides(@a; @t - @c - @b)))]#
+
+[define str @p := Format(^int; latex; Poly(@a . x; @b . 1))]#
+
+Find all solutions of the following inequality. \#[ |@p| + @c \geq @d \#]
+
+[if (@show.solution) then [#
+\textbf{Solution:} First, solve for the absolute value expression by subtracting @c from both sides. \#[ |@p| \geq [:int: @d - @c :]. \#] This is an absolute value inequality of the form "absolute value greater than", so we can now rewrite as a compound inequality as follows. \#[ @p \geq [:int: @d - @c :] \quad \textsc{or} \quad @p \leq [:int: @c - @d :]. \#] Solving each of these for $x$, we have \#[ x \geq [:rat: int(@c - @d - @b) / int(@a) :] \quad \textsc{or} \quad [:rat: int(@d - @c - @b) / int(@a) :] \geq x. \#] (Remember to change the direction of the inequality when dividing by @a!) In interval notation, the solution is \fbox{$(-\infty,[:rat: int(@d - @c - @b) / int(@a) :]#] \cup #[[:rat: int(@c - @d - @b) / int(@a) :] ,\infty)$}.
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
