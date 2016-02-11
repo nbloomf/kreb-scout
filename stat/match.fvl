@@ -13,8 +13,8 @@
   "Each individual has an equal chance of being selected.";
   "Each subset of a given size has an equal chance of being selected.";
   "Select individuals which are easy to find.";
-  "Divide the population into subpopulations, then choose \\emph{some} individuals from \\emph{all} subpopulations.";
-  "Divide the population into subpopulations, then choose \\emph{all} individuals from \\emph{some} subpopulations.";
+  "Divide the population into subpopulations, then choose \emph{some} individuals from \emph{all} subpopulations.";
+  "Divide the population into subpopulations, then choose \emph{all} individuals from \emph{some} subpopulations.";
   "Allow individuals to choose whether or not to be in the sample."
 })]#
 
@@ -24,16 +24,16 @@ Match each sampling method to its description.
 
 \begin{minipage}{0.3\textwidth}
 \begin{itemize}
-[for int @i in (Range(1;6)) say [
+[for int @i in (Range(1;6)) say [#
 \item#[\underline{\qquad}#] [:str: AtPos(@a; @i) :]
-] endfor]
+] endfor]#
 \end{itemize}
 \end{minipage}
 \begin{minipage}{0.6\textwidth}
 \begin{enumerate}#[A.#]
-[for int @i in (Range(1;6)) say [
+[for int @i in (Range(1;6)) say [#
 \item [:str: AtPos(@b;@i) :]
-] endfor]
+] endfor]#
 \end{enumerate}
 \end{minipage}
 

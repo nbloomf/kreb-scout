@@ -18,7 +18,7 @@ Compute the following limit. \#[ \lim_{x \rightarrow \infty} \frac{\sqrt{@a x^2 
  & = \lim_{x \rightarrow \infty} \frac{\frac{\sqrt{@a x^2 + @b x + @c}}{\sqrt{x^2}}}{\frac{@d x + @e}{x}} \\
  & = \lim_{x \rightarrow \infty} \frac{\sqrt{\frac{@a x^2 + @b x + @c}{x^2}}}{\frac{@d x + @e}{x}} \\
  & = \lim_{x \rightarrow \infty} \frac{\sqrt{@a + \frac{@b}{x} + \frac{@c}{x^2}}}{@d + \frac{@e}{x}} \\
- & = \frac{\dlim_{x \rightarrow \infty} \sqrt{@a + \frac{@b}{x} + \frac{@c}{x^2}}}{\dlim_{x \rightarrow \infty} \left( @d + \frac{@e}{x} \right)} \\
+ & = \frac{\displaystyle\lim_{x \rightarrow \infty} \sqrt{@a + \frac{@b}{x} + \frac{@c}{x^2}}}{\displaystyle\lim_{x \rightarrow \infty} \left( @d + \frac{@e}{x} \right)} \\
  & = \frac{\sqrt{@a}}{@d}
 \end{align*}
 ] else []

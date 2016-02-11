@@ -360,7 +360,6 @@
 \item [eval @prob.cards.hand.2 (bool @show.solution := #t)]
 \item [eval @prob.cards.single.1 (bool @show.solution := #t)]
 \item [eval @prob.cards.sum.1 (bool @show.solution := #t)]
-\item [eval @prob.cards.sum.2 (bool @show.solution := #t)]
 \item [eval @prob.coins.4flips (bool @show.solution := #t)]
 \item [eval @prob.sum.formula.1 (bool @show.solution := #t)]
 \end{enumerate}

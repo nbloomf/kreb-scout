@@ -10,21 +10,26 @@ A survey was conducted to determine the study habits and final grades of statist
 \begin{center}
 \begin{tabular}{c|c|c}
                   & Pass & Fail \\ \hline
-Study Alone       & @a  & @b  \\ \hline
-Study with Others & @c  & @d  \\
+Study Alone       & @a   & @b   \\ \hline
+Study with Others & @c   & @d   \\
 \end{tabular}
 \end{center}
 
 Use this data to answer the following.
 
 \begin{enumerate}
-\item What is the probability that a given student passed statistics, given that they studied alone?
+\item What is the probability that a randomly selected student passed statistics, given that they studied alone?
 
-\item What is the probability that a given student studied alone, given that they passed statistics?
+\item What is the probability that a randomly selected student studied alone, given that they passed statistics?
 \end{enumerate}
 
 [if (@show.solution) then [#
-\textbf{Solution:}
+\textbf{Solution:} Let $E$ be the event "passed statistics" and $F$ the event "studied alone".
+\begin{enumerate}
+\item Here we want $P(E\ \mathsc{given}\ F)$. Using the multiplication formula, we have \#[ P(E\ \mathsc{given}\ F) = \frac{P(E\ \mathsc{and}\ F)}{P(F)} = \frac{\frac{@a}{[:int: @a + @b + @c + @d :]}}{\frac{[:int: @a + @b :]}{[:int: @a + @b + @c + @d :]}} = [:rat: int(@a) / int(@a + @b) :]. \#]
+
+\item Here we want $P(F\ \mathsc{given}\ E)$. Using the multiplication formula, we have \#[ P(F\ \mathsc{given}\ E) = \frac{P(F\ \mathsc{and}\ E)}{P(E)} = \frac{\frac{@a}{[:int: @a + @b + @c + @d :]}}{\frac{[:int: @a + @c :]}{[:int: @a + @b + @c + @d :]}} = [:rat: int(@a) / int(@a + @c) :]. \#]
+\end{enumerate}
 ] else []
 endif]
 
