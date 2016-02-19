@@ -5,5 +5,10 @@
 
 Compute the second derivative of the following function. \#[ y(x) = \left( 1 + \frac{@a}{x} \right)^{@e} \#]
 
+[if (@show.solution) then [#
+\textbf{Hint:} Use the chain rule and the product rule.
+] else []
+endif]
+
   ]; bool @show.solution := #f
 )]#

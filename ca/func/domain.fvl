@@ -1,0 +1,96 @@
+[define >doc @func.domain.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(1;9))]#
+[define int @b := Rand(Range(1;9))]#
+[define int @c := Rand(Range(1;9))]#
+[define ^int @p := Poly((@a).x^3; 1.x^2; (@b).x; (@c).1)]#
+[define int @h := Rand({2;3;4;5})]#
+[define int @k := Rand({-1;-2;-3;-4})]#
+[define ^int @q := Poly(1.x^2; (neg (@h + @k)) .x; (@h*@k).1)]#
+
+[define str @ps := Format(^int; latex; @p)]#
+[define str @qs := Format(^int; latex; @q)]#
+
+Find the domain of the following function. \#[ f(x) = \frac{@ps}{@qs} \#]
+
+[if (@show.solution) then [#
+\textbf{Solution:} Remember that two bad things can happen which may cause a number \emph{not} to be in the domain of a function; variables in denominators and variables in radicals. Here we have a variable in a denominator. This function will be defined as long as that denominator is not zero. That is, at all real numbers \emph{except} the solutions of the equation \#[ @qs = 0. \#] This equation is a quadratic, and using our favorite solving strategy we see that its solutions are $x = @h$ and $x = @k$. So the domain of $f$ is
+\begin{center}
+\fbox{all real numbers \emph{except} $@h$ and $@k$.}
+\end{center}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+[define >doc @func.domain.2 := Macro(doc; [#
+
+[define int @r1 := Rand({1;-1}) * Rand(Range(6;9))]#
+[define int @r2 := Rand(Range(3;9) \\ {@r1;neg @r1})]#
+
+[define ^int @p := FromRoots(x; {@r1;@r2;0})]#
+[define ^int @q := FromRoots(x; {@r1;@r2})]#
+
+[define str @ps := Format(^int; latex; @p)]#
+
+Find the domain of the following function. \#[ g(x) = \frac{1}{@ps} \#]
+
+[if (@show.solution) then [#
+\textbf{Solution:} Remember that two bad things can happen which may cause a number \emph{not} to be in the domain of a function; variables in denominators and variables in radicals. Here we have a variable in a denominator. This function will be defined as long as that denominator is not zero. That is, at all real numbers \emph{except} the solutions of the equation \#[ @ps = 0. \#] This equation is cubic, but it has no constant term, so we can factor out an $x$. That yields a quadratic which we can solve using our favorite strategy. We see that the solutions are $x = 0$, $x = @r1$, and $x = @r2$. So the domain of $g$ is
+\begin{center}
+\fbox{all real numbers \emph{except} $0$, $@r1$, and $@r2$.}
+\end{center}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+[define >doc @func.domain.3 := Macro(doc; [#
+
+[define int @a := Rand(Range(1;9))]#
+[define int @b := Rand(Range(1;9))]#
+
+Find the domain of the following function. \#[ f(x) = \sqrt{@a x + @b} \#]
+
+[if (@show.solution) then [#
+\textbf{Solution:} Remember that two bad things can happen which may cause a number \emph{not} to be in the domain of a function; variables in denominators and variables in radicals. Here we have a variable in a radical. This function will be defined as long as the expression in the radical is nonnegative. That is, at all solutions of the inequality \#[ @a x + @b \geq 0. \#] Solving this inequality, we have $x \geq [:rat: int(neg @b) / int(@a) :]$. So the domain of $f$ is
+\begin{center}
+\fbox{all real numbers $x$ such that $x \geq [:rat: int(neg @b) / int(@a) :]$.}
+\end{center}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+[define >doc @func.domain.4 := Macro(doc; [#
+
+[define int @a := Rand(Range(1;9))]#
+[define int @b := Rand(Range(1;9))]#
+[define int @c := Rand(Range(1;9))]#
+
+Find the domain of the following function. \#[ f(x) = \sqrt{|@a x + @b| - @c} \#]
+
+[if (@show.solution) then [#
+\textbf{Solution:} Remember that two bad things can happen which may cause a number \emph{not} to be in the domain of a function; variables in denominators and variables in radicals. Here we have a variable in a radical. This function will be defined as long as the expression in the radical is nonnegative. That is, at all solutions of the inequality \#[ |@a x + @b| - @c \geq 0. \#] This is an absolute value inequality. Solving for the absolute value, we have \#[ |@a x + @b| \geq @c#. \#] This inequality can then be split into two like so: \#[ @a x + @b \geq @c \quad \textsc{or} \quad @a x + @b \leq -@c#. \#] The solution of this inequality is \#[ x \geq [:rat: int(@c - @b)/int(@a) :] \quad \textsc{or} \quad x \leq [:rat: int((neg @c) - @b)/int(@a) :]. \#] So the domain of $f$ is
+\begin{center}
+\fbox{all real numbers $x$ such that $x \geq [:rat: int(@c - @b)/int(@a) :]$ or $x \leq [:rat: int((neg @c) - @b)/int(@a) :]$.}
+\end{center}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+

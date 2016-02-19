@@ -46,6 +46,11 @@ endif]
 
 Find an equation for the line tangent to \#[ f(x) = \sqrt{x^2 @s @b x + @c} \#] at $x = @r$.
 
+[if (@show.solution) then [#
+\textbf{Hint:} Remember that the line passing through the point $(h,k)$ and having slope $m$ is given by the equation \#[ \frac{y - k}{x - h} = m. \#]
+] else []
+endif]
+
   ]; bool @show.solution := #f
 )]#
 

@@ -32,6 +32,28 @@ endif]
 
 Compute the derivative of the following function. \#[ f(x) = \frac{\@f}{x^3 + @a x + @b} \#]
 
+[if (@show.solution) then [#
+\textbf{Solution:} Note that $f = \frac{g}{h}$, where $g(x) = \@f$ and $h(x) = x^3 + @a x + @b$. Thus we can use the quotient rule as follows.
+[cond
+  case (Equal(str;@f;"sin(x)")) [
+\begin{eqnarray*}
+\frac{d}{dx}(f(x)) & = & \frac{d}{dx}\left( \frac{g(x)}{h(x)} \right) \\
+ & = & \frac{h(x)g^\prime(x) - g(x)h^\prime(x)}{h(x)^2} \\
+ & = & \boxed{\frac{(x^3 + @a x + @b)\cos(x) - \sin(x)(3x + @a)}{(x^3 + @a x + @b)^2}}
+\end{eqnarray*}
+]
+
+  case (Equal(str;@f;"cos(x)")) [
+\begin{eqnarray*}
+\frac{d}{dx}(f(x)) & = & \frac{d}{dx}\left( \frac{g(x)}{h(x)} \right) \\
+ & = & \frac{h(x)g^\prime(x) - g(x)h^\prime(x)}{h(x)^2} \\
+ & = & \boxed{\frac{-(x^3 + @a x + @b)\sin(x) - \cos(x)(3x + @a)}{(x^3 + @a x + @b)^2}}
+\end{eqnarray*}
+]
+endcond]
+] else []
+endif]
+
   ]; bool @show.solution := #f
 )]#
 
@@ -43,6 +65,11 @@ Compute the derivative of the following function. \#[ f(x) = \frac{\@f}{x^3 + @a
 [define int @e := Rand(Range(2;4))]#
 
 Compute the derivative of the following function. \#[ f(x) = \frac{(x^2 - @a x + @b)^{@e}}{\sin(x)\cos(x)} \#]
+
+[if (@show.solution) then [#
+\textbf{Hint:} Use the quotient rule, then use the chain rule and the product rule (or a trig identity).
+] else []
+endif]
 
   ]; bool @show.solution := #f
 )]#

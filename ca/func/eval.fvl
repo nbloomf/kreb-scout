@@ -1,0 +1,47 @@
+[define >doc @func.eval.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(2;6))]#
+[define int @b := Rand(Range(2;6) \\ {@a})]#
+[define int @c := Rand(Range(2;6) \\ {@a;@b})]#
+
+[define str @p := Format(^int; latex; Poly((@a).x^3; (@b).x; (@c).1))]#
+
+Evaluate the function \#[ f(x) = @p \#] at $x = 2$, $x = 0$, $x = -3$, and $x = 1/2$.
+
+[if (@show.solution) then [#
+\textbf{Solution:} We have
+\begin{eqnarray*}
+f(2) & = & @a(2)^3 + @b(2) + @c = \boxed{[:int: @a*2*2*2 + @b*2 + @c :]} \\
+f(0) & = & @a(0)^3 + @b(0) + @c = \boxed{[:int: @c :]} \\
+f(-3) & = & @a(-3)^3 + @b(-3) + @c = \boxed{[:int: @a*(neg 3)*(neg 3)*(neg 3) + @b*(neg 3) + @c :]} \\
+f\left(\frac{1}{2}\right) & = & @a\left(\frac{1}{2}\right)^3 + @b\left(\frac{1}{2}\right) + @c = \boxed{[:rat: int(@a)*(1/2)*(1/2)*(1/2) + int(@b)*(1/2) + int(@c) :]}
+\end{eqnarray*}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+
+[define >doc @func.eval.2 := Macro(doc; [#
+
+[define int @a := Rand(Range(2;6))]#
+[define int @b := Rand(Range(2;6))]#
+[define int @c := Rand(Range(2;6))]#
+[define int @k := Rand(Range(2;6))]#
+
+Evaluate the function \#[ f(x) = \left\{ \begin{array}{ll} @a x - @b & \mathrm{if}\ x \geq @k \\ \frac{1}{x^2 - @c} & \mathrm{if}\ x < @k \end{array}\right. \#] at $x = 1$, $x = 9$, and $x = -7$.
+
+[if (@show.solution) then [#
+\textbf{Solution:}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+

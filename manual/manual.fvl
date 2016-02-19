@@ -87,6 +87,24 @@
 \end{enumerate}
 
 
+\subsection{\texttt{ca/func/domain.fvl}}
+[import (kreb-scout/ca/func/domain.fvl)]#
+\begin{enumerate}
+\item [eval @func.domain.1 (bool @show.solution := #t)]
+\item [eval @func.domain.2 (bool @show.solution := #t)]
+\item [eval @func.domain.3 (bool @show.solution := #t)]
+\item [eval @func.domain.4 (bool @show.solution := #t)]
+\end{enumerate}
+
+
+\subsection{\texttt{ca/func/eval.fvl}}
+[import (kreb-scout/ca/func/eval.fvl)]#
+\begin{enumerate}
+\item [eval @func.eval.1 (bool @show.solution := #t)]
+\item [eval @func.eval.2 (bool @show.solution := #t)]
+\end{enumerate}
+
+
 \subsection{\texttt{ca/geom/lines.fvl}}
 [import (kreb-scout/ca/geom/lines.fvl)]#
 \begin{enumerate}

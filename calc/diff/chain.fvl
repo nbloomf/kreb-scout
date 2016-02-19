@@ -7,6 +7,17 @@
 
 Compute the derivative of the following function. \#[ f(x) = (@a x^2 + @b x + @c)^{@e} \#]
 
+[if (@show.solution) then [#
+\textbf{Solution:} This $f$ is a polynomial, so in principle we could expand $f$ and differentiate term by term. However, computing the @e# th power of a polynomial is not fun. Note that if we let $g(x) = @a x^2 + @b x + @c$ and $h(x) = x^{@e}$, then $f = h \circ g$. Using the chain rule, we then have
+\begin{eqnarray*}
+\frac{d}{dx}\left(f(x)\right) & = & \frac{d}{dx}\left( (h \circ g)(x) \right) \\
+ & = & h^\prime(g(x)) g^\prime(x) \\
+ & = & h^\prime(@a x^2 + @b x + @c) ([:int: 2 * @a :]x + @b) \\
+ & = & \boxed{@e(@a x^2 + @b x + @c)^{[:int: @e - 1 :]} ([:int: 2 * @a :]x + @b)} \\
+\end{eqnarray*}
+] else []
+endif]
+
   ]; bool @show.solution := #f
 )]#
 
@@ -19,6 +30,11 @@ Compute the derivative of the following function. \#[ f(x) = (@a x^2 + @b x + @c
 [define int @r := Rand({2;3;4})]#
 
 Compute the derivative of the following function. \#[ f(x) = \sqrt#[@r#]{x^3 + @a x - @b} \#]
+
+[if (@show.solution) then [#
+\textbf{Hint:} Use the chain rule.
+] else []
+endif]
 
   ]; bool @show.solution := #f
 )]#
