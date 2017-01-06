@@ -4,33 +4,85 @@
 
 [define ^int @p := FromRoots(x; @cs)]#
 
-The polynomial \#[ p(x) = [:str: Format(^int; latex; @p) :] \#] has roots at $[:{int}: Choose(4; @cs) :]$. Completely factor $p(x)$ as a product of linear factors.#
+The polynomial \#[ p(x) = [:str: Format(^int; latex; @p) :] \#] has roots at $[:{int}: Choose(4; @cs) :]$. Completely factor $p(x)$ as a product of linear factors.
 
-  ]
+[if (@show.solution) then [#
+\textbf{Solution:} Using synthetic division we can see that $p(x)$ factors as
+
+\#[([:str: Format(^int; latex; FromRoots(x; {AtPos(@cs;1)})) :])([:str: Format(^int; latex; FromRoots(x; {AtPos(@cs;2)})) :])([:str: Format(^int; latex; FromRoots(x; {AtPos(@cs;3)})) :])([:str: Format(^int; latex; FromRoots(x; {AtPos(@cs;4)})) :])([:str: Format(^int; latex; FromRoots(x; {AtPos(@cs;5)})) :])\#]
+] else []
+endif]
+
+  ]; bool @show.solution := #f
 )]#
+
+
 
 
 
 [define >doc @given.roots.2 := Macro(doc; [#
 
-[define {int} @cs := Choose(5; {1;1;1;1;2;2;2;2})]#
+[define int @m2 := Rand(Range(2;4))]#
+[define int @m1 := 7 - @m2]#
 
-[define ^int @p := FromRoots(x; @cs)]#
+[define ^int @p := Pow(FromRoots(x; {1}); @m1) * Pow(FromRoots(x; {2}); @m2)]#
 
-The polynomial \#[ p(x) = [:str: Format(^int; latex; @p) :] \#] has roots at 1 and 2. Find the multiplicity of these roots.#
+The polynomial \#[ p(x) = [:str: Format(^int; latex; @p) :] \#] has roots at 1 and 2. Find the multiplicity of these roots.
 
-  ]
+[if (@show.solution) then [#
+\textbf{Solution:} Recall that the \emph{multiplicity} of a root $c$ of a polynomial is the number of times $x-c$ appears as a factor. We can use synthetic division repeatedly to determine this number. In this case, we have \#[ p(x) = (x-1)^{@m1}(x-2)^{@m2}; \#] so 1 has multiplicity \boxed{@m1} and 2 has multiplicity \boxed{@m2}.
+] else []
+endif]
+
+  ]; bool @show.solution := #f
 )]#
+
+
+
 
 
 [define >doc @construct.from.roots.1 := Macro(doc; [#
 
 [define {int} @cs := Choose(3; {1;-1;2;-2})]#
 
-Construct a polynomial of degree 3 which has roots at [:int: AtPos(@cs;1) :], [:int: AtPos(@cs; 2) :], and [:int: AtPos(@cs;3) :].#
+Construct a polynomial of degree 3 which has roots at [:int: AtPos(@cs;1) :], [:int: AtPos(@cs; 2) :], and [:int: AtPos(@cs;3) :].
 
-  ]
+[if (@show.solution) then [#
+\textbf{Solution:} Remember that $c$ is a root of $p(x)$ precisely when $x-c$ is a factor of $p(x)$. (This is called the Factor Theorem.) That means that we can force a polynomial to have a given root, say 1, by making $x-1$ a factor.
+
+In this case, a polynomial will have these roots if it has the factors $x - [:int: AtPos(@cs; 1) :]$, $x - [:int: AtPos(@cs; 2) :]$, and $x - [:int: AtPos(@cs; 3) :]$. For example, \#[ (x - [:int: AtPos(@cs; 1) :])(x - [:int: AtPos(@cs; 2) :])(x - [:int: AtPos(@cs; 3) :]) \#] works.
+] else []
+endif]
+
+  ]; bool @show.solution := #f
 )]#
+
+
+
+
+
+[define >doc @construct.from.roots.2 := Macro(doc; [#
+
+[define int @a := Rand(Range(-3;3))]#
+[define int @b := Rand(Range(-3;3) \\ {@a})]#
+[define int @c := Rand(Range(-3;3) \\ {@a;@b})]#
+
+[define {int} @cs := {@a;@b;@c}]#
+
+Construct a polynomial having roots at [:int: AtPos(@cs;1) :], [:int: AtPos(@cs; 2) :], and [:int: AtPos(@cs;3) :].
+
+[if (@show.solution) then [#
+\textbf{Solution:} Remember that $c$ is a root of $p(x)$ precisely when $x-c$ is a factor of $p(x)$. (This is called the Factor Theorem.) That means that we can force a polynomial to have a given root, say 1, by making $x-1$ a factor.
+
+In this case, a polynomial will have these roots if it has the factors $x - [:int: AtPos(@cs; 1) :]$, $x - [:int: AtPos(@cs; 2) :]$, and $x - [:int: AtPos(@cs; 3) :]$. For example, \#[ (x - [:int: AtPos(@cs; 1) :])(x - [:int: AtPos(@cs; 2) :])(x - [:int: AtPos(@cs; 3) :]) \#] works.
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
 
 
 [define >doc @rational.root.test.candidates.1 := Macro(doc; [#
@@ -44,8 +96,16 @@ Construct a polynomial of degree 3 which has roots at [:int: AtPos(@cs;1) :], [:
 
 Find the list of candidate roots of the polynomial \#[ p(x) = [:str: Format(^int; latex; @p) :] \#] given by the Rational Root Theorem. \textbf{Do not factor.}
 
-  ]
+[if (@show.solution) then [#
+\textbf{Solution:}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
 )]#
+
+
+
 
 
 [define >doc @rational.root.test.factor.1 := Macro(doc; [#
@@ -59,8 +119,15 @@ Find the list of candidate roots of the polynomial \#[ p(x) = [:str: Format(^int
 
 Factor the following polynomial. \#[ p(x) = [:str: Format(^int; latex; @p) :] \#]
 
-  ]
+[if (@show.solution) then [#
+\textbf{Solution:}
+] else []
+endif]
+
+  ]; bool @show.solution := #f
 )]#
+
+
 
 
 
@@ -75,7 +142,12 @@ Factor the following polynomial. \#[ p(x) = [:str: Format(^int; latex; @p) :] \#
 
 Factor the following polynomial. \#[ p(x) = [:str: Format(^int; latex; @p) :] \#]
 
-  ]
+[if (@show.solution) then [#
+\textbf{Solution:} Use the Rational Root Theorem to find a list of candidate roots, and then use Synthetic Division (with trial and error) to factor.
+] else []
+endif]
+
+  ]; bool @show.solution := #f
 )]#
 
 
@@ -93,5 +165,10 @@ Factor the following polynomial. \#[ p(x) = [:str: Format(^int; latex; @p) :] \#
 
 Factor the following polynomial. \#[ p(x) = [:str: Format(^int; latex; @p) :] \#] Hint: Draw a graph of $p$ using a computer or calculator.
 
-  ]
+[if (@show.solution) then [#
+\textbf{Solution:} Draw the graph using a computer or calculator and, zooming in on the $x$-intercepts (where the graph crosses the $x$-axis) make a guess at where the zeros are. Verify your guesses using synthetic division.
+] else []
+endif]
+
+  ]; bool @show.solution := #f
 )]#

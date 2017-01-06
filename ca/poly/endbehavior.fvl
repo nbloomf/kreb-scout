@@ -2,6 +2,8 @@
 
 [define {int} @cs := Rand({{1;-2;0;3};{-3;0;5;0;-2};{-1;1;10;0;0;-4};{1;-1;13;0;0;0;7}})]#
 
+[define int @lc := AtPos(@cs; 1)]#
+[define int @deg := Length(@cs) - 1]#
 [define ^int @p := FromCoefs(x; @cs)]#
 
 Fill in the boxes to describe the long-term behavior of the following polynomial. \#[ p(x) = [:str: Format(^int; latex; @p) :] \#].
@@ -11,5 +13,26 @@ Fill in the boxes to describe the long-term behavior of the following polynomial
 \item As $x \rightarrow -\infty$, $p(x) \rightarrow$ \framebox(30,20){}
 \end{itemize}#
 
-  ]
+[if (@show.solution) then [#
+\textbf{Solution:}
+Remember that to find the long term behavior of a polynomial, we need to know the \emph{sign} (positive or negative) of the leading coefficient and the \emph{parity} (even or odd) of the degree. In this case the degree (largest exponent) is @deg and the leading coefficient (coefficient on the highest-degree term) is @lc#.
+
+  [if (GT(int;@lc;0)) then [#
+    [if (Equal(int;@deg mod 2;0)) then [#
+      Since $@lc > 0$ and @deg is even, as $x \rightarrow \infty$, $p(x) \rightarrow \boxed{\infty}$ and as $x \rightarrow -\infty$, $p(x) \rightarrow \boxed{\infty}$.
+    ] else [#
+      Since $@lc > 0$ and @deg is odd, as $x \rightarrow \infty$, $p(x) \rightarrow \boxed{\infty}$ and as $x \rightarrow -\infty$, $p(x) \rightarrow \boxed{-\infty}$.
+    ] endif]#
+  ] else [#
+    [if (Equal(int;@deg mod 2;0)) then [#
+      Since $@lc < 0$ and @deg is even, as $x \rightarrow \infty$, $p(x) \rightarrow \boxed{-\infty}$ and as $x \rightarrow -\infty$, $p(x) \rightarrow \boxed{-\infty}$.
+    ] else [#
+      Since $@lc < 0$ and @deg is odd, as $x \rightarrow \infty$, $p(x) \rightarrow \boxed{-\infty}$ and as $x \rightarrow -\infty$, $p(x) \rightarrow \boxed{\infty}$.
+    ] endif]#
+  ] endif]#
+
+] else []
+endif]
+
+  ]; bool @show.solution := #f
 )]#

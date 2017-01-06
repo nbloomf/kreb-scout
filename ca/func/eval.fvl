@@ -33,10 +33,15 @@ endif]
 [define int @c := Rand(Range(2;6))]#
 [define int @k := Rand(Range(2;6))]#
 
-Evaluate the function \#[ f(x) = \left\{ \begin{array}{ll} @a x - @b & \mathrm{if}\ x \geq @k \\ \frac{1}{x^2 - @c} & \mathrm{if}\ x < @k \end{array}\right. \#] at $x = 1$, $x = 9$, and $x = -7$.
+Evaluate the function \#[ f(x) = \left\{ \begin{array}{ll} @a x - @b & \mathrm{if}\ x \geq @k \\ \frac{1}{x^2 - @c} & \mathrm{if}\ x < @k \end{array}\right. \#] at $x = 8$, $x = 1$, and $x = -2$.
 
 [if (@show.solution) then [#
 \textbf{Solution:}
+This is a \emph{piecewise defined} function, so remember that before we can evaluate $f$ at a particular $x$ we have to test $x$ against the guards.
+
+First we'll find $f(8)$. Since $8 \geq @k$, we use the first branch of $f$. So \#[ f(8) = @a \cdot 8 - @b = \boxed{[:int: @a*8 - @b :]}. \#]
+Next we'll find $f(1)$. Since $1 < @k$, we use the second branch of $f$. So \#[ f(1) = @a \cdot 1 - @b = \boxed{[:int: @a - @b :]}. \#]
+Finally, we'll find $f(-2)$. Since $-2 < @k$, we use the second branch of $f$. So \#[ f(-2) = @a \cdot (-2) - @b = \boxed{[:int: @a*(-2) - @b :]}. \#]
 ] else []
 endif]
 
