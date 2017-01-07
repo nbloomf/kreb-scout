@@ -1,0 +1,54 @@
+[define >doc @compose.linear.quad.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(2;6))]#
+[define int @b := Rand(Range(2;6) \\ {@a})]#
+[define int @c := Rand(Range(2;6) \\ {@a;@b})]#
+[define int @k := Rand({3;2;1;-1;-2;-3})]#
+
+Let $f(x) = @a x + @b$ and $g(x) = x^2 - @c$. Compute the following.
+\begin{enumerate*}
+\item $(f \circ g)(@k)$ [if (@show.solution) then [] else [\vspace{2cm}] endif]
+\item $(g \circ f)(@k)$ [if (@show.solution) then [] else [\vspace{2cm}] endif]
+\item $(f \circ g)(x)$
+\end{enumerate*}
+
+[if (@show.solution) then [#
+\textbf{Solution:} Recall that $(f \circ g)(x) = f(g(x))$ for all $x$. So we have the following.
+
+\#[ (f \circ g)(@k) = f(g(@k)) = f([:int: @k*@k - @c :]) = \boxed{[:int: @a*(@k*@k - @c) + @b :]} \#]
+
+\#[ (g \circ f)(@k) = g(f(@k)) = g([:int: @a*@k + @b :]) = \boxed{[:int: (@a*@k + @b)^2 - @c :]} \#]
+
+\#[ (f \circ g)(x) = f(x^2 - @c) = \boxed{[:str: Format(^int; latex; Poly(@a.x^2; (@b - @a*@c).1)) :]} \#]
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+
+
+[define >doc @compose.linear.piecewise.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(2;6))]#
+[define int @b := Rand(Range(2;6) \\ {@a})]#
+[define int @c := Rand(Range(2;6) \\ {@a;@b})]#
+[define int @k := Rand({3;2;1;-1;-2;-3})]#
+
+Let $f(x) = @a x + @b$ and \#[ g(x) = \left\{ \begin{array}{ll} x^2 - @c & \mathrm{if}\ x \geq @k \\ x + @a & \mathrm{if}\ x < @k . \end{array} \right. \#] Compute the following.
+\begin{enumerate*}
+\item $(f \circ g)(@k)$ [if (@show.solution) then [] else [\vspace{2cm}] endif]
+\item $(g \circ f)(@k)$ [if (@show.solution) then [] else [\vspace{2cm}] endif]
+\end{enumerate*}
+
+[if (@show.solution) then [#
+\textbf{Solution:} 
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+

@@ -1,0 +1,15 @@
+[define >doc @func.inverse.linear.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(2;6))]#
+[define int @b := Rand(Range(2;6) \\ {@a})]#
+
+Find the inverse of $f(x) = @a x + @b$.
+
+[if (@show.solution) then [#
+\textbf{Solution:} If a function has an inverse, we can \emph{sometimes} find it by swapping the roles of $x$ and $f(x)$ and then solving for $f(x)$. In this case, we write our equation as \#[ x = @a f(x) + @b \#] and then solve for $f(x)$ as \#[ \boxed{f(x) = \frac{x - @b}{@a}} \#]
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+

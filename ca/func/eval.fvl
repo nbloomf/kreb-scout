@@ -25,6 +25,33 @@ endif]
 
 
 
+[define >doc @func.eval.poly.1 := Macro(doc; [#
+
+[define int @a := Rand(Range(-5;5) \\ {0})]#
+[define int @b := Rand(Range(-5;5) \\ {0;@a})]#
+[define int @c := Rand(Range(-5;5) \\ {0;@a;@b})]#
+[define int @d := Rand(Range(-5;5) \\ {0;@a;@b;@c})]#
+
+[define int @u := Rand({3;2;1;-1;-2;-3})]#
+[define int @v := Rand({4;5;-4;-5})]#
+
+[define ^int @q := FromCoefs(x; {@a;@b;@c;@d})]#
+[define str @p := Format(^int; latex; @q)]#
+
+Evaluate the function \#[ f(x) = @p \#] at $x = @u$ and $x = @v$.
+
+[if (@show.solution) then [#
+\textbf{Solution:} We have
+\#[ f(@u) = [:str: Format(^int; latex; EvalPoly(@q; x <- Poly((@u).1))) :] \#] and \#[ f(@v) = [:str: Format(^int; latex; EvalPoly(@q; x <- Poly((@v).1))) :] \#]
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
 
 [define >doc @func.eval.2 := Macro(doc; [#
 
@@ -33,7 +60,7 @@ endif]
 [define int @c := Rand(Range(2;6))]#
 [define int @k := Rand(Range(2;6))]#
 
-Evaluate the function \#[ f(x) = \left\{ \begin{array}{ll} @a x - @b & \mathrm{if}\ x \geq @k \\ \frac{1}{x^2 - @c} & \mathrm{if}\ x < @k \end{array}\right. \#] at $x = 8$, $x = 1$, and $x = -2$.
+Evaluate the function \#[ f(x) = \left\{ \begin{array}{ll} @a x - @b & \mathrm{if}\ x \geq @k \\ & \\ \displaystyle\frac{1}{x^2 - @c} & \mathrm{if}\ x < @k \end{array}\right. \#] at $x = 8$, $x = 1$, and $x = -2$.
 
 [if (@show.solution) then [#
 \textbf{Solution:}
