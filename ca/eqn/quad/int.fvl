@@ -48,7 +48,7 @@ endif]
 
 [define ^int @p := Poly((@lc).x^2; neg (@r1 + @lc*@r2).x; (@r1 * @r2).1)]#
 
-$[:str: Format(^int; latex; @p) :] = 0$
+Find all solutions of the following equation. \#[[:str: Format(^int; latex; @p) :] = 0\#]
 
 [if (@show.solution) then [#
 \textbf{Solution:} We can solve this equation by factoring. We have \#[ [:str: Format(^int; latex; @p) :] = ([:str: Format(^int; latex; Poly((@lc).x; (neg @r1).1)) :])([:str: Format(^int; latex; FromRoots(x; {@r2})) :]) = 0, \#] which is true if \fbox{$x = [:rat: int(@r1) / int(@lc) :]$ or $x = @r2$}. (We can also use the quadratic formula.)
@@ -70,7 +70,7 @@ endif]
 
 [define ^int @p := Poly(1.x^2; (@b).x; (@c).1)]#
 
-$[:str: Format(^int; latex; @p) :] = 0$
+Find all solutions of the following equation. \#[[:str: Format(^int; latex; @p) :] = 0\#]
 
 [if (@show.solution) then [#
 \textbf{Solution:} We can try factoring this equation, but there are no two integers whose sum is $@b$ and whose product is $@c$. Instead we will use the quadratic formula as follows.

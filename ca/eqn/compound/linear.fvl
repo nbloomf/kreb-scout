@@ -1,0 +1,30 @@
+[define >doc @linear.compound.or.1 := Macro(doc; [#
+
+[define int @a1 := Rand({2;3;4;5})]#
+[define int @b1 := Rand((Range(-9;-1) ++ Range(1;9)))]#
+[define int @c1 := Rand(Range(5;15))]#
+
+[define int @a2 := Rand({2;3;4;5})]#
+[define int @b2 := Rand((Range(-9;-1) ++ Range(1;9)))]#
+[define int @c2 := Rand(Range(5;15))]#
+
+[define str @p1 := Format(^int; latex; Poly(@a1 . x; @b1 . 1))]#
+[define str @p2 := Format(^int; latex; Poly(@a2 . x; @b2 . 1))]#
+
+Find all solutions of the following inequality.
+
+\#[ @p1 \geq @c1 \quad \mathrm{or} \quad @p2 \leq @c2 \#]#
+
+[if (@show.solution) then [#
+\textbf{Solution:} This is a compound inequality constructed using ``or'', so we will solve each simple equation by itself and then combine the results.
+
+In this case, the solution of the left equation is $x \geq [:rat: int(@c1 - @b1) / int(@a1) :]$ and the solution of the right equation is $x \leq [:rat: int(@c2 - @b2) / int(@a2) :]$. So the solution of the compound inequality is all $x$ such that $\boxed{x \geq [:rat: int(@c1 - @b1) / int(@a1) :] \quad \mathrm{or} \quad x \leq [:rat: int(@c2 - @b2) / int(@a2) :]}$
+] else []
+endif]#
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+

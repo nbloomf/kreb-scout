@@ -1,0 +1,45 @@
+[define >doc @poly.triple.prod.1 := Macro(doc; [#
+
+[define {int} @rs := Rand({{1;1;-1};{1;-1;-1};{1;-1;2};{1;-1;-2}})]#
+
+[define str @q1 := Format(^int; latex; FromRoots(x; {AtPos(@rs; 1)}))]#
+[define str @q2 := Format(^int; latex; FromRoots(x; {AtPos(@rs; 2)}))]#
+[define str @q3 := Format(^int; latex; FromRoots(x; {AtPos(@rs; 3)}))]#
+
+[define str @p := Format(^int; latex; FromRoots(x; @rs))]#
+
+Compute the following product. \#[ (@q1)(@q2)(@q3) \#]
+
+[if (@show.solution) then [#
+\textbf{Solution:}
+Using the distributive property (or FOIL), the product is $\boxed{@p}$.
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#
+
+
+
+
+
+[define >doc @poly.triple.prod.2 := Macro(doc; [#
+
+[define {int} @rs := Rand({{1;-1;1};{-1;1;-1};{-1;1;2};{-1;1;-2}})]#
+
+[define str @q1 := Format(^int; latex; FromRoots(x; {AtPos(@rs; 1)}))]#
+[define str @q2 := Format(^int; latex; FromRoots(x; {AtPos(@rs; 2)}))]#
+[define str @q3 := Format(^int; latex; Poly(2.x; AtPos(@rs; 3).1))]#
+
+[define str @p := Format(^int; latex; FromRoots(x; @rs))]#
+
+Compute the following product. \#[ (@q1)(@q2)(@q3) \#]
+
+[if (@show.solution) then [#
+\textbf{Solution:}
+Using the distributive property (or FOIL), the product is $\boxed{@p}$.
+] else []
+endif]
+
+  ]; bool @show.solution := #f
+)]#

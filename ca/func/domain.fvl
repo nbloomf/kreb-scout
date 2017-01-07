@@ -55,7 +55,7 @@ endif]
 
 [define >doc @func.domain.3 := Macro(doc; [#
 
-[define int @a := Rand(Range(1;9))]#
+[define int @a := Rand(Range(2;9))]#
 [define int @b := Rand(Range(1;9))]#
 
 Find the domain of the following function. \#[ f(x) = \sqrt{@a x + @b} \#]

@@ -1,0 +1,17 @@
+[define >doc @exp.linear.1 := Macro(doc; [#
+
+[define int @x := Rand({2;-2;3;-3;4;-4})]#
+[define int @a := Rand({2;4;5})]#
+[define rat @b := int(@x*(@a - 3) + 1) / 3]#
+
+Solve the following equation. \#[ 3^{@a x - 1} = 27^{[:str: Format(^rat; latex; FromRoots(x; {@b})) :]} \#]#
+
+[if (@show.solution) then [#
+\textbf{Solution:} Note that 27 is a nice power of 3: $27 = 3^3$. We can rewrite this equation as \#[ 3^{@a x - 1} = (3^3)^{[:str: Format(^rat; latex; FromRoots(x; {@b})) :]}. \#] We can now use the property of exponents that $(x^m)^n = x^{mn}$ to write this equation as \#[ 3^{@a x - 1} = 3^{3([:str: Format(^rat; latex; FromRoots(x; {@b})) :])}. \#] Remember that two exponential expressions with the same base are equal if and only if their exponents are equal; so we can write our equation as \#[ @a x - 1 = 3\left([:str: Format(^rat; latex; FromRoots(x; {@b})) :]\right), \#] which is linear. We can now solve for $x$ to get $\boxed{x = @x}$.
+] else []
+endif]#
+
+  ]; bool @show.solution := #f
+)]#
+
+
